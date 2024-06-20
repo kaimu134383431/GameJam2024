@@ -13,6 +13,14 @@ public abstract class Enemy : MonoBehaviour
         rb2D = GetComponent<Rigidbody2D>(); 
         currentHealth = 3; // ここでデフォルトのライフを設定します 
     } 
+    protected void Update()
+    {
+        Shoot();
+    }
+    protected void FixedUpdate()
+    {
+        Move();
+    }
     protected abstract void Move(); 
     protected abstract void Shoot();
     public void TakeDamage(int amount)
@@ -25,16 +33,17 @@ public abstract class Enemy : MonoBehaviour
     }
     protected void Die() 
     { 
-        //DropItem(); 
+        DropItem(); 
         Destroy(gameObject); 
     } 
-    /* 
+    
     private void DropItem() 
-    { 
+    {
+        /*
         if (dropItems.Length > 0) 
         { 
             int randomIndex = Random.Range(0, dropItems.Length); 
             Instantiate(dropItems[randomIndex], transform.position, Quaternion.identity); 
-        } 
-    }*/ 
+        } */
+    }
 }
