@@ -2,43 +2,41 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class NomalEnemy : Enemy
-{ 
-    [SerializeField] protected float speed = 2f; 
-    [SerializeField] protected int damage = 1; 
-    protected Rigidbody2D rb2D; 
-    protected int currentHealth; 
-    protected virtual void Start() 
-    { 
-        rb2D = GetComponent<Rigidbody2D>(); 
-        currentHealth = 3; // ここでデフォルトのライフを設定します 
-    } 
+public class NomalEnemy : Enemy
+{         
     
-    protected abstract void Move(); 
-
-    protected abstract void Shoot(); 
-
-    public void TakeDamage(int amount) 
+    [SerializeField] private GameObject projectilePrefab; 
+    [SerializeField] private float fireRate = 2f; 
+    private float nextFire = 0f; 
+    [SerializeField]private Vector2 pointA = new Vector2(-5, 0);   // 開始点の初期値
+    [SerializeField]private Vector2 pointB = new Vector2(5, 0);   // 終了点の初期値
+    Vector2 target; 
+    protected override void Start() 
     { 
-        currentHealth -= amount; 
-        if (currentHealth <= 0) 
+        base.Start(); 
+        target=pointA;
+    } 
+    protected override void Move()
+    {
+        Vector2 direction = (target - rb2D.position).normalized;
+        
+        // 定速度で移動
+        rb2D.velocity = direction * speed;
+        
+        // ターゲットに近づいたら次のターゲットに切り替え
+        if (Vector2.Distance(rb2D.position, target) < 0.1f)
+        {
+            target = target == pointA ? pointB : pointA;
+        }
+    }
+    protected override void Shoot() 
+    { 
+        if (Time.time > nextFire) 
         { 
-            Die(); 
+            nextFire = Time.time + fireRate; 
+            Instantiate(projectilePrefab, 
+            this.transform.position, 
+            Quaternion.identity).GetComponent<Rigidbody2D>().velocity = Vector2.left * 5f; 
         } 
     } 
-
-    protected void Die() 
-    { 
-        //DropItem(); 
-        Destroy(gameObject); 
-    } 
-    /* 
-    private void DropItem() 
-    { 
-        if (dropItems.Length > 0) 
-        { 
-            int randomIndex = Random.Range(0, dropItems.Length); 
-            Instantiate(dropItems[randomIndex], transform.position, Quaternion.identity); 
-        } 
-    }*/ 
 } 

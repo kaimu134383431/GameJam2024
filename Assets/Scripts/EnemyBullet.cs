@@ -11,11 +11,6 @@ public class BulletEnemy : Enemy
     { 
         base.Start(); 
     } 
-    void Update() 
-    { 
-        Move(); 
-        Shoot(); 
-    } 
     protected override void Move() 
     { 
         rb2D.velocity = new Vector2(-speed, 0); 
@@ -27,7 +22,7 @@ public class BulletEnemy : Enemy
             nextFire = Time.time + fireRate; 
             Instantiate(projectilePrefab, 
             projectileSpawn.position, 
-            projectileSpawn.rotation).GetComponent<Rigidbody2D>().velocity = Vector2.down * 5f; 
+            projectileSpawn.rotation).GetComponent<Rigidbody2D>().velocity = Vector2.left * 5f; 
         } 
     } 
 }
