@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameClearManager : MonoBehaviour
+public class GoalManager : MonoBehaviour
 {
     void OnTriggerEnter2D(Collider2D other)
     {

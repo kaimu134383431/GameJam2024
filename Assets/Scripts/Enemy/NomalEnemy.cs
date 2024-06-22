@@ -24,6 +24,13 @@ public class NormalEnemy : Enemy
         rb2D.velocity = moveDirection * speed;
     }
 
+    protected override void Die()
+    {
+        SEManager.Instance.PlaySE("EnemyDead");
+        DropItem();
+        Destroy(gameObject);
+    }
+
     void Shoot()
     {
         if (Time.time > nextFire)

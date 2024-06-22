@@ -58,6 +58,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Z) && Time.time > nextFire)
         {
+            SEManager.Instance.PlaySE("PlayerShoot");
             nextFire = Time.time + fireRate;
             Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
         }
@@ -82,6 +83,7 @@ public class PlayerManager : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
+        SEManager.Instance.PlaySE("PlayerDamage");
         currentHealth -= amount;
         if (currentHealth <= 0)
         {
@@ -91,6 +93,7 @@ public class PlayerManager : MonoBehaviour
 
     void Die()
     {
+        SEManager.Instance.PlaySE("PlayerDead");
         // プレイヤーが死んだときの処理
         Debug.Log("Player died!");
         // ここにゲームオーバーの処理を追加することができます

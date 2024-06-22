@@ -92,6 +92,7 @@ public abstract class BossEnemy : Enemy
 
     protected override void Die()
     {
+        SEManager.Instance.PlaySE("BossDead");
         DropItem();
         Destroy(healthSliderInstance.gameObject); // 体力バーのインスタンスを破棄
 
