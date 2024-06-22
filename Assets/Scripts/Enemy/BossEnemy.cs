@@ -64,7 +64,7 @@ public abstract class BossEnemy : Enemy
     {
         if (Time.time > nextSwitchTime)
         {
-            attackPhase = (attackPhase + 1) % 3; // 攻撃フェーズを切り替える
+            attackPhase = (attackPhase + 1) % 4; // 攻撃フェーズを切り替える
             nextSwitchTime = Time.time + attackSwitchTime;
         }
     }
