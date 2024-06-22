@@ -81,9 +81,9 @@ public class Item : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("PlayerCollider"))
         {
-            PlayerUI player = other.GetComponent<PlayerUI>();
+            PlayerUI player = other.transform.parent.GetComponent<PlayerUI>();
             if (player != null)
             {
                 player.PickUpItem(this);

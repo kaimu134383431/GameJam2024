@@ -9,6 +9,7 @@ TagManager:
   - Goal
   - Canvas
   - Projectile
+  - PlayerCollider
   layers:
   - Default
   - TransparentFX
