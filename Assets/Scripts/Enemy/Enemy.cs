@@ -5,6 +5,7 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] protected int health;
     [SerializeField] protected float speed;
     [SerializeField] protected int damage;
+    public int maxHealth;
 
     [SerializeField] GameObject[] itemPrefabs;
 
@@ -12,6 +13,7 @@ public abstract class Enemy : MonoBehaviour
 
     protected virtual void Start()
     {
+        maxHealth = health;
         rb2D = GetComponent<Rigidbody2D>();
     }
 
@@ -30,12 +32,12 @@ public abstract class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void DropItem()
+    protected void DropItem()
     {
         int dropChance = Random.Range(0, 100);
         for (int itemIndex = 0; itemIndex < itemPrefabs.Length; itemIndex++)
         {
-            if (dropChance < 150) // 50%の確率でアイテムをドロップする
+            if (dropChance < 100) // 50%の確率でアイテムをドロップする
             {
                 Vector3 randomOffset = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0);
                 Vector3 dropPosition = transform.position + randomOffset;
@@ -49,6 +51,11 @@ public abstract class Enemy : MonoBehaviour
                 }
             }
         }
+    }
+
+    public int GetHealth()
+    {
+        return health;
     }
 
 

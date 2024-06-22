@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6046897400170781058}
   - component: {fileID: 1832481913838053517}
   m_Layer: 0
-  m_Name: ForcedScroll
+  m_Name: ForcedScrollToGoal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,4 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startPosition: {x: 20, y: 0, z: 0}
   endPosition: {x: 40, y: 0, z: 0}
-  moveTime: 10
+  moveTime: 5
+  boss: {fileID: 0}
+  isToGoal: 1

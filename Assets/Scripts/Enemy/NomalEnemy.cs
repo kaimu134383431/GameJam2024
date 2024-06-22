@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class NormalEnemy : Enemy
 {
-    [SerializeField] float moveDirection = 1f;
-    [SerializeField] GameObject homingBulletPrefab; // Ž©‹@‘_‚¢’e‚ÌƒvƒŒƒnƒu
+    [SerializeField] private Vector2 moveDirection = Vector2.right;  // ƒfƒtƒHƒ‹ƒg‚ÌˆÚ“®•ûŒü‚ð‰E‚ÉÝ’è
+    [SerializeField] GameObject bulletPrefab; // Ž©‹@‘_‚¢’e‚ÌƒvƒŒƒnƒu
     [SerializeField] Transform bulletSpawn;         // ’e‚Ì¶¬ˆÊ’u
     [SerializeField] float fireRate = 1f;           // ŽËŒ‚‚ÌŠÔŠu
     private float nextFire = 0f;          // ŽŸ‚É’e‚ðŒ‚‚Ä‚éŽžŠÔ
@@ -21,7 +21,7 @@ public class NormalEnemy : Enemy
 
     protected override void Move()
     {
-        rb2D.velocity = new Vector2(moveDirection * speed, rb2D.velocity.y);
+        rb2D.velocity = moveDirection * speed;
     }
 
     void Shoot()
@@ -29,7 +29,7 @@ public class NormalEnemy : Enemy
         if (Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
-            GameObject bullet = Instantiate(homingBulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
+            GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
             bullet.GetComponent<Rigidbody2D>().velocity = bulletSpawn.right * -10f; // projectileSpawn‚Ì‰E•ûŒü‚É‘¬“x‚ð—^‚¦‚é
         }
     }

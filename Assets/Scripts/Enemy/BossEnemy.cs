@@ -1,123 +1,71 @@
-using UnityEngine;
-using System.Collections;
+ï»¿using UnityEngine;
+using UnityEngine.UI;
 
-public class BossEnemy : Enemy
+public abstract class BossEnemy : Enemy
 {
-    [SerializeField] GameObject projectilePrefab;
-    [SerializeField] Transform projectileSpawn;
-    [SerializeField] float fireRate = 1f;
-    private float nextFire = 0f;
+    [SerializeField] protected GameObject projectilePrefab;
+    [SerializeField] protected Transform projectileSpawn;
+    [SerializeField] protected float fireRate = 1f;
+    [SerializeField] protected GameObject forcedScrollPrefab;
+    protected float nextFire = 0f;
 
-    private int attackPhase = 0;        // Œ»İ‚ÌUŒ‚ƒtƒF[ƒY
-    private float attackSwitchTime = 5f; // ŠeUŒ‚ƒtƒF[ƒY‚Ì‘±ŠÔ
-    private float nextSwitchTime = 0f;   // Ÿ‚ÌUŒ‚ƒtƒF[ƒY‚ÉˆÚ‚éŠÔ
+    [SerializeField] protected Slider healthSliderPrefab; // ä½“åŠ›ãƒãƒ¼ã®Prefab
+    protected Slider healthSliderInstance; // ä½“åŠ›ãƒãƒ¼ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+
+    protected int attackPhase = 0; // ç¾åœ¨ã®æ”»æ’ƒãƒ•ã‚§ãƒ¼ã‚º
+    protected float attackSwitchTime = 5f; // å„æ”»æ’ƒãƒ•ã‚§ãƒ¼ã‚ºã®æŒç¶šæ™‚é–“
+    protected float nextSwitchTime = 0f; // æ¬¡ã®æ”»æ’ƒãƒ•ã‚§ãƒ¼ã‚ºã«ç§»ã‚‹æ™‚é–“
+    protected Vector3 location;
+    protected bool isInvincible;
 
     protected override void Start()
     {
         base.Start();
         nextSwitchTime = Time.time + attackSwitchTime;
+        location = transform.position;
+        isInvincible = true;
+
+        // ä½“åŠ›ãƒãƒ¼ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆã—ã¦Canvasã«é…ç½®ã™ã‚‹
+        if (healthSliderPrefab != null)
+        {
+            healthSliderInstance = Instantiate(healthSliderPrefab, new Vector3(0, 200, 0), Quaternion.identity);
+            healthSliderInstance.transform.SetParent(GameObject.FindWithTag("Canvas").transform, false);
+            healthSliderInstance.value = 1f; // åˆæœŸå€¤ã¯æœ€å¤§å€¤ã§è¨­å®š
+            HideHealthBar();
+        }
+        else
+        {
+            Debug.LogError("HealthSliderPrefab not found in Resources.");
+        }
     }
 
-    void FixedUpdate()
+    protected void FixedUpdate()
     {
         Move();
         Shoot();
         SwitchAttackPhase();
     }
 
-    protected override void Move()
-    {
-        // ƒ{ƒX‚Ì“Á•Ê‚ÈˆÚ“®ƒpƒ^[ƒ“‚ğÀ‘•
-        rb2D.velocity = new Vector2(0, Mathf.Sin(Time.time) * speed);
-    }
-
-    void Shoot()
+    protected virtual void Shoot()
     {
         if (Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
-
-            switch (attackPhase)
-            {
-                case 0:
-                    FireStraight();
-                    break;
-                case 1:
-                    FireRadial();
-                    break;
-                case 2:
-                    FireAllDirections();
-                    break;
-            }
+            FirePattern();
         }
     }
 
-    void SwitchAttackPhase()
+    protected virtual void FirePattern()
+    {
+        // æ”»æ’ƒãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’å®Ÿè£… (å­ã‚¯ãƒ©ã‚¹ã§ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰)
+    }
+
+    protected virtual void SwitchAttackPhase()
     {
         if (Time.time > nextSwitchTime)
         {
-            attackPhase = (attackPhase + 1) % 3; // UŒ‚ƒtƒF[ƒY‚ğØ‚è‘Ö‚¦‚é
+            attackPhase = (attackPhase + 1) % 3; // æ”»æ’ƒãƒ•ã‚§ãƒ¼ã‚ºã‚’åˆ‡ã‚Šæ›¿ãˆã‚‹
             nextSwitchTime = Time.time + attackSwitchTime;
-        }
-    }
-
-    void FireStraight()
-    {
-        StartCoroutine(FireLaser());
-    }
-
-    IEnumerator FireLaser()
-    {
-        for (int i=0;i<20;i++)
-        {
-            GameObject bullet = Instantiate(projectilePrefab, projectileSpawn.position, projectileSpawn.rotation);
-            bullet.GetComponent<Rigidbody2D>().velocity = projectileSpawn.right * -10f; // projectileSpawn‚Ì‰E•ûŒü‚É‘¬“x‚ğ—^‚¦‚é
-
-            yield return new WaitForSeconds(0.05f); // ’e‚Ì”­ËŠÔŠu
-        }
-    }
-
-
-
-    void FireRadial()
-    {
-        int bulletCount = 12;
-        float angleStep = 360f / bulletCount;
-        float angle = 0f;
-
-        for (int i = 0; i < bulletCount; i++)
-        {
-            float bulletDirX = projectileSpawn.position.x + Mathf.Sin((angle * Mathf.PI) / 180);
-            float bulletDirY = projectileSpawn.position.y + Mathf.Cos((angle * Mathf.PI) / 180);
-
-            Vector3 bulletVector = new Vector3(bulletDirX, bulletDirY, 0);
-            Vector3 bulletMoveDirection = (bulletVector - projectileSpawn.position).normalized;
-
-            GameObject bullet = Instantiate(projectilePrefab, projectileSpawn.position, projectileSpawn.rotation);
-            bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletMoveDirection.x, bulletMoveDirection.y) * 5f;
-
-            angle += angleStep;
-        }
-    }
-
-    void FireAllDirections()
-    {
-        int bulletCount = 32;
-        float angleStep = 360f / bulletCount;
-        float angle = 0f;
-
-        for (int i = 0; i < bulletCount; i++)
-        {
-            float bulletDirX = projectileSpawn.position.x + Mathf.Sin((angle * Mathf.PI) / 180);
-            float bulletDirY = projectileSpawn.position.y + Mathf.Cos((angle * Mathf.PI) / 180);
-
-            Vector3 bulletVector = new Vector3(bulletDirX, bulletDirY, 0);
-            Vector3 bulletMoveDirection = (bulletVector - projectileSpawn.position).normalized;
-
-            GameObject bullet = Instantiate(projectilePrefab, projectileSpawn.position, projectileSpawn.rotation);
-            bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletMoveDirection.x, bulletMoveDirection.y) * 5f;
-
-            angle += angleStep;
         }
     }
 
@@ -125,8 +73,72 @@ public class BossEnemy : Enemy
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            // ƒvƒŒƒCƒ„[‚Éƒ_ƒ[ƒW‚ğ—^‚¦‚éˆ—‚ğ’Ç‰Á
+            // ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã«ãƒ€ãƒ¡ãƒ¼ã‚¸ã‚’ä¸ãˆã‚‹å‡¦ç†ã‚’è¿½åŠ 
             collision.gameObject.GetComponent<PlayerManager>().TakeDamage(damage);
         }
+    }
+
+    public override void TakeDamage(int damage)
+    {
+        if(!isInvincible){
+        health -= damage;
+            if (health <= 0)
+            {
+                Die();
+            }
+        }
+        UpdateHealthUI();
+    }
+
+    protected override void Die()
+    {
+        DropItem();
+        Destroy(healthSliderInstance.gameObject); // ä½“åŠ›ãƒãƒ¼ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç ´æ£„
+
+        // å¼¾å¹•ã‚’ã™ã¹ã¦ç ´æ£„ã™ã‚‹
+        DestroyAllProjectiles();
+
+        Instantiate(forcedScrollPrefab, transform.position, Quaternion.identity);
+        Destroy(gameObject);
+        HideHealthBar();
+    }
+
+    void UpdateHealthUI()
+    {
+        float normalizedHealth = (float)health / maxHealth;
+        if (healthSliderInstance != null)
+        {
+            healthSliderInstance.value = normalizedHealth; // ä½“åŠ›ãƒãƒ¼ã®å€¤ã‚’æ›´æ–°
+        }
+    }
+
+    public void ShowHealthBar()
+    {
+        if (healthSliderInstance != null)
+        {
+            healthSliderInstance.gameObject.SetActive(true);
+        }
+    }
+
+    void HideHealthBar()
+    {
+        if (healthSliderInstance != null)
+        {
+            healthSliderInstance.gameObject.SetActive(false);
+        }
+    }
+
+    void DestroyAllProjectiles()
+    {
+        GameObject[] projectiles = GameObject.FindGameObjectsWithTag("Projectile");
+        foreach (GameObject projectile in projectiles)
+        {
+            Destroy(projectile);
+        }
+    }
+
+    public void setInvincible(bool inv)
+    {
+        isInvincible = inv;
     }
 }

@@ -8,9 +8,13 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] Text scoreText;
     [SerializeField] GameObject itemUIContainer; // アイテムUIを配置する親オブジェクト
     [SerializeField] GameObject itemUIPrefab; // アイテムUIのプレハブ
+    [SerializeField] GameObject scorePopupPrefab; // スコアポップアップのプレハブ
+    [SerializeField] Canvas canvas; // スコアポップアップを表示するキャンバス
+    [SerializeField] Transform playerTransform; // プレイヤーのTransform
 
     private Dictionary<Item.ItemType, GameObject> itemUIInstances = new Dictionary<Item.ItemType, GameObject>(); // アイテムUIインスタンスを管理
     private Dictionary<Item.ItemType, Sprite> itemSprites = new Dictionary<Item.ItemType, Sprite>(); // アイテムスプライトを管理
+    private Camera mainCamera;
 
     [SerializeField] private Sprite shimejiSprite;
     [SerializeField] private Sprite soySauceSprite;
@@ -25,6 +29,7 @@ public class PlayerUI : MonoBehaviour
 
     void Start()
     {
+        mainCamera = Camera.main;
         itemSprites[Item.ItemType.Shimeji] = shimejiSprite;
         itemSprites[Item.ItemType.SoySauce] = soySauceSprite;
         itemSprites[Item.ItemType.Onion] = onionSprite;
@@ -60,6 +65,7 @@ public class PlayerUI : MonoBehaviour
             gameManager.RemoveItem(Item.ItemType.SoySauce, 1);
             gameManager.RemoveItem(Item.ItemType.Onion, 1);
             gameManager.AddScore(1000);   // スコアを加算
+            ScorePopup(1000);
         }
 
         // ミートソース
@@ -73,6 +79,7 @@ public class PlayerUI : MonoBehaviour
             gameManager.RemoveItem(Item.ItemType.Tomato, 1);
             gameManager.RemoveItem(Item.ItemType.BellPepper, 1);
             gameManager.AddScore(500);  // スコアを加算
+            ScorePopup(500);
         }
 
         // カルボナーラ
@@ -84,6 +91,7 @@ public class PlayerUI : MonoBehaviour
             gameManager.RemoveItem(Item.ItemType.Cheese, 1);
             gameManager.RemoveItem(Item.ItemType.Bacon, 1);
             gameManager.AddScore(300);   // スコアを加算
+            ScorePopup(300);
         }
 
         // ナポリタン
@@ -97,6 +105,7 @@ public class PlayerUI : MonoBehaviour
             gameManager.RemoveItem(Item.ItemType.Bacon, 1);
             gameManager.RemoveItem(Item.ItemType.Tomato, 1);
             gameManager.AddScore(100);   // スコアを加算
+            ScorePopup(100);
         }
     }
 
@@ -130,5 +139,26 @@ public class PlayerUI : MonoBehaviour
                 }
             }
         }
+    }
+
+    void ScorePopup(int scoreToAdd)
+    {
+        // プレイヤーの頭上に表示する位置を計算
+        Vector3 worldPosition = playerTransform.position + new Vector3(1.0f, 0.5f, 0); // 1.5fは頭上のオフセット
+        Vector3 screenPosition = mainCamera.WorldToScreenPoint(worldPosition);
+
+        // スコアポップアップを生成し、キャンバスの子オブジェクトとして配置
+        GameObject popup = Instantiate(scorePopupPrefab, canvas.transform);
+        popup.transform.position = screenPosition;
+        ScorePopup scorePopup = popup.GetComponent<ScorePopup>();
+        if (scorePopup != null)
+        {
+            scorePopup.SetScore(scoreToAdd);
+        }
+        else
+        {
+            Debug.LogError("ScorePopup component not found on instantiated prefab");
+        }
+
     }
 }

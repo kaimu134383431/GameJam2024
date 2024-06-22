@@ -5,12 +5,15 @@ public class ForcedScroll : MonoBehaviour
     public Vector3 startPosition;
     public Vector3 endPosition;
     public float moveTime = 1.0f;
+    public BossEnemy boss;
+    public bool isToGoal = false;
 
     private float elapsedTime = 0.0f;
     private bool isMoving = false;
 
     // プレイヤーオブジェクトの参照
     private GameObject player;
+    private GameObject goal;
     // スクロールの速度
     private float scrollSpeed;
     // プレイヤーの移動速度
@@ -23,6 +26,33 @@ public class ForcedScroll : MonoBehaviour
 
         // プレイヤーオブジェクトを取得
         player = GameObject.FindGameObjectWithTag("Player");
+        GameObject bossObject = GameObject.FindGameObjectWithTag("Boss");
+        if (bossObject != null)
+        {
+            boss = bossObject.GetComponent<BossEnemy>();
+        }
+        goal = GameObject.FindGameObjectWithTag("Goal");
+        /*
+        if (isToGoal)
+        {
+            if (boss != null) startPosition = boss.transform.position;
+            if (goal != null)
+            {
+                Vector3 newPosition = goal.transform.position;
+                newPosition.x -= 5.0f;
+                endPosition = newPosition;
+            }
+        }
+        else
+        {
+            if (player != null) startPosition = player.transform.position;
+            if (boss != null)
+            {
+                Vector3 newPosition = boss.transform.position;
+                newPosition.x -= 5.0f;
+                endPosition = newPosition;
+            }
+        }*/
 
         // プレイヤーの移動速度を設定
         if (player != null)
@@ -55,6 +85,10 @@ public class ForcedScroll : MonoBehaviour
             if (t >= 1.0f)
             {
                 isMoving = false;
+                if (boss != null) { 
+                    boss.ShowHealthBar();
+                    boss.setInvincible(false);
+                }
                 Destroy(gameObject);
             }
         }
