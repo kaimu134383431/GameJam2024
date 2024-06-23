@@ -1,6 +1,6 @@
 using UnityEngine;
 
-pubilic class PlayerManager : MonoBehaviour
+public class PlayerManager : MonoBehaviour
 {
     [SerializeField] float speed = 5f; // プレイヤーの移動速度
     [SerislizeField] GameObject bulletPrefab; // 弾のプレハブ
