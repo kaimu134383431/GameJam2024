@@ -1003,6 +1003,78 @@ Transform:
   - {fileID: 554379713}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1280547120
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1280547122}
+  - component: {fileID: 1280547121}
+  m_Layer: 0
+  m_Name: SEManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1280547121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1280547120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d87617514cda77d419d6dc0c8b3edec7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: BossDead
+    clip: {fileID: 8300000, guid: a9cf83b620ff6c642aa64764a9e92a24, type: 3}
+    volume: 1
+  - name: Button
+    clip: {fileID: 8300000, guid: 80f57faee1d6bce4692d07c8bdab5493, type: 3}
+    volume: 0.558
+  - name: EnemyDead
+    clip: {fileID: 8300000, guid: 494d6c4376891b34b83167688ea5459e, type: 3}
+    volume: 0.77
+  - name: Clear
+    clip: {fileID: 8300000, guid: 21c51b27333ff284e8fcdd1c94ef400e, type: 3}
+    volume: 0.641
+  - name: GetItem
+    clip: {fileID: 8300000, guid: 6eec2c40578b3954cbe5fa5f08a184cc, type: 3}
+    volume: 0.994
+  - name: PlayerShoot
+    clip: {fileID: 8300000, guid: 808c5982c8334d745afcee2441f5988e, type: 3}
+    volume: 0.475
+  - name: PlayerDamage
+    clip: {fileID: 8300000, guid: b05e0ab048d836b4ebba6eef82f6e4f1, type: 3}
+    volume: 0.641
+  - name: PlayerDead
+    clip: {fileID: 8300000, guid: ecb94feb58600ef43980261ad76e9a7c, type: 3}
+    volume: 0.653
+  - name: EnemyDamage
+    clip: {fileID: 8300000, guid: 576cad3b11497264c94eeba7df3844b5, type: 3}
+    volume: 0.071
+--- !u!4 &1280547122
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1280547120}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.976028, y: -0.37263808, z: -0.00090001384}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1284992034
 GameObject:
   m_ObjectHideFlags: 0
@@ -1189,75 +1261,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e79967a830ad4e343a15a14b164e63b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1991191255
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1991191257}
-  - component: {fileID: 1991191256}
-  m_Layer: 0
-  m_Name: SEManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1991191256
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1991191255}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d87617514cda77d419d6dc0c8b3edec7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sounds:
-  - name: BossDead
-    clip: {fileID: 8300000, guid: a9cf83b620ff6c642aa64764a9e92a24, type: 3}
-    volume: 1
-  - name: Button
-    clip: {fileID: 8300000, guid: 80f57faee1d6bce4692d07c8bdab5493, type: 3}
-    volume: 0.558
-  - name: EnemyDead
-    clip: {fileID: 8300000, guid: 494d6c4376891b34b83167688ea5459e, type: 3}
-    volume: 1
-  - name: Clear
-    clip: {fileID: 8300000, guid: 21c51b27333ff284e8fcdd1c94ef400e, type: 3}
-    volume: 1
-  - name: GetItem
-    clip: {fileID: 8300000, guid: 6eec2c40578b3954cbe5fa5f08a184cc, type: 3}
-    volume: 1
-  - name: PlayerShoot
-    clip: {fileID: 8300000, guid: 808c5982c8334d745afcee2441f5988e, type: 3}
-    volume: 1
-  - name: PlayerDamage
-    clip: {fileID: 8300000, guid: b05e0ab048d836b4ebba6eef82f6e4f1, type: 3}
-    volume: 1
-  - name: PlayerDead
-    clip: {fileID: 8300000, guid: ecb94feb58600ef43980261ad76e9a7c, type: 3}
-    volume: 1
---- !u!4 &1991191257
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1991191255}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.976028, y: -0.37263808, z: -0.00090001384}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2038315195
 GameObject:
   m_ObjectHideFlags: 0
@@ -1620,15 +1623,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e44093dd1b6f3d74d8f5c7b6a860cbf7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2220459f8ad691a4f9b9d9d486c32245, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.6, y: 1.6}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!50 &4585298742391240026
@@ -1797,4 +1800,4 @@ SceneRoots:
   - {fileID: 891974851}
   - {fileID: 2055161774}
   - {fileID: 514336673}
-  - {fileID: 1991191257}
+  - {fileID: 1280547122}

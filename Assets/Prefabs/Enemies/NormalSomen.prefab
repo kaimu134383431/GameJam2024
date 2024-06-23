@@ -142,7 +142,7 @@ MonoBehaviour:
   amplitude: 5
   frequency: 0.25
   rushSpeed: 7
-  bulletPrefab: {fileID: 5572549981863144032, guid: 06bed937e3c308f41941c64c637dd8e9, type: 3}
+  bulletPrefab: {fileID: 146014439715910758, guid: ff4e496b26c7b3348a2c9763e2c30ede, type: 3}
   bulletSpawn: {fileID: 1312231805377363965}
   fireRate: 1
   bulletSpeed: 5
@@ -182,7 +182,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.2, y: 3.2}
+    oldSize: {x: 1.0666667, y: 1.0666667}
     newSize: {x: 3.2, y: 3.2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

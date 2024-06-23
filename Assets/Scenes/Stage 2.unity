@@ -2571,22 +2571,25 @@ MonoBehaviour:
     volume: 0.558
   - name: EnemyDead
     clip: {fileID: 8300000, guid: 494d6c4376891b34b83167688ea5459e, type: 3}
-    volume: 1
+    volume: 0.77
   - name: Clear
     clip: {fileID: 8300000, guid: 21c51b27333ff284e8fcdd1c94ef400e, type: 3}
-    volume: 1
+    volume: 0.641
   - name: GetItem
     clip: {fileID: 8300000, guid: 6eec2c40578b3954cbe5fa5f08a184cc, type: 3}
-    volume: 1
+    volume: 0.994
   - name: PlayerShoot
     clip: {fileID: 8300000, guid: 808c5982c8334d745afcee2441f5988e, type: 3}
-    volume: 1
+    volume: 0.475
   - name: PlayerDamage
     clip: {fileID: 8300000, guid: b05e0ab048d836b4ebba6eef82f6e4f1, type: 3}
-    volume: 1
+    volume: 0.641
   - name: PlayerDead
     clip: {fileID: 8300000, guid: ecb94feb58600ef43980261ad76e9a7c, type: 3}
-    volume: 1
+    volume: 0.653
+  - name: EnemyDamage
+    clip: {fileID: 8300000, guid: 576cad3b11497264c94eeba7df3844b5, type: 3}
+    volume: 0.071
 --- !u!4 &919525291
 Transform:
   m_ObjectHideFlags: 0

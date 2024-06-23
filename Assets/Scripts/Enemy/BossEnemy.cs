@@ -20,6 +20,7 @@ public abstract class BossEnemy : Enemy
 
     protected void FixedUpdate()
     {
+        UpdateHealthUI();
         Move();
         Shoot();
         SwitchAttackPhase();
