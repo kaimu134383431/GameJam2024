@@ -6,6 +6,8 @@ using UnityEngine.EventSystems;
 public class GameClearManager : MonoBehaviour
 {
     public Button nextButton; // 次のシーンに進むボタン
+    public Text scoretext;
+    public Text lasttext;
 
     private void Start()
     {
@@ -18,19 +20,21 @@ public class GameClearManager : MonoBehaviour
     {
         if (other.CompareTag("PlayerCollider"))
         {
-            LoadNextScene();
+            nextButton.gameObject.SetActive(true);
+            lasttext.gameObject.SetActive(true);
+            lasttext.text=scoretext.text;
+            SEManager.Instance.PlaySE("Clear");
         }
     }
 
-    void LoadNextScene()
+    public void LoadNextScene()
     {
-        SEManager.Instance.PlaySE("Clear");
         SceneManager.LoadScene("GameClear");
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
         {
             // 現在選択されているボタンを押す
             ExecuteEvents.Execute(EventSystem.current.currentSelectedGameObject, new BaseEventData(EventSystem.current), ExecuteEvents.submitHandler);
