@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+//そうめん
 public class WhiteNoodleBoss : BossEnemy
 {
     protected override void Move()
