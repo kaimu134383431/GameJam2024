@@ -5,6 +5,7 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] protected int health;
     [SerializeField] protected float speed;
     [SerializeField] protected int damage;
+    [SerializeField] protected int probability = 100;
     public int maxHealth;
 
     [SerializeField] GameObject[] itemPrefabs;
@@ -24,6 +25,10 @@ public abstract class Enemy : MonoBehaviour
         {
             Die();
         }
+        else
+        {
+            SEManager.Instance.PlaySE("EnemyDamage");
+        }
     }
 
     protected virtual void Die()
@@ -34,10 +39,10 @@ public abstract class Enemy : MonoBehaviour
 
     protected void DropItem()
     {
-        int dropChance = Random.Range(0, 100);
         for (int itemIndex = 0; itemIndex < itemPrefabs.Length; itemIndex++)
         {
-            if (dropChance < 100) // 50%の確率でアイテムをドロップする
+            int dropChance = Random.Range(0, 100);
+            if (dropChance < probability) // 50%の確率でアイテムをドロップする
             {
                 Vector3 randomOffset = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0);
                 Vector3 dropPosition = transform.position + randomOffset;

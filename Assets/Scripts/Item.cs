@@ -32,7 +32,6 @@ public class Item : MonoBehaviour
 
     public ItemType itemType;
     public int amount=1; // アイテムの量（回復量、弾薬量など）
-    public Sprite itemSprite; // アイテムのスプライトを追加
 
     private SpriteRenderer spriteRenderer;
 
@@ -86,6 +85,7 @@ public class Item : MonoBehaviour
             PlayerUI player = other.transform.parent.GetComponent<PlayerUI>();
             if (player != null)
             {
+                SEManager.Instance.PlaySE("GetItem");
                 player.PickUpItem(this);
                 Destroy(gameObject); // アイテムを取得したら破壊する
             }

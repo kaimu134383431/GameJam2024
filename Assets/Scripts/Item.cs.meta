@@ -3,7 +3,18 @@ guid: f158bec7d623069488b884bb98da27a4
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - onionSprite: {fileID: 21300000, guid: a7b08d2ac4a87714aafd143ad9667935, type: 3}
+  - bellPepperSprite: {fileID: 21300000, guid: 0846d5e921257bd469ce4c8f9efcdb6d, type: 3}
+  - baconSprite: {fileID: 21300000, guid: a1f667fdcb7e818439b428304d835c7b, type: 3}
+  - tomatoSprite: {fileID: 21300000, guid: 4867205fb3772314092df761ebb1d93a, type: 3}
+  - eggSprite: {fileID: 21300000, guid: 9831c99bdb7bbda4694bfd8c6ca09939, type: 3}
+  - cheeseSprite: {fileID: 21300000, guid: 5b7b2328b6f92a54d9fbfadf46f3ee05, type: 3}
+  - groundMeatSprite: {fileID: 21300000, guid: 5de9985623ad8b842a3480f5fbf675c5, type: 3}
+  - shiitakeSprite: {fileID: 21300000, guid: 91999814a43a14246809ba94b1c3a768, type: 3}
+  - shimejiSprite: {fileID: 21300000, guid: 85c982a2b7d77274caef252e14f88bce, type: 3}
+  - soySauceSprite: {fileID: 21300000, guid: cc9a3ce4341f9304097f2d4b3e64533c, type: 3}
+  - itemSprite: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

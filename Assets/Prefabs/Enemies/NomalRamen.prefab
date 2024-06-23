@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 1312231805377363965}
   - component: {fileID: 4581625146189298908}
   - component: {fileID: 8740022961868769040}
-  - component: {fileID: 246791125128985551}
-  - component: {fileID: 5510450784967796544}
+  - component: {fileID: 6120251082853630835}
+  - component: {fileID: 6316410418641004523}
   m_Layer: 0
-  m_Name: WhiteNoodleBoss
+  m_Name: NomalRamen
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 6410645260747543183}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.1526196, y: -0.25342995, z: -0.22018479}
+  m_LocalPosition: {x: 15.9109335, y: -9.703496, z: -0.22018479}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 17f323a43da08044db27bb1e7e504abf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -114,8 +114,40 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &246791125128985551
-BoxCollider2D:
+--- !u!114 &6120251082853630835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6410645260747543183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71f399ae6f19b7c40a2d7797f5b6b046, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
+  speed: 0
+  damage: 3
+  probability: 50
+  maxHealth: 0
+  itemPrefabs:
+  - {fileID: 3401964865537802735, guid: a4cf14109d8b6d6409c1294018cfbaef, type: 3}
+  - {fileID: 3401964865537802735, guid: 68db673b0abb7954f96957ed0c363e77, type: 3}
+  - {fileID: 3401964865537802735, guid: 8e5282189dd267e4e9a17f5acb214854, type: 3}
+  - {fileID: 8781152697846216250, guid: 13340f16df5e32d44977f23f3f7c58d0, type: 3}
+  behaviorPattern: 0
+  shootPattern: 0
+  moveDirection: {x: 1, y: 0}
+  amplitude: 5
+  frequency: 0.25
+  rushSpeed: 7
+  bulletPrefab: {fileID: 5572549981863144032, guid: 06bed937e3c308f41941c64c637dd8e9, type: 3}
+  bulletSpawn: {fileID: 1312231805377363965}
+  fireRate: 1
+  bulletSpeed: 5
+--- !u!70 &6316410418641004523
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -146,39 +178,6 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
---- !u!114 &5510450784967796544
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6410645260747543183}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e79967a830ad4e343a15a14b164e63b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  speed: 2
-  damage: 33
-  maxHealth: 100
-  itemPrefabs:
-  - {fileID: 3401964865537802735, guid: a4cf14109d8b6d6409c1294018cfbaef, type: 3}
-  projectilePrefab: {fileID: 5572549981863144032, guid: 06bed937e3c308f41941c64c637dd8e9, type: 3}
-  projectileSpawn: {fileID: 1312231805377363965}
-  fireRate: 1
-  forcedScrollPrefab: {fileID: 7076910129693467389, guid: 8c661dfe10eb4ab40b0ed582cce04474, type: 3}
-  healthSliderPrefab: {fileID: 1052534143657552222, guid: 2f7b8ef139738014499e923254840d7c, type: 3}
+  m_Offset: {x: 0.000000008670618, y: 0.07273442}
+  m_Size: {x: 1.0710263, y: 0.9299152}
+  m_Direction: 1

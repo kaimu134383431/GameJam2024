@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameClearManager : MonoBehaviour
+public class GoalManager : MonoBehaviour
 {
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -13,6 +13,7 @@ public class GameClearManager : MonoBehaviour
 
     void LoadNextScene()
     {
+        SEManager.Instance.PlaySE("Clear");
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex + 1);
     }

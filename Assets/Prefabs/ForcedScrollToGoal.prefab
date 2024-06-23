@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f01164c541d5534a855e94419630282, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPosition: {x: 20, y: 0, z: 0}
-  endPosition: {x: 40, y: 0, z: 0}
+  startPosition: {x: 80, y: 0, z: 0}
+  endPosition: {x: 100, y: 0, z: 0}
   moveTime: 5
   boss: {fileID: 0}
   isToGoal: 1

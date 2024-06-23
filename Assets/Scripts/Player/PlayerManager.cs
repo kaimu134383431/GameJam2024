@@ -58,8 +58,13 @@ public class PlayerManager : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Z) && Time.time > nextFire)
         {
+            SEManager.Instance.PlaySE("PlayerShoot");
             nextFire = Time.time + fireRate;
-            Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
+            // 弾の生成位置を計算する
+            Vector3 newPosition = bulletSpawn.position + new Vector3(1, 0.25f, 0);
+
+            // 弾を生成する
+            Instantiate(bulletPrefab, newPosition, bulletSpawn.rotation);
         }
     }
 
@@ -74,7 +79,7 @@ public class PlayerManager : MonoBehaviour
 
         // プレイヤーの位置を境界内に制限（プレイヤーのサイズを考慮）
         position.x = Mathf.Clamp(position.x, minScreenBounds.x + halfWidth, maxScreenBounds.x - halfWidth);
-        position.y = Mathf.Clamp(position.y, minScreenBounds.y + halfHeight, maxScreenBounds.y - halfHeight);
+        position.y = Mathf.Clamp(position.y, minScreenBounds.y + halfHeight - 0.5f, maxScreenBounds.y - halfHeight);
 
         // 位置を更新
         transform.position = position;
@@ -82,6 +87,7 @@ public class PlayerManager : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
+        SEManager.Instance.PlaySE("PlayerDamage");
         currentHealth -= amount;
         if (currentHealth <= 0)
         {
@@ -91,6 +97,7 @@ public class PlayerManager : MonoBehaviour
 
     void Die()
     {
+        SEManager.Instance.PlaySE("PlayerDead");
         // プレイヤーが死んだときの処理
         Debug.Log("Player died!");
         // ここにゲームオーバーの処理を追加することができます
