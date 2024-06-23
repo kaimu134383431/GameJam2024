@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
-
 public class UdonBoss : BossEnemy
 {
+    public static event System.Action UdonDefeated; // UdonBoss が倒されたときのイベント
 
     protected override void Start()
     {
@@ -104,5 +104,10 @@ public class UdonBoss : BossEnemy
         }
     }
 
-
+    protected override void Die()
+    {
+        base.Die();
+        // UdonBoss が倒されたときのイベントを発生させる
+        UdonDefeated?.Invoke();
+    }
 }

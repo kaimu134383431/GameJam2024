@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
-
 public class SobaBoss : BossEnemy
 {
-    protected virtual void Start()
+    private bool isUdonDefeated = false; // UdonBoss が倒されたかどうかのフラグ
+
+    protected override void Start()
     {
         base.Start();
         nextSwitchTime = Time.time + attackSwitchTime;
@@ -22,6 +23,9 @@ public class SobaBoss : BossEnemy
         {
             Debug.LogError("HealthSliderPrefab not found in Resources.");
         }
+
+        // UdonBoss の倒されたときのイベントに登録
+        UdonBoss.UdonDefeated += OnUdonDefeated;
     }
 
     protected override void Move()
@@ -32,17 +36,26 @@ public class SobaBoss : BossEnemy
 
     protected override void FirePattern()
     {
-        switch (attackPhase)
+        // UdonBoss が倒されていない場合は通常の攻撃パターンを実行
+        if (!isUdonDefeated)
         {
-            case 0:
-                FireStraight();
-                break;
-            case 1:
-                FireRadial();
-                break;
-            case 2:
-                FireAllDirections();
-                break;
+            switch (attackPhase)
+            {
+                case 0:
+                    FireStraight();
+                    break;
+                case 1:
+                    FireRadial();
+                    break;
+                case 2:
+                    FireAllDirections();
+                    break;
+            }
+        }
+        else
+        {
+            // UdonBoss が倒された後の攻撃パターンを実行
+            // 例えば新しい攻撃パターンのメソッドをここで呼び出す
         }
     }
 
@@ -103,5 +116,22 @@ public class SobaBoss : BossEnemy
         }
     }
 
+    // UdonBoss が倒されたときの処理
+    private void OnUdonDefeated()
+    {
+        isUdonDefeated = true;
+        // ここでSobaBoss の行動パターンを変化させる処理を追加する
+        // 例えば攻撃パターンを変更したり、新しい攻撃を追加したりする
 
+        // ダメージを通常に戻す
+        isInvincible = false;
+    }
+
+    protected override void Die()
+    {
+        base.Die();
+        // UdonBoss の倒されたイベントから解除
+        UdonBoss.UdonDefeated -= OnUdonDefeated;
+    }
 }
+
