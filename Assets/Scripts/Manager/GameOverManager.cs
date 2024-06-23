@@ -1,20 +1,27 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameOverManager : MonoBehaviour
 {
-    void Update()
-    {
-        // Tキーが押されたときにタイトルシーンに戻る
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            Title();
-        }
+    [SerializeField] private Text clearScoreText; // スコア表示用のTextコンポーネント
 
-        // Rキーが押されたときにタイトルシーンに戻る
-        if (Input.GetKeyDown(KeyCode.R))
+    private void Start()
+    {
+        // ゲームオーバー時にスコアを表示
+        DisplayScore();
+    }
+
+    void DisplayScore()
+    {
+        if (clearScoreText != null)
         {
-            Retry();
+            int score = GameManager.Instance.GetScore();
+            clearScoreText.text = "Score: " + score.ToString();
+        }
+        else
+        {
+            Debug.LogError("clearScoreText is not assigned in the inspector.");
         }
     }
 
@@ -22,14 +29,14 @@ public class GameOverManager : MonoBehaviour
     {
         SEManager.Instance.PlaySE("Button");
         GameManager.Instance.InitializeItems();
-        SceneManager.LoadScene("Title"); // 戻る
+        SceneManager.LoadScene("Title"); // タイトルシーンに戻る
     }
 
     public void Retry()
     {
         SEManager.Instance.PlaySE("Button");
         GameManager.Instance.InitializeItems();
-        SceneManager.LoadScene("Stage 1"); //戻る
+        SceneManager.LoadScene("Stage 1"); // ステージ1に戻る
     }
 
     public void Quit()

@@ -65,7 +65,7 @@ public class PlayerUI : MonoBehaviour
             gameManager.RemoveItem(Item.ItemType.SoySauce, 1);
             gameManager.RemoveItem(Item.ItemType.Onion, 1);
             gameManager.AddScore(1000);   // スコアを加算
-            ScorePopup(1000);
+            ScorePopup(1000, 0);
         }
 
         // ミートソース
@@ -79,7 +79,7 @@ public class PlayerUI : MonoBehaviour
             gameManager.RemoveItem(Item.ItemType.Tomato, 1);
             gameManager.RemoveItem(Item.ItemType.BellPepper, 1);
             gameManager.AddScore(500);  // スコアを加算
-            ScorePopup(500);
+            ScorePopup(500, 1);
         }
 
         // カルボナーラ
@@ -91,7 +91,7 @@ public class PlayerUI : MonoBehaviour
             gameManager.RemoveItem(Item.ItemType.Cheese, 1);
             gameManager.RemoveItem(Item.ItemType.Bacon, 1);
             gameManager.AddScore(300);   // スコアを加算
-            ScorePopup(300);
+            ScorePopup(300, 2);
         }
 
         // ナポリタン
@@ -105,7 +105,7 @@ public class PlayerUI : MonoBehaviour
             gameManager.RemoveItem(Item.ItemType.Bacon, 1);
             gameManager.RemoveItem(Item.ItemType.Tomato, 1);
             gameManager.AddScore(100);   // スコアを加算
-            ScorePopup(100);
+            ScorePopup(100, 3);
         }
     }
 
@@ -141,7 +141,7 @@ public class PlayerUI : MonoBehaviour
         }
     }
 
-    void ScorePopup(int scoreToAdd)
+    void ScorePopup(int scoreToAdd, int spriteIndex)
     {
         // プレイヤーの頭上に表示する位置を計算
         Vector3 worldPosition = playerTransform.position + new Vector3(1.0f, 0.5f, 0); // 1.5fは頭上のオフセット
@@ -153,12 +153,13 @@ public class PlayerUI : MonoBehaviour
         ScorePopup scorePopup = popup.GetComponent<ScorePopup>();
         if (scorePopup != null)
         {
-            scorePopup.SetScore(scoreToAdd);
+            scorePopup.SetScore(scoreToAdd, spriteIndex); // スコアとスプライトのインデックスを設定
         }
         else
         {
             Debug.LogError("ScorePopup component not found on instantiated prefab");
         }
-
     }
+
+
 }

@@ -5,13 +5,12 @@ using UnityEngine.EventSystems;
 
 public class GameClearManager : MonoBehaviour
 {
-    public Button nextButton; // 次のシーンに進むボタン
+    [SerializeField] private Text clearScoreText; // スコア表示用のTextコンポーネント
 
     private void Start()
     {
-        // 最初に選択されるボタンを設定
-        EventSystem.current.SetSelectedGameObject(nextButton.gameObject);
-        HighlightButton(nextButton);
+        // ゲームクリア時にスコアを表示
+        DisplayScore();
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -28,29 +27,16 @@ public class GameClearManager : MonoBehaviour
         SceneManager.LoadScene("GameClear");
     }
 
-    void Update()
+    private void DisplayScore()
     {
-        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Z))
+        if (clearScoreText != null)
         {
-            // 現在選択されているボタンを押す
-            ExecuteEvents.Execute(EventSystem.current.currentSelectedGameObject, new BaseEventData(EventSystem.current), ExecuteEvents.submitHandler);
+            int score = GameManager.Instance.GetScore();
+            clearScoreText.text = "Score: " + score.ToString();
         }
-    }
-
-    private void HighlightButton(Button button)
-    {
-        // 全てのボタンのハイライトを解除
-        Button[] allButtons = FindObjectsOfType<Button>();
-        foreach (Button btn in allButtons)
+        else
         {
-            ColorBlock cb = btn.colors;
-            cb.normalColor = Color.white; // デフォルトの色に戻す
-            btn.colors = cb;
+            Debug.LogError("ClearScoreText is not assigned in the inspector.");
         }
-
-        // 選択されたボタンをハイライト
-        ColorBlock selectedCb = button.colors;
-        selectedCb.normalColor = selectedCb.highlightedColor; // ハイライト色を設定
-        button.colors = selectedCb;
     }
 }
