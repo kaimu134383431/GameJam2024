@@ -188,13 +188,17 @@ PrefabInstance:
       propertyPath: forcedScrollPrefab
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: -3267648400596234379, guid: 9fa24bef2507faf45914d8763af48742, type: 3}
+      propertyPath: healthSliderPrefab
+      value: 
+      objectReference: {fileID: 1052534143657552222, guid: 2f7b8ef139738014499e923254840d7c, type: 3}
     - target: {fileID: 1312231805377363965, guid: 9fa24bef2507faf45914d8763af48742, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 80
+      value: 82.49
       objectReference: {fileID: 0}
     - target: {fileID: 1312231805377363965, guid: 9fa24bef2507faf45914d8763af48742, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.74
+      value: 0.32
       objectReference: {fileID: 0}
     - target: {fileID: 1312231805377363965, guid: 9fa24bef2507faf45914d8763af48742, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2274,78 +2278,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1312231805377363965, guid: 203d00babd0b4b34fa5673140ab688f9, type: 3}
   m_PrefabInstance: {fileID: 801751865}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &833192381
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 833192383}
-  - component: {fileID: 833192382}
-  m_Layer: 0
-  m_Name: SEManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &833192382
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 833192381}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d87617514cda77d419d6dc0c8b3edec7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sounds:
-  - name: BossDead
-    clip: {fileID: 8300000, guid: a9cf83b620ff6c642aa64764a9e92a24, type: 3}
-    volume: 1
-  - name: Button
-    clip: {fileID: 8300000, guid: 80f57faee1d6bce4692d07c8bdab5493, type: 3}
-    volume: 1
-  - name: EnemyDead
-    clip: {fileID: 8300000, guid: 494d6c4376891b34b83167688ea5459e, type: 3}
-    volume: 0.812
-  - name: Clear
-    clip: {fileID: 8300000, guid: 21c51b27333ff284e8fcdd1c94ef400e, type: 3}
-    volume: 1
-  - name: GetItem
-    clip: {fileID: 8300000, guid: 6eec2c40578b3954cbe5fa5f08a184cc, type: 3}
-    volume: 1
-  - name: PlayerShoot
-    clip: {fileID: 8300000, guid: 808c5982c8334d745afcee2441f5988e, type: 3}
-    volume: 0.457
-  - name: PlayerDamage
-    clip: {fileID: 8300000, guid: b05e0ab048d836b4ebba6eef82f6e4f1, type: 3}
-    volume: 0.532
-  - name: PlayerDead
-    clip: {fileID: 8300000, guid: ecb94feb58600ef43980261ad76e9a7c, type: 3}
-    volume: 1
-  - name: EnemyDamage
-    clip: {fileID: 8300000, guid: 576cad3b11497264c94eeba7df3844b5, type: 3}
-    volume: 0.029
---- !u!4 &833192383
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 833192381}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.976028, y: -0.37263808, z: -0.00090001384}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &866977427
 GameObject:
   m_ObjectHideFlags: 0
@@ -2601,6 +2533,75 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e8c02d7e3d05e04f9564230c794b252, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &919525289
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 919525291}
+  - component: {fileID: 919525290}
+  m_Layer: 0
+  m_Name: SEManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &919525290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919525289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d87617514cda77d419d6dc0c8b3edec7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: BossDead
+    clip: {fileID: 8300000, guid: a9cf83b620ff6c642aa64764a9e92a24, type: 3}
+    volume: 1
+  - name: Button
+    clip: {fileID: 8300000, guid: 80f57faee1d6bce4692d07c8bdab5493, type: 3}
+    volume: 0.558
+  - name: EnemyDead
+    clip: {fileID: 8300000, guid: 494d6c4376891b34b83167688ea5459e, type: 3}
+    volume: 1
+  - name: Clear
+    clip: {fileID: 8300000, guid: 21c51b27333ff284e8fcdd1c94ef400e, type: 3}
+    volume: 1
+  - name: GetItem
+    clip: {fileID: 8300000, guid: 6eec2c40578b3954cbe5fa5f08a184cc, type: 3}
+    volume: 1
+  - name: PlayerShoot
+    clip: {fileID: 8300000, guid: 808c5982c8334d745afcee2441f5988e, type: 3}
+    volume: 1
+  - name: PlayerDamage
+    clip: {fileID: 8300000, guid: b05e0ab048d836b4ebba6eef82f6e4f1, type: 3}
+    volume: 1
+  - name: PlayerDead
+    clip: {fileID: 8300000, guid: ecb94feb58600ef43980261ad76e9a7c, type: 3}
+    volume: 1
+--- !u!4 &919525291
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919525289}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.976028, y: -0.37263808, z: -0.00090001384}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &938173133
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3747,13 +3748,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1242394586}
     m_Modifications:
+    - target: {fileID: 2342133683060537042, guid: 6d85b02f762524e45875558302a10f8d, type: 3}
+      propertyPath: healthSliderPrefab
+      value: 
+      objectReference: {fileID: 1052534143657552222, guid: 1029eba4f2232af4390c060d5d738af6, type: 3}
     - target: {fileID: 5269265230844482840, guid: 6d85b02f762524e45875558302a10f8d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 80
+      value: 86.52
       objectReference: {fileID: 0}
     - target: {fileID: 5269265230844482840, guid: 6d85b02f762524e45875558302a10f8d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.60343
+      value: 0.21
       objectReference: {fileID: 0}
     - target: {fileID: 5269265230844482840, guid: 6d85b02f762524e45875558302a10f8d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4629,7 +4634,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startPosition: {x: 0, y: 0, z: 0}
   endPosition: {x: 80, y: 0, z: 0}
-  moveTime: 40
+  moveTime: 1
   boss: {fileID: 960872459}
   isToGoal: 0
 --- !u!58 &1117185700364171401
@@ -5046,4 +5051,4 @@ SceneRoots:
   - {fileID: 891974851}
   - {fileID: 2055161774}
   - {fileID: 514336673}
-  - {fileID: 833192383}
+  - {fileID: 919525291}

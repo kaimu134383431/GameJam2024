@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+
 public class SobaBoss : BossEnemy
 {
     private bool isUdonDefeated = false; // UdonBoss が倒されたかどうかのフラグ
@@ -14,7 +15,7 @@ public class SobaBoss : BossEnemy
         // 体力バーのインスタンスを生成してCanvasに配置する
         if (healthSliderPrefab != null)
         {
-            healthSliderInstance = Instantiate(healthSliderPrefab, new Vector3(0, 200, 0), Quaternion.identity);
+            healthSliderInstance = Instantiate(healthSliderPrefab, new Vector3(0, 150, 0), Quaternion.identity);
             healthSliderInstance.transform.SetParent(GameObject.FindWithTag("Canvas").transform, false);
             healthSliderInstance.value = 1f; // 初期値は最大値で設定
             HideHealthBar();
@@ -32,6 +33,28 @@ public class SobaBoss : BossEnemy
     {
         // 上下に移動するパターン
         rb2D.velocity = new Vector2(0, Mathf.Sin(Time.time * speed));
+
+    }
+
+    protected override void SwitchAttackPhase()
+    {
+        if (!isUdonDefeated)
+        {
+            if (Time.time > nextSwitchTime)
+            {
+                attackPhase = (attackPhase + 1) % 2; // 攻撃フェーズを切り替える
+                nextSwitchTime = Time.time + attackSwitchTime;
+            }
+        }
+        else
+        {
+            
+            if (Time.time > nextSwitchTime)
+            {
+                attackPhase = (attackPhase + 1) % 4; // 攻撃フェーズを切り替える
+                nextSwitchTime = Time.time + attackSwitchTime;
+            }
+        }
     }
 
     protected override void FirePattern()
@@ -42,12 +65,9 @@ public class SobaBoss : BossEnemy
             switch (attackPhase)
             {
                 case 0:
-                    FireStraight();
+                    Fire5Way();
                     break;
                 case 1:
-                    FireRadial();
-                    break;
-                case 2:
                     FireAllDirections();
                     break;
             }
@@ -55,7 +75,23 @@ public class SobaBoss : BossEnemy
         else
         {
             // UdonBoss が倒された後の攻撃パターンを実行
-            // 例えば新しい攻撃パターンのメソッドをここで呼び出す
+            switch (attackPhase)
+            {
+                case 0:
+                    FireRadial();
+                    FireAllDirections();
+                    break;
+                case 1:
+                    FireRing();
+                    break;
+                case 2:
+                    FireRadial();
+                    Fire3WayAimed();
+                    break;
+                case 3:
+                     FireWinder();
+                    break;
+            }
         }
     }
 
@@ -71,6 +107,25 @@ public class SobaBoss : BossEnemy
             GameObject bullet = Instantiate(projectilePrefab, projectileSpawn.position, projectileSpawn.rotation);
             bullet.GetComponent<Rigidbody2D>().velocity = projectileSpawn.right * -10f;
             yield return new WaitForSeconds(0.05f);
+        }
+    }
+
+    void Fire3WayAimed()
+    {
+        int bulletCount = 3;
+        float angleStep = 15f; // 弾の角度間隔（例えば15度ずつ）
+        float startAngle = -angleStep * (bulletCount - 1) / 2; // 開始角度
+
+        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+        Vector2 playerPosition = playerObject.transform.position; // プレイヤーの現在位置を取得
+
+        for (int i = 0; i < bulletCount; i++)
+        {
+            float angle = startAngle + i * angleStep;
+            Vector2 direction = Quaternion.Euler(0, 0, angle) * (playerPosition - (Vector2)projectileSpawn.position).normalized;
+
+            GameObject bullet = Instantiate(projectilePrefab, projectileSpawn.position, Quaternion.identity);
+            bullet.GetComponent<Rigidbody2D>().velocity = direction * 10f;
         }
     }
 
@@ -116,15 +171,109 @@ public class SobaBoss : BossEnemy
         }
     }
 
+    void FireRing()
+    {
+        int bulletCount = 36; // 弾の数
+        float angleStep = 10f; // 弾の角度間隔
+        float startAngle = 0f; // 開始角度
+        float radius = 1.5f; // 円の半径
+        float bulletSpeed = 5.0f;
+        float rotationSpeed = 200f; // 回転速度
+
+        for (int i = 0; i < bulletCount; i++)
+        {
+            float angle = startAngle + i * angleStep;
+            float x = Mathf.Sin(angle * Mathf.Deg2Rad) * radius;
+            float y = Mathf.Cos(angle * Mathf.Deg2Rad) * radius;
+
+            Vector3 spawnPosition = projectileSpawn.position + new Vector3(x, y, 0);
+            Vector3 direction = Quaternion.Euler(0, 0, angle + Time.time * rotationSpeed) * Vector3.right;
+
+            GameObject bullet = Instantiate(projectilePrefab, spawnPosition, Quaternion.identity);
+            bullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
+        }
+    }
+
+    void FireWinder()
+    {
+        float winderAngleRange = 45f; // 左右の最大振り幅
+        float winderAngleSpeed = 2f; // 振り幅の変化速度
+        float baseAngle = 180f; // 基本の角度
+
+        StartCoroutine(FireWinderPattern(winderAngleRange, winderAngleSpeed, baseAngle));
+    }
+
+    IEnumerator FireWinderPattern(float angleRange, float angleSpeed, float baseAngle)
+    {
+        float bulletSpeed = 5.0f;
+        while (true)
+        {
+            // 振り幅の角度を計算
+            float winderAngle = baseAngle + angleRange * Mathf.Sin(Time.time * angleSpeed);
+            Vector3 direction = new Vector3(Mathf.Cos(winderAngle * Mathf.Deg2Rad), Mathf.Sin(winderAngle * Mathf.Deg2Rad), 0);
+
+            GameObject bullet = Instantiate(projectilePrefab, projectileSpawn.position, Quaternion.identity);
+            bullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
+
+            yield return new WaitForSeconds(0.5f); // 発射間隔
+        }
+    }
+
+    public override void TakeDamage(int damage)
+    {
+        if (!isInvincible)
+        {
+            health -= damage;
+            if (health <= 0)
+            {
+                Die();
+            }
+            else
+            {
+                SEManager.Instance.PlaySE("EnemyDamage");
+            }
+        }
+        else if (isInvincible && isUdonDefeated)
+        {
+            health -= damage;
+            if (health <= 0)
+            {
+                Die();
+            }
+            else
+            {
+                SEManager.Instance.PlaySE("EnemyDamage");
+            }
+        }
+        UpdateHealthUI();
+    }
+
     // UdonBoss が倒されたときの処理
     private void OnUdonDefeated()
     {
         isUdonDefeated = true;
+        fireRate = 0.5f;
+        speed = 5f;
         // ここでSobaBoss の行動パターンを変化させる処理を追加する
         // 例えば攻撃パターンを変更したり、新しい攻撃を追加したりする
 
         // ダメージを通常に戻す
         isInvincible = false;
+    }
+
+    void Fire5Way()
+    {
+        int bulletCount = 5;
+        float angleStep = 10f; // 弾の角度間隔
+        float bulletSpeed = 5f;
+        float startAngle = -angleStep * (bulletCount - 1) / 2; // 開始角度
+
+        for (int i = 0; i < bulletCount; i++)
+        {
+            Quaternion rotation = Quaternion.Euler(0, 0, startAngle + i * angleStep);
+            GameObject bullet = Instantiate(projectilePrefab, projectileSpawn.position, rotation);
+            bullet.GetComponent<Rigidbody2D>().velocity = bullet.transform.right * -bulletSpeed;
+        }
     }
 
     protected override void Die()

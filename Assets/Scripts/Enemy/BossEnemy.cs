@@ -57,7 +57,7 @@ public abstract class BossEnemy : Enemy
         }
     }
 
-    public override void TakeDamage(int damage)
+    public virtual void TakeDamage(int damage)
     {
         if(!isInvincible){
         health -= damage;
@@ -87,7 +87,7 @@ public abstract class BossEnemy : Enemy
         HideHealthBar();
     }
 
-    void UpdateHealthUI()
+    protected void UpdateHealthUI()
     {
         float normalizedHealth = (float)health / maxHealth;
         if (healthSliderInstance != null)

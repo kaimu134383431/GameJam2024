@@ -4,6 +4,8 @@ public class UdonBoss : BossEnemy
 {
     public static event System.Action UdonDefeated; // UdonBoss が倒されたときのイベント
 
+    private float angle = 0f; // 円運動の角度
+
     protected override void Start()
     {
         base.Start();
@@ -14,7 +16,7 @@ public class UdonBoss : BossEnemy
         // 体力バーのインスタンスを生成してCanvasに配置する
         if (healthSliderPrefab != null)
         {
-            healthSliderInstance = Instantiate(healthSliderPrefab, new Vector3(0, 150, 0), Quaternion.identity);
+            healthSliderInstance = Instantiate(healthSliderPrefab, new Vector3(0, 200, 0), Quaternion.identity);
             healthSliderInstance.transform.SetParent(GameObject.FindWithTag("Canvas").transform, false);
             healthSliderInstance.value = 1f; // 初期値は最大値で設定
             HideHealthBar();
@@ -27,8 +29,25 @@ public class UdonBoss : BossEnemy
 
     protected override void Move()
     {
-        // 上下に移動するパターン
-        rb2D.velocity = new Vector2(0, Mathf.Sin(Time.time * speed));
+        float radius = 2f; // 円の半径
+        float centerX = location.x; // 円の中心のX座標
+        float centerY = location.y; // 円の中心のY座標
+
+        angle += speed * Time.deltaTime; // 角度を更新
+
+        float newX = centerX + radius * Mathf.Cos(angle);
+        float newY = centerY + radius * Mathf.Sin(angle);
+
+        rb2D.position = new Vector2(newX, newY);
+    }
+
+    protected override void SwitchAttackPhase()
+    {
+        if (Time.time > nextSwitchTime)
+        {
+            attackPhase = (attackPhase + 1) % 4; // 攻撃フェーズを切り替える
+            nextSwitchTime = Time.time + attackSwitchTime;
+        }
     }
 
     protected override void FirePattern()
@@ -103,6 +122,8 @@ public class UdonBoss : BossEnemy
             angle += angleStep;
         }
     }
+
+
 
     protected override void Die()
     {

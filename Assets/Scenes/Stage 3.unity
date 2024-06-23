@@ -865,6 +865,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b7b517edf7897d4c8e62d86c4178d59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextButton: {fileID: 0}
 --- !u!1 &1037900134
 GameObject:
   m_ObjectHideFlags: 0
@@ -1188,7 +1189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e79967a830ad4e343a15a14b164e63b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1904860795
+--- !u!1 &1991191255
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1196,9 +1197,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1904860797}
-  - component: {fileID: 1904860796}
-  - component: {fileID: 1904860798}
+  - component: {fileID: 1991191257}
+  - component: {fileID: 1991191256}
   m_Layer: 0
   m_Name: SEManager
   m_TagString: Untagged
@@ -1206,13 +1206,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1904860796
+--- !u!114 &1991191256
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1904860795}
+  m_GameObject: {fileID: 1991191255}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d87617514cda77d419d6dc0c8b3edec7, type: 3}
@@ -1224,10 +1224,10 @@ MonoBehaviour:
     volume: 1
   - name: Button
     clip: {fileID: 8300000, guid: 80f57faee1d6bce4692d07c8bdab5493, type: 3}
-    volume: 1
+    volume: 0.558
   - name: EnemyDead
     clip: {fileID: 8300000, guid: 494d6c4376891b34b83167688ea5459e, type: 3}
-    volume: 0.812
+    volume: 1
   - name: Clear
     clip: {fileID: 8300000, guid: 21c51b27333ff284e8fcdd1c94ef400e, type: 3}
     volume: 1
@@ -1236,23 +1236,20 @@ MonoBehaviour:
     volume: 1
   - name: PlayerShoot
     clip: {fileID: 8300000, guid: 808c5982c8334d745afcee2441f5988e, type: 3}
-    volume: 0.457
+    volume: 1
   - name: PlayerDamage
     clip: {fileID: 8300000, guid: b05e0ab048d836b4ebba6eef82f6e4f1, type: 3}
-    volume: 0.532
+    volume: 1
   - name: PlayerDead
     clip: {fileID: 8300000, guid: ecb94feb58600ef43980261ad76e9a7c, type: 3}
     volume: 1
-  - name: EnemyDamage
-    clip: {fileID: 8300000, guid: 576cad3b11497264c94eeba7df3844b5, type: 3}
-    volume: 0.029
---- !u!4 &1904860797
+--- !u!4 &1991191257
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1904860795}
+  m_GameObject: {fileID: 1991191255}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.976028, y: -0.37263808, z: -0.00090001384}
@@ -1261,19 +1258,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1904860798
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1904860795}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5a1ac8fabd29f645a6150aab08e445e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pullDistance: 50
 --- !u!1 &2038315195
 GameObject:
   m_ObjectHideFlags: 0
@@ -1813,4 +1797,4 @@ SceneRoots:
   - {fileID: 891974851}
   - {fileID: 2055161774}
   - {fileID: 514336673}
-  - {fileID: 1904860797}
+  - {fileID: 1991191257}
