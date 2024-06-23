@@ -610,6 +610,99 @@ MonoBehaviour:
   healthSliderPrefab: {fileID: 1052534143657552222, guid: 2f7b8ef139738014499e923254840d7c, type: 3}
   offset: 10
   explodePrefab: {fileID: 1826179687490285905, guid: fd6f839bdc2c62e489116c8009e045a1, type: 3}
+--- !u!1001 &834643385
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1242394586}
+    m_Modifications:
+    - target: {fileID: 6000506532930892571, guid: 3a8afe930a039bb459ced145fd59ee4e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 90.40984
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000506532930892571, guid: 3a8afe930a039bb459ced145fd59ee4e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5375681
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000506532930892571, guid: 3a8afe930a039bb459ced145fd59ee4e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.66055435
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000506532930892571, guid: 3a8afe930a039bb459ced145fd59ee4e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000506532930892571, guid: 3a8afe930a039bb459ced145fd59ee4e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000506532930892571, guid: 3a8afe930a039bb459ced145fd59ee4e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000506532930892571, guid: 3a8afe930a039bb459ced145fd59ee4e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000506532930892571, guid: 3a8afe930a039bb459ced145fd59ee4e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000506532930892571, guid: 3a8afe930a039bb459ced145fd59ee4e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000506532930892571, guid: 3a8afe930a039bb459ced145fd59ee4e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8460554220744890969, guid: 3a8afe930a039bb459ced145fd59ee4e, type: 3}
+      propertyPath: m_Name
+      value: RamenBoss
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8460554220744890969, guid: 3a8afe930a039bb459ced145fd59ee4e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 834643388}
+  m_SourcePrefab: {fileID: 100100000, guid: 3a8afe930a039bb459ced145fd59ee4e, type: 3}
+--- !u!4 &834643386 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6000506532930892571, guid: 3a8afe930a039bb459ced145fd59ee4e, type: 3}
+  m_PrefabInstance: {fileID: 834643385}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &834643387 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8460554220744890969, guid: 3a8afe930a039bb459ced145fd59ee4e, type: 3}
+  m_PrefabInstance: {fileID: 834643385}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &834643388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 834643387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58f443f808d76184491a5d0c1d021a83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 500
+  speed: 4
+  damage: 50
+  probability: 100
+  maxHealth: 500
+  itemPrefabs: []
+  projectilePrefab: {fileID: 5572549981863144032, guid: 06bed937e3c308f41941c64c637dd8e9, type: 3}
+  projectileSpawn: {fileID: 834643386}
+  fireRate: 1
+  forcedScrollPrefab: {fileID: 7076910129693467389, guid: 8c661dfe10eb4ab40b0ed582cce04474, type: 3}
+  healthSliderPrefab: {fileID: 0}
 --- !u!1 &866977427
 GameObject:
   m_ObjectHideFlags: 0
@@ -1000,6 +1093,7 @@ Transform:
   m_Children:
   - {fileID: 1594493297}
   - {fileID: 554379713}
+  - {fileID: 834643386}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1284992034
@@ -1636,15 +1730,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e44093dd1b6f3d74d8f5c7b6a860cbf7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2220459f8ad691a4f9b9d9d486c32245, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.6, y: 1.6}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!50 &4585298742391240026
