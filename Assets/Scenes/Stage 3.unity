@@ -3005,9 +3005,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b7b517edf7897d4c8e62d86c4178d59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
   nextButton: {fileID: 0}
-=======
 --- !u!1001 &892919877
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3404,7 +3402,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
->>>>>>> 3men-kamo
 --- !u!1 &1037900134
 GameObject:
   m_ObjectHideFlags: 0
@@ -3841,7 +3838,6 @@ Transform:
   - {fileID: 2033433801}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
 --- !u!1 &1280547120
 GameObject:
   m_ObjectHideFlags: 0
@@ -3914,7 +3910,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-=======
 --- !u!4 &1255545300 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1312231805377363965, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
@@ -4002,7 +3997,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1312231805377363965, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
   m_PrefabInstance: {fileID: 46264935}
   m_PrefabAsset: {fileID: 0}
->>>>>>> 3men-kamo
 --- !u!1 &1284992034
 GameObject:
   m_ObjectHideFlags: 0
@@ -5372,14 +5366,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1312231805377363965, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
   m_PrefabInstance: {fileID: 1981886182}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e79967a830ad4e343a15a14b164e63b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-=======
 --- !u!1 &1904860795
 GameObject:
   m_ObjectHideFlags: 0
@@ -5872,7 +5864,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
->>>>>>> 3men-kamo
 --- !u!1 &2038315195
 GameObject:
   m_ObjectHideFlags: 0
