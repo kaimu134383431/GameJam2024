@@ -1,5 +1,5 @@
 using UnityEngine;
-
+//スクロールのためのオブジェクト
 public class ForcedScroll : MonoBehaviour
 {
     public Vector3 startPosition;

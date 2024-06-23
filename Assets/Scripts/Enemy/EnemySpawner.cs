@@ -1,5 +1,5 @@
 using UnityEngine;
-
+//まだ使ってない？
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] GameObject[] enemyPrefabs; // 敵キャラクターのプレハブ配列

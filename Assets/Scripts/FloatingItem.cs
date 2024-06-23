@@ -1,5 +1,5 @@
 using UnityEngine;
-
+//•‚—VƒAƒCƒeƒ€
 public class FloatingItem : MonoBehaviour
 {
     private Vector3 startPosition;

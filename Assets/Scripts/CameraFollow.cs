@@ -1,5 +1,5 @@
 using UnityEngine;
-
+//スクロールをするためのスクリプト
 public class CameraFollow : MonoBehaviour
 {
     public Vector3 startPosition;
