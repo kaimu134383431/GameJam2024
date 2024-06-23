@@ -10,6 +10,8 @@ public class NormalEnemy : Enemy
     [SerializeField] private float amplitude = 5f;
     [SerializeField] private float frequency = 2f;
     [SerializeField] private float rushSpeed = 7f;
+    [SerializeField] private float circleRadius = 3f; // ‰~‚Ì”¼Œa
+    [SerializeField] private float circleSpeed = 2f;  // ‰~‚Ì‘¬“x
 
     // ŽËŒ‚‚ÉŠÖ˜A‚·‚éƒtƒB[ƒ‹ƒh
     [SerializeField] private GameObject bulletPrefab;
@@ -27,7 +29,8 @@ public class NormalEnemy : Enemy
     {
         StraightMove,
         SinWaveMove,
-        RushToPlayer
+        RushToPlayer,
+        CircleMove
     }
 
     public enum EnemyShootPattern
@@ -35,7 +38,8 @@ public class NormalEnemy : Enemy
         PlayerTrackingShoot,
         FixedDirectionShoot,
         NoShoot,
-        Radial
+        Radial,
+        ThreeWayShoot // 3wayƒVƒ‡ƒbƒg‚ð’Ç‰Á
     }
 
     protected override void Start()
@@ -77,6 +81,9 @@ public class NormalEnemy : Enemy
             case EnemyBehaviorPattern.RushToPlayer:
                 RushToPlayer();
                 break;
+            case EnemyBehaviorPattern.CircleMove:
+                CircleMove();
+                break;
         }
     }
 
@@ -94,6 +101,9 @@ public class NormalEnemy : Enemy
                 break;
             case EnemyShootPattern.Radial:
                 FireRadial();
+                break;
+            case EnemyShootPattern.ThreeWayShoot: // 3wayƒVƒ‡ƒbƒg‚ð’Ç‰Á
+                ShootThreeWay();
                 break;
         }
     }
@@ -145,6 +155,25 @@ public class NormalEnemy : Enemy
         }
     }
 
+    void ShootThreeWay()
+    {
+        if (Time.time > nextFire)
+        {
+            nextFire = Time.time + fireRate;
+
+            // 3way‚Ì’e‚ÌŠp“x‚ÆŠÔŠu
+            float angleOffset = 165f;
+            float angleStep = 30f;
+
+            for (int i = 0; i < 3; i++)
+            {
+                Quaternion bulletRotation = bulletSpawn.rotation * Quaternion.Euler(0, 0, angleOffset + i * angleStep);
+                GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, bulletRotation);
+                bullet.GetComponent<Rigidbody2D>().velocity = bullet.transform.right * bulletSpeed;
+            }
+        }
+    }
+
     void RushToPlayer()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
@@ -153,6 +182,13 @@ public class NormalEnemy : Enemy
             Vector2 direction = (player.transform.position - transform.position).normalized;
             rb2D.velocity = direction * rushSpeed;
         }
+    }
+
+    void CircleMove()
+    {
+        float angle = (Time.time - startTime) * circleSpeed;
+        Vector2 circlePosition = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * circleRadius;
+        rb2D.position = circlePosition;
     }
 
     void OnCollisionEnter2D(Collision2D collision)

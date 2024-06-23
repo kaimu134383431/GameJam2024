@@ -171,14 +171,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f8781273303626438d1fe7d07765d9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 500
+  health: 250
   speed: 0
   damage: 3
   probability: 100
   maxHealth: 100
   itemPrefabs: []
-  projectilePrefab: {fileID: 146014439715910758, guid: ff4e496b26c7b3348a2c9763e2c30ede, type: 3}
+  projectilePrefab: {fileID: 1099447329105074272, guid: 59440a594c883534dbd1df0eed4505c2, type: 3}
   projectileSpawn: {fileID: 5269265230844482840}
   fireRate: 1.33
   forcedScrollPrefab: {fileID: 7076910129693467389, guid: 8c661dfe10eb4ab40b0ed582cce04474, type: 3}
   healthSliderPrefab: {fileID: 1052534143657552222, guid: 2f7b8ef139738014499e923254840d7c, type: 3}
+  projectilePrefab2: {fileID: 2787786449249988191, guid: 23923a34863d3ca448c9b63f061c6857, type: 3}

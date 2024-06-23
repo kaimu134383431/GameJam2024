@@ -58,22 +58,6 @@ public abstract class BossEnemy : Enemy
         }
     }
 
-    public virtual void TakeDamage(int damage)
-    {
-        if(!isInvincible){
-        health -= damage;
-            if (health <= 0)
-            {
-                Die();
-            }
-            else
-            {
-                SEManager.Instance.PlaySE("EnemyDamage");
-            }
-        }
-        UpdateHealthUI();
-    }
-
     protected override void Die()
     {
         SEManager.Instance.PlaySE("BossDead");

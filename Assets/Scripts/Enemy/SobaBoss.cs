@@ -3,6 +3,7 @@ using System.Collections;
 
 public class SobaBoss : BossEnemy
 {
+    [SerializeField] protected GameObject projectilePrefab2;
     private bool isUdonDefeated = false; // UdonBoss が倒されたかどうかのフラグ
 
     protected override void Start()
@@ -212,7 +213,7 @@ public class SobaBoss : BossEnemy
             float winderAngle = baseAngle + angleRange * Mathf.Sin(Time.time * angleSpeed);
             Vector3 direction = new Vector3(Mathf.Cos(winderAngle * Mathf.Deg2Rad), Mathf.Sin(winderAngle * Mathf.Deg2Rad), 0);
 
-            GameObject bullet = Instantiate(projectilePrefab, projectileSpawn.position, Quaternion.identity);
+            GameObject bullet = Instantiate(projectilePrefab2, projectileSpawn.position, Quaternion.identity);
             bullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
 
             yield return new WaitForSeconds(0.5f); // 発射間隔
@@ -221,7 +222,12 @@ public class SobaBoss : BossEnemy
 
     public override void TakeDamage(int damage)
     {
-        if (!isInvincible)
+        if (!isUdonDefeated) // UdonBoss が倒されていない場合は無敵
+        {
+            isInvincible = true; // 無敵にする
+        }
+
+        if (!isInvincible) // 無敵でない場合にのみダメージを受ける
         {
             health -= damage;
             if (health <= 0)
@@ -233,20 +239,10 @@ public class SobaBoss : BossEnemy
                 SEManager.Instance.PlaySE("EnemyDamage");
             }
         }
-        else if (isInvincible && isUdonDefeated)
-        {
-            health -= damage;
-            if (health <= 0)
-            {
-                Die();
-            }
-            else
-            {
-                SEManager.Instance.PlaySE("EnemyDamage");
-            }
-        }
+
         UpdateHealthUI();
     }
+
 
     // UdonBoss が倒されたときの処理
     private void OnUdonDefeated()

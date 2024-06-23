@@ -47,6 +47,23 @@ public class RamenBoss : BossEnemy
         }
     }
 
+    public override void TakeDamage(int damage)
+    {
+        if (!isInvincible)
+        {
+            health -= damage;
+            if (health <= 0)
+            {
+                Die();
+            }
+            else
+            {
+                SEManager.Instance.PlaySE("EnemyDamage");
+            }
+        }
+        UpdateHealthUI();
+    }
+
     void FireStraight()
     {
         StartCoroutine(FireLaser());

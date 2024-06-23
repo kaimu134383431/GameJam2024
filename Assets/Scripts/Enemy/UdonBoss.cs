@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+
 public class UdonBoss : BossEnemy
 {
     public static event System.Action UdonDefeated; // UdonBoss が倒されたときのイベント
@@ -24,6 +25,23 @@ public class UdonBoss : BossEnemy
         else
         {
             Debug.LogError("HealthSliderPrefab not found in Resources.");
+        }
+
+        
+    }
+
+    IEnumerator FireRandomBullets()
+    {
+        while (true)
+        {
+            // 画面上部のランダムな位置から弾を発射
+            float randomX = Random.Range(Camera.main.ViewportToWorldPoint(new Vector3(0f, 0.8f, 0f)).x, Camera.main.ViewportToWorldPoint(new Vector3(1f, 0.8f, 0f)).x);
+            Vector3 spawnPosition = new Vector3(randomX, Camera.main.ViewportToWorldPoint(new Vector3(1f, 1f, 0f)).y, 0f);
+
+            GameObject bullet = Instantiate(projectilePrefab, spawnPosition, Quaternion.identity);
+            bullet.GetComponent<Rigidbody2D>().velocity = Vector2.down * 5f; // 画面下方向に速度を設定
+
+            yield return new WaitForSeconds(Random.Range(0.1f, 0.5f)); // ランダムな間隔で発射
         }
     }
 
@@ -52,6 +70,11 @@ public class UdonBoss : BossEnemy
 
     protected override void FirePattern()
     {
+        if (!GetComponent<Renderer>().isVisible) // ボスが画面外にいる場合は処理を終了する
+        {
+            return;
+        }
+
         switch (attackPhase)
         {
             case 0:
@@ -61,9 +84,29 @@ public class UdonBoss : BossEnemy
                 FireRadial();
                 break;
             case 2:
+                StartCoroutine(FireRandomBullets());
+                break;
+            case 3:
                 FireAllDirections();
                 break;
         }
+    }
+
+    public override void TakeDamage(int damage)
+    {
+        if (!isInvincible)
+        {
+            health -= damage;
+            if (health <= 0)
+            {
+                Die();
+            }
+            else
+            {
+                SEManager.Instance.PlaySE("EnemyDamage");
+            }
+        }
+        UpdateHealthUI();
     }
 
     void FireStraight()
@@ -122,8 +165,6 @@ public class UdonBoss : BossEnemy
             angle += angleStep;
         }
     }
-
-
 
     protected override void Die()
     {
