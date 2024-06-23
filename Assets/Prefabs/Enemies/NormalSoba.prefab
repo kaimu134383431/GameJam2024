@@ -142,7 +142,7 @@ MonoBehaviour:
   amplitude: 5
   frequency: 0.25
   rushSpeed: 7
-  bulletPrefab: {fileID: 1099447329105074272, guid: 59440a594c883534dbd1df0eed4505c2, type: 3}
+  bulletPrefab: {fileID: 7647987757735889787, guid: b7657f726bf553240905c65442aaef5d, type: 3}
   bulletSpawn: {fileID: 1312231805377363965}
   fireRate: 1
   bulletSpeed: 5

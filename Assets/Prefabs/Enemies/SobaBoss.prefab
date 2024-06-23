@@ -176,14 +176,8 @@ MonoBehaviour:
   damage: 3
   probability: 100
   maxHealth: 100
-  itemPrefabs:
-  - {fileID: 3401964865537802735, guid: f6edd437d21a38a42a16179040b961ef, type: 3}
-  - {fileID: 3401964865537802735, guid: f6edd437d21a38a42a16179040b961ef, type: 3}
-  - {fileID: 3401964865537802735, guid: f6edd437d21a38a42a16179040b961ef, type: 3}
-  - {fileID: 3401964865537802735, guid: f6edd437d21a38a42a16179040b961ef, type: 3}
-  - {fileID: 3401964865537802735, guid: f6edd437d21a38a42a16179040b961ef, type: 3}
-  - {fileID: 3401964865537802735, guid: f6edd437d21a38a42a16179040b961ef, type: 3}
-  projectilePrefab: {fileID: 1099447329105074272, guid: 59440a594c883534dbd1df0eed4505c2, type: 3}
+  itemPrefabs: []
+  projectilePrefab: {fileID: 146014439715910758, guid: ff4e496b26c7b3348a2c9763e2c30ede, type: 3}
   projectileSpawn: {fileID: 5269265230844482840}
   fireRate: 1.33
   forcedScrollPrefab: {fileID: 7076910129693467389, guid: 8c661dfe10eb4ab40b0ed582cce04474, type: 3}

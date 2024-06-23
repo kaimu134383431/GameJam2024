@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8501590838019069862}
   - component: {fileID: 492386450811026548}
   - component: {fileID: 1810391383903911892}
-  - component: {fileID: 2867949261084079359}
   m_Layer: 0
   m_Name: RamenBoss
   m_TagString: Enemy
@@ -29,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 8460554220744890969}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.0723934, y: -5.3440747, z: -0.44036958}
+  m_LocalPosition: {x: 23.28, y: -1.14, z: -0.44036958}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -149,32 +148,3 @@ CapsuleCollider2D:
   m_Offset: {x: 0.25313357, y: -0.018985303}
   m_Size: {x: 2.6245697, y: 2.029716}
   m_Direction: 1
---- !u!114 &2867949261084079359
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8460554220744890969}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58f443f808d76184491a5d0c1d021a83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 1500
-  speed: 3
-  damage: 2
-  probability: 100
-  maxHealth: 1500
-  itemPrefabs:
-  - {fileID: 3401964865537802735, guid: 6be075068caf00144a8ca20a8b902697, type: 3}
-  - {fileID: 3401964865537802735, guid: 6be075068caf00144a8ca20a8b902697, type: 3}
-  - {fileID: 3401964865537802735, guid: 6be075068caf00144a8ca20a8b902697, type: 3}
-  - {fileID: 3401964865537802735, guid: b8291d30ab69aa448a57bd047643a941, type: 3}
-  - {fileID: 3401964865537802735, guid: b8291d30ab69aa448a57bd047643a941, type: 3}
-  - {fileID: 3401964865537802735, guid: b8291d30ab69aa448a57bd047643a941, type: 3}
-  projectilePrefab: {fileID: 146014439715910758, guid: ff4e496b26c7b3348a2c9763e2c30ede, type: 3}
-  projectileSpawn: {fileID: 6000506532930892571}
-  fireRate: 1
-  forcedScrollPrefab: {fileID: 7076910129693467389, guid: 8c661dfe10eb4ab40b0ed582cce04474, type: 3}
-  healthSliderPrefab: {fileID: 1052534143657552222, guid: 2f7b8ef139738014499e923254840d7c, type: 3}
