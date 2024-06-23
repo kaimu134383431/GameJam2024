@@ -18,27 +18,6 @@ public abstract class BossEnemy : Enemy
     protected Vector3 location;
     protected bool isInvincible;
 
-    protected override void Start()
-    {
-        base.Start();
-        nextSwitchTime = Time.time + attackSwitchTime;
-        location = transform.position;
-        isInvincible = true;
-
-        // 体力バーのインスタンスを生成してCanvasに配置する
-        if (healthSliderPrefab != null)
-        {
-            healthSliderInstance = Instantiate(healthSliderPrefab, new Vector3(0, 200, 0), Quaternion.identity);
-            healthSliderInstance.transform.SetParent(GameObject.FindWithTag("Canvas").transform, false);
-            healthSliderInstance.value = 1f; // 初期値は最大値で設定
-            HideHealthBar();
-        }
-        else
-        {
-            Debug.LogError("HealthSliderPrefab not found in Resources.");
-        }
-    }
-
     protected void FixedUpdate()
     {
         Move();
@@ -103,7 +82,7 @@ public abstract class BossEnemy : Enemy
         // 弾幕をすべて破棄する
         DestroyAllProjectiles();
 
-        Instantiate(forcedScrollPrefab, transform.position, Quaternion.identity);
+        if(forcedScrollPrefab != null) Instantiate(forcedScrollPrefab, transform.position, Quaternion.identity);
         Destroy(gameObject);
         HideHealthBar();
     }
@@ -125,7 +104,7 @@ public abstract class BossEnemy : Enemy
         }
     }
 
-    void HideHealthBar()
+    public void HideHealthBar()
     {
         if (healthSliderInstance != null)
         {

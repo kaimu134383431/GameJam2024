@@ -34,7 +34,8 @@ public class NormalEnemy : Enemy
     {
         PlayerTrackingShoot,
         FixedDirectionShoot,
-        NoShoot
+        NoShoot,
+        Radial
     }
 
     protected override void Start()
@@ -58,11 +59,9 @@ public class NormalEnemy : Enemy
             }
         }
 
-        // This part executes only if isActive is true.
         Move();
         Shoot();
     }
-
 
     protected override void Move()
     {
@@ -78,7 +77,6 @@ public class NormalEnemy : Enemy
             case EnemyBehaviorPattern.RushToPlayer:
                 RushToPlayer();
                 break;
-            // 他の移動パターンを追加する場合はここにcaseを追加する
         }
     }
 
@@ -94,7 +92,9 @@ public class NormalEnemy : Enemy
                 break;
             case EnemyShootPattern.NoShoot:
                 break;
-            // 他の射撃パターンを追加する場合はここにcaseを追加する
+            case EnemyShootPattern.Radial:
+                FireRadial();
+                break;
         }
     }
 
@@ -120,6 +120,31 @@ public class NormalEnemy : Enemy
         }
     }
 
+    void FireRadial()
+    {
+        if (Time.time > nextFire)
+        {
+            nextFire = Time.time + fireRate;
+            int bulletCount = 12;
+            float angleStep = 360f / bulletCount;
+            float angle = 0f;
+
+            for (int i = 0; i < bulletCount; i++)
+            {
+                float bulletDirX = bulletSpawn.position.x + Mathf.Sin((angle * Mathf.PI) / 180);
+                float bulletDirY = bulletSpawn.position.y + Mathf.Cos((angle * Mathf.PI) / 180);
+
+                Vector3 bulletVector = new Vector3(bulletDirX, bulletDirY, 0);
+                Vector3 bulletMoveDirection = (bulletVector - bulletSpawn.position).normalized;
+
+                GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
+                bullet.GetComponent<Rigidbody2D>().velocity = bulletMoveDirection * bulletSpeed;
+
+                angle += angleStep;
+            }
+        }
+    }
+
     void RushToPlayer()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
@@ -130,7 +155,6 @@ public class NormalEnemy : Enemy
         }
     }
 
-    // ゲームオブジェクトとの衝突時の処理
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))

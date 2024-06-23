@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class WhiteNoodleBoss : BossEnemy
+public class SobaBoss : BossEnemy
 {
-
     protected virtual void Start()
     {
         base.Start();
@@ -44,18 +43,6 @@ public class WhiteNoodleBoss : BossEnemy
             case 2:
                 FireAllDirections();
                 break;
-            case 3:
-                Fire5WayAimedExplode();
-                break;
-        }
-    }
-
-    protected override void SwitchAttackPhase()
-    {
-        if (Time.time > nextSwitchTime)
-        {
-            attackPhase = (attackPhase + 1) % 4; // 攻撃フェーズを切り替える
-            nextSwitchTime = Time.time + attackSwitchTime;
         }
     }
 
@@ -113,25 +100,6 @@ public class WhiteNoodleBoss : BossEnemy
             bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletMoveDirection.x, bulletMoveDirection.y) * 5f;
 
             angle += angleStep;
-        }
-    }
-
-    void Fire5WayAimedExplode()
-    {
-        int bulletCount = 5;
-        float angleStep = 10f; // 弾の角度間隔（例えば10度ずつ）
-        float startAngle = -angleStep * (bulletCount - 1) / 2; // 開始角度
-
-        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
-        Vector2 playerPosition = playerObject.transform.position; // プレイヤーの現在位置を取得
-
-        for (int i = 0; i < bulletCount; i++)
-        {
-            float angle = startAngle + i * angleStep;
-            Vector2 direction = Quaternion.Euler(0, 0, angle) * (playerPosition - (Vector2)projectileSpawn.position).normalized;
-
-            GameObject bullet = Instantiate(projectilePrefab, projectileSpawn.position, Quaternion.identity);
-            bullet.GetComponent<Rigidbody2D>().velocity = direction * 5f;
         }
     }
 
