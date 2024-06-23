@@ -221,7 +221,12 @@ public class SobaBoss : BossEnemy
 
     public override void TakeDamage(int damage)
     {
-        if (!isInvincible)
+        if (!isUdonDefeated) // UdonBoss が倒されていない場合は無敵
+        {
+            isInvincible = true; // 無敵にする
+        }
+
+        if (!isInvincible) // 無敵でない場合にのみダメージを受ける
         {
             health -= damage;
             if (health <= 0)
@@ -233,20 +238,10 @@ public class SobaBoss : BossEnemy
                 SEManager.Instance.PlaySE("EnemyDamage");
             }
         }
-        else if (isInvincible && isUdonDefeated)
-        {
-            health -= damage;
-            if (health <= 0)
-            {
-                Die();
-            }
-            else
-            {
-                SEManager.Instance.PlaySE("EnemyDamage");
-            }
-        }
+
         UpdateHealthUI();
     }
+
 
     // UdonBoss が倒されたときの処理
     private void OnUdonDefeated()

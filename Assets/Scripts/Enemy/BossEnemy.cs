@@ -58,7 +58,7 @@ public abstract class BossEnemy : Enemy
         }
     }
 
-    public virtual void TakeDamage(int damage)
+    /*public virtual void TakeDamage(int damage)
     {
         if(!isInvincible){
         health -= damage;
@@ -72,7 +72,7 @@ public abstract class BossEnemy : Enemy
             }
         }
         UpdateHealthUI();
-    }
+    }*/
 
     protected override void Die()
     {
