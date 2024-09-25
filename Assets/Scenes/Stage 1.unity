@@ -2135,7 +2135,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5572549981863144032, guid: fde50d290574bac40b14aa5b133a65ca, type: 3}
   bulletSpawn: {fileID: 951272533}
   fireRate: 0.1
-  maxHealth: 3
+  maxHealth: 120
+  invincibleDuration: 0.8
 --- !u!212 &951272532
 SpriteRenderer:
   m_ObjectHideFlags: 0

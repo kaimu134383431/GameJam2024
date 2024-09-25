@@ -2,26 +2,31 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    [SerializeField] float speed = 5f;            // プレイヤーの移動速度
-    [SerializeField] GameObject bulletPrefab;     // 弾のプレハブ
-    [SerializeField] Transform bulletSpawn;       // 弾の生成位置
-    [SerializeField] float fireRate = 0.5f;       // 射撃の間隔
-    [SerializeField] int maxHealth = 3;           // プレイヤーの最大ライフ
+    [SerializeField] float speed = 5f;
+    [SerializeField] GameObject bulletPrefab;
+    [SerializeField] Transform bulletSpawn;
+    [SerializeField] float fireRate = 0.5f;
+    [SerializeField] int maxHealth = 3;
+    [SerializeField] float invincibleDuration = 0.8f; // 無敵時間（秒）
+    
+    private Rigidbody2D rb2D;
+    private float nextFire = 0f;
+    private int currentHealth;
+    private Camera mainCamera;
+    private float halfWidth;
+    private float halfHeight;
 
-    private Rigidbody2D rb2D;             // Rigidbody2Dコンポーネント
-    private float nextFire = 0f;          // 次に弾を撃てる時間
-    private int currentHealth;            // 現在のライフ
-    private Camera mainCamera;            // メインカメラ
-    private float halfWidth;              // プレイヤーの幅の半分
-    private float halfHeight;             // プレイヤーの高さの半分
+    private bool isInvincible = false;    // 無敵状態かどうか
+    private float invincibleTimer = 0f;   // 無敵時間のカウント
+    private SpriteRenderer spriteRenderer; // プレイヤーのスプライトレンダラー
 
     void Start()
     {
-        rb2D = GetComponent<Rigidbody2D>(); // Rigidbody2Dコンポーネントを取得
-        currentHealth = maxHealth;          // ゲーム開始時にライフを最大に設定
-        mainCamera = Camera.main;           // メインカメラを取得
+        rb2D = GetComponent<Rigidbody2D>();
+        currentHealth = maxHealth;
+        mainCamera = Camera.main;
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
-        // プレイヤーの幅と高さを計算
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
         if (sr != null)
         {
@@ -30,16 +35,17 @@ public class PlayerManager : MonoBehaviour
         }
         else
         {
-            halfWidth = 0.5f; // デフォルト値（必要に応じて調整）
-            halfHeight = 0.5f; // デフォルト値（必要に応じて調整）
+            halfWidth = 0.5f;
+            halfHeight = 0.5f;
         }
     }
 
     void Update()
     {
-        Move();                             // プレイヤーの移動
-        Shoot();                            // プレイヤーの射撃
-        ClampPosition();                    // プレイヤーの位置を画面内に制限
+        Move();
+        Shoot();
+        ClampPosition();
+        HandleInvincibility();  // 無敵時間を管理
     }
 
     void Move()
@@ -60,55 +66,83 @@ public class PlayerManager : MonoBehaviour
         {
             SEManager.Instance.PlaySE("PlayerShoot");
             nextFire = Time.time + fireRate;
-            // 弾の生成位置を計算する
             Vector3 newPosition = bulletSpawn.position + new Vector3(1, 0.25f, 0);
-
-            // 弾を生成する
             Instantiate(bulletPrefab, newPosition, bulletSpawn.rotation);
         }
     }
 
     void ClampPosition()
     {
-        // プレイヤーの位置を取得
         Vector3 position = transform.position;
-
-        // カメラのビューの境界を取得
         Vector3 minScreenBounds = mainCamera.ViewportToWorldPoint(new Vector3(0, 0, mainCamera.transform.position.z));
         Vector3 maxScreenBounds = mainCamera.ViewportToWorldPoint(new Vector3(1, 1, mainCamera.transform.position.z));
 
-        // プレイヤーの位置を境界内に制限（プレイヤーのサイズを考慮）
         position.x = Mathf.Clamp(position.x, minScreenBounds.x + halfWidth, maxScreenBounds.x - halfWidth);
         position.y = Mathf.Clamp(position.y, minScreenBounds.y + halfHeight - 0.5f, maxScreenBounds.y - halfHeight);
 
-        // 位置を更新
         transform.position = position;
     }
 
     public void TakeDamage(int amount)
     {
+        if (isInvincible) return;  // 無敵時間中はダメージを無効化
+
         SEManager.Instance.PlaySE("PlayerDamage");
         currentHealth -= amount;
+
         if (currentHealth <= 0)
         {
             Die();
+        }
+        else
+        {
+            StartInvincibility();  // ダメージを受けたら無敵状態にする
         }
     }
 
     void Die()
     {
         SEManager.Instance.PlaySE("PlayerDead");
-        // プレイヤーが死んだときの処理
         Debug.Log("Player died!");
-        // ここにゲームオーバーの処理を追加することができます
         Destroy(gameObject);
         GameOver();
     }
 
     void GameOver()
     {
-        // ゲームオーバー処理
         UnityEngine.SceneManagement.SceneManager.LoadScene("GameOverScene");
     }
 
+    void StartInvincibility()
+    {
+        isInvincible = true;
+        invincibleTimer = invincibleDuration;
+
+        // 半透明にする
+        Color color = spriteRenderer.color;
+        color.a = 0.5f; // 透明度を50%に設定
+        spriteRenderer.color = color;
+    }
+
+    void HandleInvincibility()
+    {
+        if (isInvincible)
+        {
+            invincibleTimer -= Time.deltaTime;
+
+            // 点滅処理
+            spriteRenderer.enabled = Mathf.FloorToInt(invincibleTimer * 10) % 2 == 0;
+
+            if (invincibleTimer <= 0f)
+            {
+                isInvincible = false;
+                spriteRenderer.enabled = true;  // スプライトを表示状態に戻す
+
+                // 元の透明度に戻す
+                Color color = spriteRenderer.color;
+                color.a = 1f; // 透明度を元に戻す
+                spriteRenderer.color = color;
+            }
+        }
+    }
 }
