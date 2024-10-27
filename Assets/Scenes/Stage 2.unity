@@ -11906,7 +11906,6 @@ MonoBehaviour:
   healthSliderPrefab: {fileID: 2079416397}
   canvas: {fileID: 1037900137}
   playerTransform: {fileID: 3980402505917612759}
-  healthBarImage: {fileID: 0}
   shimejiSprite: {fileID: 21300000, guid: 85c982a2b7d77274caef252e14f88bce, type: 3}
   soySauceSprite: {fileID: 21300000, guid: cc9a3ce4341f9304097f2d4b3e64533c, type: 3}
   onionSprite: {fileID: 21300000, guid: a7b08d2ac4a87714aafd143ad9667935, type: 3}
@@ -12150,7 +12149,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5572549981863144032, guid: fde50d290574bac40b14aa5b133a65ca, type: 3}
   bulletSpawn: {fileID: 3980402505917612759}
   fireRate: 0.1
-  maxHealth: 3
+  maxHealth: 120
   invincibleDuration: 0.8
 --- !u!4 &5400331399449691444
 Transform:
