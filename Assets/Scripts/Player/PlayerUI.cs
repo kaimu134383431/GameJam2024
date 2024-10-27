@@ -9,12 +9,15 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] GameObject itemUIContainer; // アイテムUIを配置する親オブジェクト
     [SerializeField] GameObject itemUIPrefab; // アイテムUIのプレハブ
     [SerializeField] GameObject scorePopupPrefab; // スコアポップアップのプレハブ
+    [SerializeField] GameObject healthSliderPrefab; // HPバーのプレハブを追加
     [SerializeField] Canvas canvas; // スコアポップアップを表示するキャンバス
     [SerializeField] Transform playerTransform; // プレイヤーのTransform
+    private Slider healthSliderInstance;
 
     private Dictionary<Item.ItemType, GameObject> itemUIInstances = new Dictionary<Item.ItemType, GameObject>(); // アイテムUIインスタンスを管理
     private Dictionary<Item.ItemType, Sprite> itemSprites = new Dictionary<Item.ItemType, Sprite>(); // アイテムスプライトを管理
     private Camera mainCamera;
+    private PlayerManager playerManager; // PlayerManagerのインスタンスを保持する変数
 
     [SerializeField] private Sprite shimejiSprite;
     [SerializeField] private Sprite soySauceSprite;
@@ -40,8 +43,18 @@ public class PlayerUI : MonoBehaviour
         itemSprites[Item.ItemType.Egg] = eggSprite;
         itemSprites[Item.ItemType.Cheese] = cheeseSprite;
         itemSprites[Item.ItemType.Bacon] = baconSprite;
+        playerManager = FindObjectOfType<PlayerManager>(); // PlayerManagerのインスタンスを取得
+
+        // HPバーのインスタンスを作成
+        GameObject healthSliderObject = Instantiate(healthSliderPrefab, canvas.transform);
+        healthSliderInstance = healthSliderObject.GetComponent<Slider>(); // Sliderコンポーネントを取得
 
         UpdateUI();
+    }
+
+    void FixedUpdate()
+    {
+        UpdateHealthUI();
     }
 
     public void PickUpItem(Item item)
@@ -141,7 +154,16 @@ public class PlayerUI : MonoBehaviour
         }
     }
 
-    void ScorePopup(int scoreToAdd, int spriteIndex)
+    void UpdateHealthUI()
+    {
+        if (healthSliderInstance != null && playerManager != null) // playerManagerがnullでないことを確認
+        {
+            // HPの割合を計算してスライダーに反映
+            healthSliderInstance.value = (float)playerManager.GetHealth() / playerManager.GetMaxHealth();
+        }
+    }
+
+        void ScorePopup(int scoreToAdd, int spriteIndex)
     {
         // プレイヤーの頭上に表示する位置を計算
         Vector3 worldPosition = playerTransform.position + new Vector3(1.0f, 0.5f, 0); // 1.5fは頭上のオフセット

@@ -8,10 +8,8 @@ public abstract class BossEnemy : Enemy
     [SerializeField] protected float fireRate = 1f;
     [SerializeField] protected GameObject forcedScrollPrefab;
     protected float nextFire = 0f;
-
     [SerializeField] protected Slider healthSliderPrefab; // 体力バーのPrefab
     protected Slider healthSliderInstance; // 体力バーのインスタンス
-
     protected int attackPhase = 0; // 現在の攻撃フェーズ
     protected float attackSwitchTime = 5f; // 各攻撃フェーズの持続時間
     protected float nextSwitchTime = 0f; // 次の攻撃フェーズに移る時間
@@ -49,7 +47,7 @@ public abstract class BossEnemy : Enemy
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTrigerEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
@@ -63,11 +61,9 @@ public abstract class BossEnemy : Enemy
         SEManager.Instance.PlaySE("BossDead");
         DropItem();
         Destroy(healthSliderInstance.gameObject); // 体力バーのインスタンスを破棄
-
         // 弾幕をすべて破棄する
         DestroyAllProjectiles();
-
-        if(forcedScrollPrefab != null) Instantiate(forcedScrollPrefab, transform.position, Quaternion.identity);
+        if (forcedScrollPrefab != null) Instantiate(forcedScrollPrefab, transform.position, Quaternion.identity);
         Destroy(gameObject);
         HideHealthBar();
     }
@@ -78,6 +74,15 @@ public abstract class BossEnemy : Enemy
         if (healthSliderInstance != null)
         {
             healthSliderInstance.value = normalizedHealth; // 体力バーの値を更新
+
+            // 体力バーのサイズを小さくして右寄せ
+            RectTransform rt = healthSliderInstance.GetComponent<RectTransform>();
+            rt.sizeDelta = new Vector2(325, 50); // 幅と高さを設定
+            rt.anchorMin = new Vector2(1, 0.5f); // 右側に寄せる
+            rt.anchorMax = new Vector2(1, 0.5f); // 右側に寄せる
+            rt.pivot = new Vector2(1, 0.5f); // 中心を右端に設定
+            rt.anchoredPosition = new Vector2(-10, 195); // 少し左にオフセット
+            healthSliderInstance.interactable = false;
         }
     }
 

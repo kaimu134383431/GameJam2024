@@ -95,7 +95,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6410645260747543183}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -142,6 +142,8 @@ MonoBehaviour:
   amplitude: 5
   frequency: 0.25
   rushSpeed: 7
+  circleRadius: 3
+  circleSpeed: 2
   bulletPrefab: {fileID: 8675260324645781853, guid: b2ea773e9eb0afd4595d52a2d8de709f, type: 3}
   bulletSpawn: {fileID: 1312231805377363965}
   fireRate: 1

@@ -191,7 +191,7 @@ public class NormalEnemy : Enemy
         rb2D.position = circlePosition;
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTrigerEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {

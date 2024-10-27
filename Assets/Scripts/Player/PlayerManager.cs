@@ -8,17 +8,17 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] float fireRate = 0.5f;
     [SerializeField] int maxHealth = 3;
     [SerializeField] float invincibleDuration = 0.8f; // 無敵時間（秒）
-    
+
     private Rigidbody2D rb2D;
     private float nextFire = 0f;
     private int currentHealth;
     private Camera mainCamera;
     private float halfWidth;
     private float halfHeight;
-
-    private bool isInvincible = false;    // 無敵状態かどうか
-    private float invincibleTimer = 0f;   // 無敵時間のカウント
+    private bool isInvincible = false; // 無敵状態かどうか
+    private float invincibleTimer = 0f; // 無敵時間のカウント
     private SpriteRenderer spriteRenderer; // プレイヤーのスプライトレンダラー
+
 
     void Start()
     {
@@ -26,7 +26,6 @@ public class PlayerManager : MonoBehaviour
         currentHealth = maxHealth;
         mainCamera = Camera.main;
         spriteRenderer = GetComponent<SpriteRenderer>();
-
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
         if (sr != null)
         {
@@ -52,10 +51,8 @@ public class PlayerManager : MonoBehaviour
     {
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
-
         float tmpspeed = speed;
         if (Input.GetKey(KeyCode.LeftShift)) tmpspeed /= 2;
-
         Vector2 movement = new Vector2(moveX, moveY) * tmpspeed;
         rb2D.velocity = movement;
     }
@@ -76,20 +73,16 @@ public class PlayerManager : MonoBehaviour
         Vector3 position = transform.position;
         Vector3 minScreenBounds = mainCamera.ViewportToWorldPoint(new Vector3(0, 0, mainCamera.transform.position.z));
         Vector3 maxScreenBounds = mainCamera.ViewportToWorldPoint(new Vector3(1, 1, mainCamera.transform.position.z));
-
         position.x = Mathf.Clamp(position.x, minScreenBounds.x + halfWidth, maxScreenBounds.x - halfWidth);
         position.y = Mathf.Clamp(position.y, minScreenBounds.y + halfHeight - 0.5f, maxScreenBounds.y - halfHeight);
-
         transform.position = position;
     }
 
     public void TakeDamage(int amount)
     {
         if (isInvincible) return;  // 無敵時間中はダメージを無効化
-
         SEManager.Instance.PlaySE("PlayerDamage");
         currentHealth -= amount;
-
         if (currentHealth <= 0)
         {
             Die();
@@ -97,6 +90,7 @@ public class PlayerManager : MonoBehaviour
         else
         {
             StartInvincibility();  // ダメージを受けたら無敵状態にする
+
         }
     }
 
@@ -117,7 +111,6 @@ public class PlayerManager : MonoBehaviour
     {
         isInvincible = true;
         invincibleTimer = invincibleDuration;
-
         // 半透明にする
         Color color = spriteRenderer.color;
         color.a = 0.5f; // 透明度を50%に設定
@@ -129,20 +122,29 @@ public class PlayerManager : MonoBehaviour
         if (isInvincible)
         {
             invincibleTimer -= Time.deltaTime;
-
             // 点滅処理
             spriteRenderer.enabled = Mathf.FloorToInt(invincibleTimer * 10) % 2 == 0;
-
             if (invincibleTimer <= 0f)
             {
                 isInvincible = false;
                 spriteRenderer.enabled = true;  // スプライトを表示状態に戻す
-
                 // 元の透明度に戻す
                 Color color = spriteRenderer.color;
                 color.a = 1f; // 透明度を元に戻す
                 spriteRenderer.color = color;
             }
         }
+    }
+
+    // 現在のHPを返すメソッドを追加
+    public int GetHealth()
+    {
+        return currentHealth;
+    }
+
+    // 最大HPを返すメソッドを追加
+    public int GetMaxHealth()
+    {
+        return maxHealth;
     }
 }
