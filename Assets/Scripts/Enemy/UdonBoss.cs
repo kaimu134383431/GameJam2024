@@ -30,6 +30,17 @@ public class UdonBoss : BossEnemy
         
     }
 
+    protected override void FixedUpdate()
+    {
+        // 親クラスのFixedUpdateメソッドを呼び出す
+        base.FixedUpdate();
+
+        // オフセットを変更する
+        RectTransform rt = healthSliderInstance.GetComponent<RectTransform>();
+        rt.anchoredPosition = new Vector2(-10, 165); // 少し左にオフセット
+    }
+
+
     IEnumerator FireRandomBullets()
     {
         while (true)

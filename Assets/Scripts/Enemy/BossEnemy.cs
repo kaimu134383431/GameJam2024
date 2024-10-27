@@ -16,8 +16,14 @@ public abstract class BossEnemy : Enemy
     protected Vector3 location;
     protected bool isInvincible;
 
-    protected void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
+        RectTransform rt = healthSliderInstance.GetComponent<RectTransform>();
+        rt.sizeDelta = new Vector2(325, 50); // 幅と高さを設定
+        rt.anchorMin = new Vector2(1, 0.5f); // 右側に寄せる
+        rt.anchorMax = new Vector2(1, 0.5f); // 右側に寄せる
+        rt.pivot = new Vector2(1, 0.5f); // 中心を右端に設定
+        rt.anchoredPosition = new Vector2(-10, 195); // 少し左にオフセット
         UpdateHealthUI();
         Move();
         Shoot();
@@ -75,13 +81,13 @@ public abstract class BossEnemy : Enemy
         {
             healthSliderInstance.value = normalizedHealth; // 体力バーの値を更新
 
-            // 体力バーのサイズを小さくして右寄せ
+            /*// 体力バーのサイズを小さくして右寄せ
             RectTransform rt = healthSliderInstance.GetComponent<RectTransform>();
             rt.sizeDelta = new Vector2(325, 50); // 幅と高さを設定
             rt.anchorMin = new Vector2(1, 0.5f); // 右側に寄せる
             rt.anchorMax = new Vector2(1, 0.5f); // 右側に寄せる
             rt.pivot = new Vector2(1, 0.5f); // 中心を右端に設定
-            rt.anchoredPosition = new Vector2(-10, 195); // 少し左にオフセット
+            rt.anchoredPosition = new Vector2(-10, 195); // 少し左にオフセット*/
             healthSliderInstance.interactable = false;
         }
     }

@@ -12,6 +12,10 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] GameObject healthSliderPrefab; // HPバーのプレハブを追加
     [SerializeField] Canvas canvas; // スコアポップアップを表示するキャンバス
     [SerializeField] Transform playerTransform; // プレイヤーのTransform
+
+    private const float maxDistance = 5f; // 最大距離（この距離で完全に透明になる）
+    private const float minDistance = 1f; // 最小距離（この距離で完全に表示される）
+
     private Slider healthSliderInstance;
 
     private Dictionary<Item.ItemType, GameObject> itemUIInstances = new Dictionary<Item.ItemType, GameObject>(); // アイテムUIインスタンスを管理

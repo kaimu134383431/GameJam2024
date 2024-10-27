@@ -1671,7 +1671,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -457.49988, y: 125.00003}
+  m_AnchoredPosition: {x: -400, y: 194.45}
   m_SizeDelta: {x: 325, y: 50}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &726154035
@@ -2273,7 +2273,6 @@ MonoBehaviour:
   healthSliderPrefab: {fileID: 726154033}
   canvas: {fileID: 1037900137}
   playerTransform: {fileID: 951272533}
-  healthBarImage: {fileID: 0}
   shimejiSprite: {fileID: 21300000, guid: 85c982a2b7d77274caef252e14f88bce, type: 3}
   soySauceSprite: {fileID: 21300000, guid: cc9a3ce4341f9304097f2d4b3e64533c, type: 3}
   onionSprite: {fileID: 21300000, guid: a7b08d2ac4a87714aafd143ad9667935, type: 3}
