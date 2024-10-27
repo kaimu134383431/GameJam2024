@@ -66,10 +66,10 @@ public class SobaBoss : BossEnemy
             switch (attackPhase)
             {
                 case 0:
-                    Fire5Way();
+                    FireAllDirections();
                     break;
                 case 1:
-                    FireAllDirections();
+                    Fire5Way();
                     break;
             }
         }
