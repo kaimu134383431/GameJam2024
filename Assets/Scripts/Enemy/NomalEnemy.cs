@@ -19,9 +19,13 @@ public class NormalEnemy : Enemy
     [SerializeField] private float fireRate = 1f;
     [SerializeField] private float bulletSpeed = 10f;
 
+    [SerializeField] private float chaseDuration = 3f; // ’ÇÕ‚ğ‘±‚¯‚é•b”
+    private float chaseStartTime;
+
     private float nextFire = 0f;
     private float startTime;
     private bool isActive = false;
+    private bool isStarted = false;
 
     private Renderer renderer;
 
@@ -68,24 +72,46 @@ public class NormalEnemy : Enemy
     }
 
     protected override void Move()
+{
+    // “G‚ª‰æ–Ê“à‚É“ü‚Á‚Ä‚¢‚é‚©‚Ç‚¤‚©‚ğŠm”F
+    if (!IsVisible())
     {
-        switch (behaviorPattern)
-        {
-            case EnemyBehaviorPattern.StraightMove:
-                rb2D.velocity = moveDirection * speed;
-                break;
-            case EnemyBehaviorPattern.SinWaveMove:
-                float horizontalMovement = amplitude * Mathf.Sin(5 * Mathf.PI * frequency * (Time.time - startTime));
-                rb2D.velocity = new Vector2(-speed, horizontalMovement);
-                break;
-            case EnemyBehaviorPattern.RushToPlayer:
-                RushToPlayer();
-                break;
-            case EnemyBehaviorPattern.CircleMove:
-                CircleMove();
-                break;
-        }
+        rb2D.velocity = Vector2.zero; // ‰æ–ÊŠO‚È‚ç‘¬“x‚ğ0‚É
+        return;
     }
+
+    
+    switch (behaviorPattern)
+    {
+        case EnemyBehaviorPattern.StraightMove:
+            rb2D.velocity = moveDirection * speed;
+            break;
+        case EnemyBehaviorPattern.SinWaveMove:
+            float horizontalMovement = amplitude * Mathf.Sin(5 * Mathf.PI * frequency * (Time.time - startTime));
+            rb2D.velocity = new Vector2(-speed, horizontalMovement);
+            break;
+        case EnemyBehaviorPattern.RushToPlayer:
+            if (!isStarted)
+            {
+                isStarted = true;
+                chaseStartTime = Time.time;
+            }
+
+            // ‹K’è•b‚ğŒo‰ß‚µ‚½‚ç’ÇÕ‚ğ‚â‚ß‚é
+            if (Time.time - chaseStartTime <= chaseDuration)
+            {
+                RushToPlayer();
+            }
+            else
+            {
+                //rb2D.velocity = Vector2.zero; // ’â~
+            }
+            break;
+        case EnemyBehaviorPattern.CircleMove:
+            CircleMove();
+            break;
+    }
+}
 
     void Shoot()
     {
@@ -189,6 +215,12 @@ public class NormalEnemy : Enemy
         float angle = (Time.time - startTime) * circleSpeed;
         Vector2 circlePosition = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * circleRadius;
         rb2D.position = circlePosition;
+    }
+
+    private bool IsVisible()
+    {
+        Vector3 screenPoint = Camera.main.WorldToViewportPoint(transform.position);
+        return screenPoint.x >= -0.2 && screenPoint.x <= 1.2 && screenPoint.y >= -0.2 && screenPoint.y <= 1.2;
     }
 
     void OnTrigerEnter2D(Collision2D collision)
