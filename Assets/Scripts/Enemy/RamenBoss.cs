@@ -4,7 +4,7 @@ using System.Collections;
 public class RamenBoss : BossEnemy
 {
     public GameObject explodePrefab;
-
+ 
     protected override void Start()
     {
         base.Start();
