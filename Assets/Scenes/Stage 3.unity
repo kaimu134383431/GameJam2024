@@ -2968,6 +2968,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7313527134691075964, guid: 3a8afe930a039bb459ced145fd59ee4e, type: 3}
+      propertyPath: health
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7313527134691075964, guid: 3a8afe930a039bb459ced145fd59ee4e, type: 3}
+      propertyPath: maxHealth
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7313527134691075964, guid: 3a8afe930a039bb459ced145fd59ee4e, type: 3}
       propertyPath: explodePrefab
       value: 
       objectReference: {fileID: 1276397254434852724, guid: 47c56aa705f29ea4eb845d55855d43b7, type: 3}
@@ -7390,7 +7398,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5572549981863144032, guid: fde50d290574bac40b14aa5b133a65ca, type: 3}
   bulletSpawn: {fileID: 3980402505917612759}
   fireRate: 0.1
-  maxHealth: 120
+  maxHealth: 24
   invincibleDuration: 0.8
 --- !u!4 &5400331399449691444
 Transform:

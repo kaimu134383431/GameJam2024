@@ -537,6 +537,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -3267648400596234379, guid: 9fa24bef2507faf45914d8763af48742, type: 3}
+      propertyPath: maxHealth
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: -3267648400596234379, guid: 9fa24bef2507faf45914d8763af48742, type: 3}
       propertyPath: forcedScrollPrefab
       value: 
       objectReference: {fileID: 0}
@@ -8258,6 +8262,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 1242394586}
     m_Modifications:
     - target: {fileID: 2342133683060537042, guid: 6d85b02f762524e45875558302a10f8d, type: 3}
+      propertyPath: health
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342133683060537042, guid: 6d85b02f762524e45875558302a10f8d, type: 3}
+      propertyPath: maxHealth
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342133683060537042, guid: 6d85b02f762524e45875558302a10f8d, type: 3}
       propertyPath: healthSliderPrefab
       value: 
       objectReference: {fileID: 1052534143657552222, guid: 1029eba4f2232af4390c060d5d738af6, type: 3}
@@ -11549,7 +11561,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5572549981863144032, guid: fde50d290574bac40b14aa5b133a65ca, type: 3}
   bulletSpawn: {fileID: 3980402505917612759}
   fireRate: 0.1
-  maxHealth: 120
+  maxHealth: 24
   invincibleDuration: 0.8
 --- !u!4 &5400331399449691444
 Transform:
