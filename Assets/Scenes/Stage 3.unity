@@ -1799,6 +1799,8 @@ MonoBehaviour:
   fireRate: 0.4
   forcedScrollPrefab: {fileID: 7076910129693467389, guid: 8c661dfe10eb4ab40b0ed582cce04474, type: 3}
   healthSliderPrefab: {fileID: 1052534143657552222, guid: 2f7b8ef139738014499e923254840d7c, type: 3}
+  waitingTime: 1
+  isWait: 1
   offset: 10
   explodePrefab: {fileID: 1826179687490285905, guid: fd6f839bdc2c62e489116c8009e045a1, type: 3}
 --- !u!1001 &556983776
@@ -2996,6 +2998,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1501641625230791021, guid: 02620fb57449bee4f82846770769ec2e, type: 3}
     - target: {fileID: 7313527134691075964, guid: 3a8afe930a039bb459ced145fd59ee4e, type: 3}
+      propertyPath: waitingTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7313527134691075964, guid: 3a8afe930a039bb459ced145fd59ee4e, type: 3}
       propertyPath: explodePrefab
       value: 
       objectReference: {fileID: 1276397254434852724, guid: 47c56aa705f29ea4eb845d55855d43b7, type: 3}
@@ -3460,7 +3466,7 @@ Transform:
   m_GameObject: {fileID: 891974849}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 106, y: 0.26, z: 0}
+  m_LocalPosition: {x: 106, y: -1.6, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 1
   m_Children: []

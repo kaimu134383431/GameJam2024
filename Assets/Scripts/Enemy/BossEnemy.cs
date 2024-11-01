@@ -16,8 +16,18 @@ public abstract class BossEnemy : Enemy
     protected Vector3 location;
     protected bool isInvincible;
 
+    //勝手に追加
+    [SerializeField] protected float waitingTime = 1f;
+    public bool isWait = true; //プレイヤーがボスに到達したらfalse
+
     protected virtual void FixedUpdate()
     {
+        if (isWait) return;
+        if (waitingTime > 0)
+        {
+            waitingTime -= Time.deltaTime;
+            return;
+        }
         RectTransform rt = healthSliderInstance.GetComponent<RectTransform>();
         rt.sizeDelta = new Vector2(325, 50); // 幅と高さを設定
         rt.anchorMin = new Vector2(1, 0.5f); // 右側に寄せる

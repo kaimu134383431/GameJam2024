@@ -176,6 +176,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
-  splitProjectilePrefab: {fileID: 146014439715910758, guid: ff4e496b26c7b3348a2c9763e2c30ede, type: 3}
+  splitProjectilePrefab: {fileID: 1501641625230791021, guid: 02620fb57449bee4f82846770769ec2e, type: 3}
   explosionDelay: 2
   splitSpeed: 5

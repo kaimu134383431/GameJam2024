@@ -19,6 +19,9 @@ public class ForcedScroll : MonoBehaviour
     // プレイヤーの移動速度
     private float playerMoveSpeed;
 
+    //追加
+    //bool is
+
     void Start()
     {
         // スクロール速度を計算
@@ -88,6 +91,8 @@ public class ForcedScroll : MonoBehaviour
                 if (boss != null) { 
                     boss.ShowHealthBar();
                     boss.setInvincible(false);
+                    //追加
+                    boss.isWait = false;
                 }
                 Destroy(gameObject);
             }
