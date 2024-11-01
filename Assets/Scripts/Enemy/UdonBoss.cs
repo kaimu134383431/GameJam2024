@@ -189,7 +189,7 @@ public class UdonBoss : BossEnemy
 
     void FireRadial()
     {
-        int bulletCount = 12;
+        int bulletCount = 8;
         float angleStep = 360f / bulletCount;
         float angle = 0f;
 
@@ -210,7 +210,7 @@ public class UdonBoss : BossEnemy
 
     void FireAllDirections()
     {
-        int bulletCount = 32;
+        int bulletCount = 16;
         float angleStep = 360f / bulletCount;
         float angle = 0f;
 
