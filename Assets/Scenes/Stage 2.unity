@@ -538,7 +538,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -3267648400596234379, guid: 9fa24bef2507faf45914d8763af48742, type: 3}
       propertyPath: maxHealth
-      value: 250
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: -3267648400596234379, guid: 9fa24bef2507faf45914d8763af48742, type: 3}
+      propertyPath: waitingTime
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -3267648400596234379, guid: 9fa24bef2507faf45914d8763af48742, type: 3}
       propertyPath: forcedScrollPrefab
@@ -1941,6 +1945,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1312231805377363965, guid: 203d00babd0b4b34fa5673140ab688f9, type: 3}
   m_PrefabInstance: {fileID: 470554799}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &475829265
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2117815037387414563, guid: 4f09df8280890e14fa8457fed682ad9a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 106
+      objectReference: {fileID: 0}
+    - target: {fileID: 2117815037387414563, guid: 4f09df8280890e14fa8457fed682ad9a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2117815037387414563, guid: 4f09df8280890e14fa8457fed682ad9a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2117815037387414563, guid: 4f09df8280890e14fa8457fed682ad9a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2117815037387414563, guid: 4f09df8280890e14fa8457fed682ad9a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2117815037387414563, guid: 4f09df8280890e14fa8457fed682ad9a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2117815037387414563, guid: 4f09df8280890e14fa8457fed682ad9a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2117815037387414563, guid: 4f09df8280890e14fa8457fed682ad9a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2117815037387414563, guid: 4f09df8280890e14fa8457fed682ad9a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2117815037387414563, guid: 4f09df8280890e14fa8457fed682ad9a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7183841411292841096, guid: 4f09df8280890e14fa8457fed682ad9a, type: 3}
+      propertyPath: m_Name
+      value: Goal (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4f09df8280890e14fa8457fed682ad9a, type: 3}
 --- !u!1001 &483225531
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2428,7 +2489,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startPosition: {x: 0, y: 0, z: 0}
-  endPosition: {x: 0, y: 0, z: 0}
+  endPosition: {x: 80, y: 0, z: 0}
   moveTime: 40
   boss: {fileID: 1565154037}
   isToGoal: 0
@@ -2852,6 +2913,8 @@ MonoBehaviour:
   fireRate: 0.4
   forcedScrollPrefab: {fileID: 7076910129693467389, guid: 8c661dfe10eb4ab40b0ed582cce04474, type: 3}
   healthSliderPrefab: {fileID: 1052534143657552222, guid: 2f7b8ef139738014499e923254840d7c, type: 3}
+  waitingTime: 1
+  isWait: 1
   offset: 10
   explodePrefab: {fileID: 1826179687490285905, guid: fd6f839bdc2c62e489116c8009e045a1, type: 3}
 --- !u!1001 &555212499
@@ -4243,7 +4306,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &891974850
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8267,7 +8330,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2342133683060537042, guid: 6d85b02f762524e45875558302a10f8d, type: 3}
       propertyPath: maxHealth
-      value: 500
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342133683060537042, guid: 6d85b02f762524e45875558302a10f8d, type: 3}
+      propertyPath: waitingTime
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2342133683060537042, guid: 6d85b02f762524e45875558302a10f8d, type: 3}
       propertyPath: healthSliderPrefab
@@ -11663,6 +11730,7 @@ SceneRoots:
   - {fileID: 1037900138}
   - {fileID: 1578613261}
   - {fileID: 891974851}
+  - {fileID: 475829265}
   - {fileID: 2055161774}
   - {fileID: 514336673}
   - {fileID: 919525291}

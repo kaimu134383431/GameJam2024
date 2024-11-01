@@ -22,12 +22,6 @@ public abstract class BossEnemy : Enemy
 
     protected virtual void FixedUpdate()
     {
-        if (isWait) return;
-        if (waitingTime > 0)
-        {
-            waitingTime -= Time.deltaTime;
-            return;
-        }
         RectTransform rt = healthSliderInstance.GetComponent<RectTransform>();
         rt.sizeDelta = new Vector2(325, 50); // 幅と高さを設定
         rt.anchorMin = new Vector2(1, 0.5f); // 右側に寄せる
@@ -36,6 +30,14 @@ public abstract class BossEnemy : Enemy
         rt.anchoredPosition = new Vector2(-10, 195); // 少し左にオフセット
         UpdateHealthUI();
         Move();
+
+        if (isWait) return;
+        if (waitingTime > 0)
+        {
+            waitingTime -= Time.deltaTime;
+            return;
+        }
+
         Shoot();
         SwitchAttackPhase();
     }

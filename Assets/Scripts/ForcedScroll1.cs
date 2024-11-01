@@ -35,6 +35,8 @@ public class ForcedScroll1 : MonoBehaviour
                 {
                     boss.ShowHealthBar();
                     boss.setInvincible(false);
+                    //’Ç‰Á
+                    boss.isWait = false;
                 }
                 Destroy(gameObject);
             }
