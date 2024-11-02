@@ -95,6 +95,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   fadeDuration: 1
+  displayDuration: 0
   itemSprites:
   - {fileID: 21300000, guid: dead535fa40bd7541adbf3a5d80e939d, type: 3}
   - {fileID: 21300000, guid: c7f4dbdd4eb1e694aafe25d110bfcd75, type: 3}

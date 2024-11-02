@@ -6,7 +6,7 @@ public class ScorePopup : MonoBehaviour
 {
     public float moveSpeed = 2f;
     public float fadeDuration = 1f;
-    public float displayDuration = 2f; // 表示時間
+    public float displayDuration = 0f; // 表示時間
 
     [SerializeField] private Sprite[] itemSprites; // スプライトの配列
 
