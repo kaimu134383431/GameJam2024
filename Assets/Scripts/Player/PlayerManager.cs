@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    [SerializeField] float speed = 4f;
+    [SerializeField] float speed = 3f;
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] Transform bulletSpawn;
     [SerializeField] float fireRate = 0.5f;
@@ -53,8 +53,8 @@ public class PlayerManager : MonoBehaviour
         float moveY = Input.GetAxisRaw("Vertical");
         float tmpspeed = speed;
         if (Input.GetKey(KeyCode.LeftShift)) tmpspeed /= 2;
-        Vector2 movement = new Vector2(moveX, moveY) * tmpspeed;
-        rb2D.velocity = movement;
+        Vector2 movement = new Vector2(moveX, moveY);
+        rb2D.velocity = movement.normalized * tmpspeed;
     }
 
     void Shoot()
