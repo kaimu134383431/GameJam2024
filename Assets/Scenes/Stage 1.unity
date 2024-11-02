@@ -172,6 +172,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
+      propertyPath: damage
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
       propertyPath: shootPattern
       value: 1
       objectReference: {fileID: 0}
@@ -294,6 +298,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
+      propertyPath: damage
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6410645260747543183, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
       propertyPath: m_Name
       value: NormalSomen (1)
@@ -359,6 +367,10 @@ PrefabInstance:
     - target: {fileID: 1312231805377363965, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
+      propertyPath: damage
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
       propertyPath: rushSpeed
@@ -437,6 +449,10 @@ PrefabInstance:
     - target: {fileID: 1312231805377363965, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
+      propertyPath: damage
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
       propertyPath: rushSpeed
@@ -548,6 +564,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
+      propertyPath: damage
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
       propertyPath: shootPattern
       value: 1
       objectReference: {fileID: 0}
@@ -621,6 +641,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
+      propertyPath: damage
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6410645260747543183, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
       propertyPath: m_Name
       value: NormalSomen (35)
@@ -687,6 +711,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
+      propertyPath: damage
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6410645260747543183, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
       propertyPath: m_Name
       value: NormalSomen
@@ -752,6 +780,10 @@ PrefabInstance:
     - target: {fileID: 1312231805377363965, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
+      propertyPath: damage
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
       propertyPath: shootPattern
@@ -1149,6 +1181,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5510450784967796544, guid: 007e9ee746217774095c0a428475a25e, type: 3}
+      propertyPath: damage
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5510450784967796544, guid: 007e9ee746217774095c0a428475a25e, type: 3}
       propertyPath: health
       value: 250
       objectReference: {fileID: 0}
@@ -1364,6 +1400,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
+      propertyPath: damage
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
       propertyPath: shootPattern
       value: 1
       objectReference: {fileID: 0}
@@ -1522,6 +1562,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
+      propertyPath: damage
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
       propertyPath: fireRate
       value: 0.555
       objectReference: {fileID: 0}
@@ -1606,6 +1650,10 @@ PrefabInstance:
     - target: {fileID: 1312231805377363965, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
+      propertyPath: damage
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
       propertyPath: health
@@ -1950,6 +1998,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
+      propertyPath: damage
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
       propertyPath: rushSpeed
       value: 3
       objectReference: {fileID: 0}
@@ -2018,6 +2070,10 @@ PrefabInstance:
     - target: {fileID: 1312231805377363965, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
+      propertyPath: damage
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
       propertyPath: shootPattern
@@ -2342,6 +2398,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
+      propertyPath: damage
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
       propertyPath: rushSpeed
       value: 3
       objectReference: {fileID: 0}
@@ -2418,6 +2478,10 @@ PrefabInstance:
     - target: {fileID: 1312231805377363965, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
+      propertyPath: damage
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
       propertyPath: shootPattern
@@ -2719,6 +2783,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
+      propertyPath: damage
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
       propertyPath: rushSpeed
       value: 3
       objectReference: {fileID: 0}
@@ -2797,6 +2865,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
+      propertyPath: damage
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
       propertyPath: rushSpeed
       value: 3
       objectReference: {fileID: 0}
@@ -2873,6 +2945,10 @@ PrefabInstance:
     - target: {fileID: 1312231805377363965, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
+      propertyPath: damage
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
       propertyPath: rushSpeed
@@ -3019,6 +3095,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
+      propertyPath: damage
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
       propertyPath: shootPattern
       value: 1
       objectReference: {fileID: 0}
@@ -3099,6 +3179,10 @@ PrefabInstance:
     - target: {fileID: 1312231805377363965, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
+      propertyPath: damage
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
       propertyPath: health
@@ -3289,6 +3373,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
+      propertyPath: damage
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
       propertyPath: rushSpeed
       value: 3
       objectReference: {fileID: 0}
@@ -3365,6 +3453,10 @@ PrefabInstance:
     - target: {fileID: 1312231805377363965, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
+      propertyPath: damage
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
       propertyPath: rushSpeed
@@ -3445,6 +3537,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
+      propertyPath: damage
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
       propertyPath: rushSpeed
       value: 3
       objectReference: {fileID: 0}
@@ -3521,6 +3617,10 @@ PrefabInstance:
     - target: {fileID: 1312231805377363965, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
+      propertyPath: damage
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
       propertyPath: fireRate
@@ -3601,6 +3701,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
+      propertyPath: damage
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
       propertyPath: shootPattern
       value: 1
       objectReference: {fileID: 0}
@@ -3673,6 +3777,10 @@ PrefabInstance:
     - target: {fileID: 1312231805377363965, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
+      propertyPath: damage
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
       propertyPath: shootPattern
@@ -3755,6 +3863,10 @@ PrefabInstance:
     - target: {fileID: 1312231805377363965, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
+      propertyPath: damage
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
       propertyPath: health
@@ -3841,6 +3953,10 @@ PrefabInstance:
     - target: {fileID: 1312231805377363965, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
+      propertyPath: damage
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
       propertyPath: rushSpeed
@@ -3989,6 +4105,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
+      propertyPath: damage
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
       propertyPath: shootPattern
       value: 1
       objectReference: {fileID: 0}
@@ -4079,6 +4199,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
+      propertyPath: damage
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
       propertyPath: shootPattern
       value: 1
       objectReference: {fileID: 0}
@@ -4153,6 +4277,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
+      propertyPath: damage
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
       propertyPath: shootPattern
       value: 1
       objectReference: {fileID: 0}
@@ -4225,6 +4353,10 @@ PrefabInstance:
     - target: {fileID: 1312231805377363965, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
+      propertyPath: damage
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
       propertyPath: rushSpeed
@@ -4303,6 +4435,10 @@ PrefabInstance:
     - target: {fileID: 1312231805377363965, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
+      propertyPath: damage
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
       propertyPath: shootPattern

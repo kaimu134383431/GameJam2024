@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    [SerializeField] float speed = 5f;
+    [SerializeField] float speed = 4f;
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] Transform bulletSpawn;
     [SerializeField] float fireRate = 0.5f;
