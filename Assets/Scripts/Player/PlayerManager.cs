@@ -136,13 +136,13 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    // 現在のHPを返すメソッドを追加
+    // 現在のHPを返すメソッド
     public int GetHealth()
     {
         return currentHealth;
     }
 
-    // 最大HPを返すメソッドを追加
+    // 最大HPを返すメソッド
     public int GetMaxHealth()
     {
         return maxHealth;

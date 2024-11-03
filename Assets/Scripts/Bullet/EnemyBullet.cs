@@ -46,6 +46,12 @@ public class EnemyBullet : MonoBehaviour
             // ここにプレイヤーにダメージを与える処理を追加
             Destroy(gameObject); // 衝突したら弾を破壊する
         }
+        else if (other.CompareTag("PlayerCollider"))
+        {
+            other.transform.parent?.GetComponent<PlayerManager>().TakeDamage(damage);
+            // ここにプレイヤーにダメージを与える処理を追加
+            Destroy(gameObject); // 衝突したら弾を破壊する
+        }
 
     }
 }
