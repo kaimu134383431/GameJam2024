@@ -223,12 +223,19 @@ public class NormalEnemy : Enemy
         return screenPoint.x >= -0.2 && screenPoint.x <= 1.2 && screenPoint.y >= -0.2 && screenPoint.y <= 1.2;
     }
 
-    void OnTrigerEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        Debug.Log(other.tag);
+        if (other.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<PlayerManager>().TakeDamage(damage);
+            other.gameObject.GetComponent<PlayerManager>().TakeDamage(damage);
         }
+        else if (other.CompareTag("PlayerCollider"))
+        {
+            other.transform.parent?.GetComponent<PlayerManager>().TakeDamage(damage);
+        }
+
+
     }
 
     protected override void Die()
