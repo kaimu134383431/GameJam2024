@@ -53,7 +53,7 @@ public class ItemPuller : MonoBehaviour
         Vector3 itemScreenPosition = mainCamera.WorldToScreenPoint(item.transform.position);
 
         // スクリーン座標がカメラのビューポート内にあるかどうかをチェック
-        return itemScreenPosition.x >= 0 && itemScreenPosition.x <= Screen.width
-            && itemScreenPosition.y >= 0 && itemScreenPosition.y <= Screen.height;
+        return itemScreenPosition.x >= -0.1 && itemScreenPosition.x <= Screen.width + 0.1
+            && itemScreenPosition.y >= -0.1 && itemScreenPosition.y <= Screen.height + 0.1;
     }
 }
