@@ -139,7 +139,7 @@ public class NormalEnemy : Enemy
         if (Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
-            Vector3 playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
+            Vector3 playerPosition = GameObject.FindGameObjectWithTag("Player").transform.parent.position;
             GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
             Vector2 direction = (playerPosition - bulletSpawn.position).normalized;
             bullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
@@ -229,10 +229,6 @@ public class NormalEnemy : Enemy
         if (other.CompareTag("Player"))
         {
             other.gameObject.GetComponent<PlayerManager>().TakeDamage(damage);
-        }
-        else if (other.CompareTag("PlayerCollider"))
-        {
-            other.transform.parent?.GetComponent<PlayerManager>().TakeDamage(damage);
         }
 
 

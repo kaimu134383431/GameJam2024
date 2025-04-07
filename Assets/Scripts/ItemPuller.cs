@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class ItemPuller : MonoBehaviour
 {
-    [SerializeField] float pullDistance = 10f; // 引き寄せる距離の閾値
 
     private Camera mainCamera;
     private Transform playerTransform;
@@ -35,15 +34,9 @@ public class ItemPuller : MonoBehaviour
 
         foreach (GameObject item in items)
         {
-            // アイテムが画面内に存在するかチェックする
-            if (IsItemInScreen(item))
-            {
-                // Itemオブジェクトの現在位置を取得
-                Vector3 itemPosition = item.transform.position;
-
-                // プレイヤーの位置に向かって移動させる処理
-                item.transform.position = Vector3.MoveTowards(itemPosition, playerTransform.position, pullDistance * Time.deltaTime);
-            }
+            Item script = item.GetComponent<Item>();
+            script.pullflg = true;
+ 
         }
     }
 

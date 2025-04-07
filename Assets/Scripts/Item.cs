@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
+    float pullDistance = 30f; // 引き寄せる距離の閾値
+    public bool pullflg = false;
+    private Transform playertransform;
     public enum ItemType
     {
         Onion,
@@ -39,8 +42,25 @@ public class Item : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         SetSprite();
-    }
+        playertransform=GameObject.Find("Player").transform;
 
+    }
+    void Update()
+    {
+        if (pullflg)
+        {
+            movetoplayer();
+        }
+    }
+    void movetoplayer()
+    {
+        // Itemオブジェクトの現在位置を取得
+        Vector3 itemPosition = this.transform.position;
+
+        // プレイヤーの位置に向かって移動させる処理
+        this.transform.position = Vector3.MoveTowards(itemPosition, playertransform.position, pullDistance * Time.deltaTime);
+
+    }
     void SetSprite()
     {
         switch (itemType)
