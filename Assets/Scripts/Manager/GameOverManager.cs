@@ -4,11 +4,11 @@ using UnityEngine.UI;
 
 public class GameOverManager : MonoBehaviour
 {
-    [SerializeField] private Text clearScoreText; // ƒXƒRƒA•\¦—p‚ÌTextƒRƒ“ƒ|[ƒlƒ“ƒg
+    [SerializeField] private Text clearScoreText; // ï¿½Xï¿½Rï¿½Aï¿½\ï¿½ï¿½ï¿½pï¿½ï¿½Textï¿½Rï¿½ï¿½ï¿½|ï¿½[ï¿½lï¿½ï¿½ï¿½g
 
     private void Start()
     {
-        // ƒQ[ƒ€ƒI[ƒo[‚ÉƒXƒRƒA‚ğ•\¦
+        // ï¿½Qï¿½[ï¿½ï¿½ï¿½Iï¿½[ï¿½oï¿½[ï¿½ï¿½ï¿½ÉƒXï¿½Rï¿½Aï¿½ï¿½\ï¿½ï¿½
         DisplayScore();
     }
 
@@ -27,22 +27,24 @@ public class GameOverManager : MonoBehaviour
 
     public void Title()
     {
+        Debug.Log("Title button clicked"); // Debug log to check if the button is working
         SEManager.Instance.PlaySE("Button");
         GameManager.Instance.InitializeItems();
-        SceneManager.LoadScene("Title"); // ƒ^ƒCƒgƒ‹ƒV[ƒ“‚É–ß‚é
+        SceneManager.LoadScene("Title"); // ï¿½^ï¿½Cï¿½gï¿½ï¿½ï¿½Vï¿½[ï¿½ï¿½ï¿½É–ß‚ï¿½
     }
 
     public void Retry()
     {
+        Debug.Log("Retry button clicked"); // Debug log to check if the button is working
         SEManager.Instance.PlaySE("Button");
         GameManager.Instance.InitializeItems();
-        SceneManager.LoadScene("Stage 1"); // ƒXƒe[ƒW1‚É–ß‚é
+        SceneManager.LoadScene("Stage 1"); // ï¿½Xï¿½eï¿½[ï¿½W1ï¿½É–ß‚ï¿½
     }
 
     public void Quit()
     {
         SEManager.Instance.PlaySE("Button");
         GameManager.Instance.InitializeItems();
-        Application.Quit(); // ƒQ[ƒ€‚ğI—¹‚·‚é
+        Application.Quit(); // ï¿½Qï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     }
 }

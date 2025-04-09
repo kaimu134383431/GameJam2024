@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
 {
-    //[SerializeField] float speed = 5f;          // ’e‚Ì‘¬“x
-    [SerializeField] int damage = 5;                // ’e‚Ìƒ_ƒ[ƒW
-    private Rigidbody2D rb2D;         // Rigidbody2D ƒRƒ“ƒ|[ƒlƒ“ƒg
+    //[SerializeField] float speed = 5f;          // ï¿½eï¿½Ì‘ï¿½ï¿½x
+    [SerializeField] int damage = 5;                // ï¿½eï¿½Ìƒ_ï¿½ï¿½ï¿½[ï¿½W
+    private Rigidbody2D rb2D;         // Rigidbody2D ï¿½Rï¿½ï¿½ï¿½|ï¿½[ï¿½lï¿½ï¿½ï¿½g
     private Renderer rend;
 
     void Start()
@@ -12,20 +12,20 @@ public class EnemyBullet : MonoBehaviour
         rb2D = GetComponent<Rigidbody2D>();
         rend = GetComponent<Renderer>();
 
-        //rb2D.velocity = transform.right * speed; //’¼i‚³‚¹‚é
+        //rb2D.velocity = transform.right * speed; //ï¿½ï¿½ï¿½iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
     }
 
     void Update()
     {
-        // ’e‚Ìis•ûŒü‚É’e‚Ìæ“ª‚ğŒü‚©‚¹‚é
+        // ï¿½eï¿½Ìiï¿½sï¿½ï¿½ï¿½ï¿½ï¿½É’eï¿½Ìæ“ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         if (rb2D.velocity != Vector2.zero)
         {
             float angle = Mathf.Atan2(rb2D.velocity.y, rb2D.velocity.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
         }
 
-        // ƒJƒƒ‰‚Ì‹«ŠE‚ğæ“¾
+        // ï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½Ì‹ï¿½ï¿½Eï¿½ï¿½ï¿½æ“¾
         if (!IsVisible())
         {
             Destroy(gameObject);
@@ -40,17 +40,11 @@ public class EnemyBullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("damege"))
         {
-            other.gameObject.GetComponent<PlayerManager>().TakeDamage(damage);
-            // ‚±‚±‚ÉƒvƒŒƒCƒ„[‚Éƒ_ƒ[ƒW‚ğ—^‚¦‚éˆ—‚ğ’Ç‰Á
-            Destroy(gameObject); // Õ“Ë‚µ‚½‚ç’e‚ğ”j‰ó‚·‚é
-        }
-        else if (other.CompareTag("PlayerCollider"))
-        {
-            other.transform.parent?.GetComponent<PlayerManager>().TakeDamage(damage);
-            // ‚±‚±‚ÉƒvƒŒƒCƒ„[‚Éƒ_ƒ[ƒW‚ğ—^‚¦‚éˆ—‚ğ’Ç‰Á
-            Destroy(gameObject); // Õ“Ë‚µ‚½‚ç’e‚ğ”j‰ó‚·‚é
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>().TakeDamage(damage);
+            // ï¿½ï¿½ï¿½ï¿½ï¿½Éƒvï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½Éƒ_ï¿½ï¿½ï¿½[ï¿½Wï¿½ï¿½^ï¿½ï¿½ï¿½éˆï¿½ï¿½ï¿½ï¿½Ç‰ï¿½
+            Destroy(gameObject); // ï¿½Õ“Ë‚ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½ï¿½jï¿½ó‚·‚ï¿½
         }
 
     }

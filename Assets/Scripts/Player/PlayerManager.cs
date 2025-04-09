@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    //[SerializeField] GameObject itemcol;
+
+    [SerializeField] GameObject damcol;
     [SerializeField] float speed = 3f;
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] Transform bulletSpawn;
@@ -46,13 +47,13 @@ public class PlayerManager : MonoBehaviour
         Shoot();
         ClampPosition();
         HandleInvincibility();  // 無敵時間を管理
-        //Moveitemcollider();
+        Moveitemcollider();
     }
-    /*void Moveitemcollider()
+    void Moveitemcollider()
     {
-        itemcol.transform.position = this.transform.position;
+        damcol.transform.position = this.transform.position;
 
-    }*/
+    }
     void Move()
     {
         float moveX = Input.GetAxisRaw("Horizontal");
@@ -96,6 +97,7 @@ public class PlayerManager : MonoBehaviour
         }
         else
         {
+            Debug.Log("Takedamage called22222");
             StartInvincibility();  // ダメージを受けたら無敵状態にする
 
         }

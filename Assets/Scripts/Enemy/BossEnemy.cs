@@ -67,10 +67,10 @@ public abstract class BossEnemy : Enemy
 
     void OnTrigerEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("damege"))
         {
             // プレイヤーにダメージを与える処理を追加
-            collision.gameObject.GetComponent<PlayerManager>().TakeDamage(damage);
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>().TakeDamage(damage);
         }
     }
 

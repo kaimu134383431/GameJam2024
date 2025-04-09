@@ -738,6 +738,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1242394586}
     m_Modifications:
+    - target: {fileID: 246791125128985551, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1312231805377363965, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
       propertyPath: m_LocalPosition.x
       value: 13.942619
@@ -2184,7 +2188,7 @@ GameObject:
   - component: {fileID: 951272534}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2257,6 +2261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e38d7cd9fe23dcd4b8339f8a8b0a9caa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damcol: {fileID: 980064155}
   speed: 10
   bulletPrefab: {fileID: 5572549981863144032, guid: fde50d290574bac40b14aa5b133a65ca, type: 3}
   bulletSpawn: {fileID: 951272533}
@@ -2329,7 +2334,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 217234029}
-  - {fileID: 980064156}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &951272534
@@ -2439,7 +2443,7 @@ GameObject:
   - component: {fileID: 980064157}
   m_Layer: 0
   m_Name: DamageCollider
-  m_TagString: Player
+  m_TagString: damege
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2452,12 +2456,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 980064155}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -6.38, y: -0.37, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 951272533}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &980064157
 CircleCollider2D:
@@ -2488,7 +2492,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.2642672, y: 0.20134634}
@@ -4836,3 +4840,4 @@ SceneRoots:
   - {fileID: 514336673}
   - {fileID: 824641608}
   - {fileID: 683744634}
+  - {fileID: 980064156}

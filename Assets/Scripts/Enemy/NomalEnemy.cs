@@ -5,21 +5,21 @@ public class NormalEnemy : Enemy
     [SerializeField] private EnemyBehaviorPattern behaviorPattern = EnemyBehaviorPattern.StraightMove;
     [SerializeField] private EnemyShootPattern shootPattern = EnemyShootPattern.PlayerTrackingShoot;
 
-    // ˆÚ“®‚ÉŠÖ˜A‚·‚éƒtƒB[ƒ‹ƒh
+    // ï¿½Ú“ï¿½ï¿½ÉŠÖ˜Aï¿½ï¿½ï¿½ï¿½tï¿½Bï¿½[ï¿½ï¿½ï¿½h
     [SerializeField] private Vector2 moveDirection = Vector2.right;
     [SerializeField] private float amplitude = 5f;
     [SerializeField] private float frequency = 2f;
     [SerializeField] private float rushSpeed = 7f;
-    [SerializeField] private float circleRadius = 3f; // ‰~‚Ì”¼Œa
-    [SerializeField] private float circleSpeed = 2f;  // ‰~‚Ì‘¬“x
+    [SerializeField] private float circleRadius = 3f; // ï¿½~ï¿½Ì”ï¿½ï¿½a
+    [SerializeField] private float circleSpeed = 2f;  // ï¿½~ï¿½Ì‘ï¿½ï¿½x
 
-    // ËŒ‚‚ÉŠÖ˜A‚·‚éƒtƒB[ƒ‹ƒh
+    // ï¿½ËŒï¿½ï¿½ÉŠÖ˜Aï¿½ï¿½ï¿½ï¿½tï¿½Bï¿½[ï¿½ï¿½ï¿½h
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform bulletSpawn;
     [SerializeField] private float fireRate = 1f;
     [SerializeField] private float bulletSpeed = 10f;
 
-    [SerializeField] private float chaseDuration = 3f; // ’ÇÕ‚ğ‘±‚¯‚é•b”
+    [SerializeField] private float chaseDuration = 3f; // ï¿½ÇÕ‚ğ‘±‚ï¿½ï¿½ï¿½bï¿½ï¿½
     private float chaseStartTime;
 
     private float nextFire = 0f;
@@ -43,7 +43,7 @@ public class NormalEnemy : Enemy
         FixedDirectionShoot,
         NoShoot,
         Radial,
-        ThreeWayShoot // 3wayƒVƒ‡ƒbƒg‚ğ’Ç‰Á
+        ThreeWayShoot // 3wayï¿½Vï¿½ï¿½ï¿½bï¿½gï¿½ï¿½Ç‰ï¿½
     }
 
     protected override void Start()
@@ -73,10 +73,10 @@ public class NormalEnemy : Enemy
 
     protected override void Move()
 {
-    // “G‚ª‰æ–Ê“à‚É“ü‚Á‚Ä‚¢‚é‚©‚Ç‚¤‚©‚ğŠm”F
+    // ï¿½Gï¿½ï¿½ï¿½ï¿½Ê“ï¿½ï¿½É“ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½é‚©ï¿½Ç‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½mï¿½F
     if (!IsVisible())
     {
-        rb2D.velocity = Vector2.zero; // ‰æ–ÊŠO‚È‚ç‘¬“x‚ğ0‚É
+        rb2D.velocity = Vector2.zero; // ï¿½ï¿½ÊŠOï¿½È‚ç‘¬ï¿½xï¿½ï¿½0ï¿½ï¿½
         return;
     }
 
@@ -97,14 +97,14 @@ public class NormalEnemy : Enemy
                 chaseStartTime = Time.time;
             }
 
-            // ‹K’è•b‚ğŒo‰ß‚µ‚½‚ç’ÇÕ‚ğ‚â‚ß‚é
+            // ï¿½Kï¿½ï¿½bï¿½ï¿½ï¿½oï¿½ß‚ï¿½ï¿½ï¿½ï¿½ï¿½ÇÕ‚ï¿½ï¿½ï¿½ß‚ï¿½
             if (Time.time - chaseStartTime <= chaseDuration)
             {
                 RushToPlayer();
             }
             else
             {
-                //rb2D.velocity = Vector2.zero; // ’â~
+                //rb2D.velocity = Vector2.zero; // ï¿½ï¿½~
             }
             break;
         case EnemyBehaviorPattern.CircleMove:
@@ -128,7 +128,7 @@ public class NormalEnemy : Enemy
             case EnemyShootPattern.Radial:
                 FireRadial();
                 break;
-            case EnemyShootPattern.ThreeWayShoot: // 3wayƒVƒ‡ƒbƒg‚ğ’Ç‰Á
+            case EnemyShootPattern.ThreeWayShoot: // 3wayï¿½Vï¿½ï¿½ï¿½bï¿½gï¿½ï¿½Ç‰ï¿½
                 ShootThreeWay();
                 break;
         }
@@ -139,7 +139,7 @@ public class NormalEnemy : Enemy
         if (Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
-            Vector3 playerPosition = GameObject.FindGameObjectWithTag("Player").transform.parent.position;
+            Vector3 playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
             GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
             Vector2 direction = (playerPosition - bulletSpawn.position).normalized;
             bullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
@@ -187,7 +187,7 @@ public class NormalEnemy : Enemy
         {
             nextFire = Time.time + fireRate;
 
-            // 3way‚Ì’e‚ÌŠp“x‚ÆŠÔŠu
+            // 3wayï¿½Ì’eï¿½ÌŠpï¿½xï¿½ÆŠÔŠu
             float angleOffset = 165f;
             float angleStep = 30f;
 
@@ -226,9 +226,10 @@ public class NormalEnemy : Enemy
     void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log(other.tag);
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("damege"))
         {
-            other.gameObject.GetComponent<PlayerManager>().TakeDamage(damage);
+            Debug.Log(damage);
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>().TakeDamage(damage);
         }
 
 

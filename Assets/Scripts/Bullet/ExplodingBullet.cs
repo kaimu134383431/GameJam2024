@@ -3,12 +3,12 @@ using System.Collections;
 
 public class ExplodingBullet : MonoBehaviour
 {
-    //[SerializeField] float speed = 5f;          // ’e‚Ì‘¬“x
-    [SerializeField] int damage = 5;                // ’e‚Ìƒ_ƒ[ƒW
+    //[SerializeField] float speed = 5f;          // ï¿½eï¿½Ì‘ï¿½ï¿½x
+    [SerializeField] int damage = 5;                // ï¿½eï¿½Ìƒ_ï¿½ï¿½ï¿½[ï¿½W
     public GameObject splitProjectilePrefab;
     public float explosionDelay = 2f;
     public float splitSpeed = 5f;
-    private Rigidbody2D rb2D;         // Rigidbody2D ƒRƒ“ƒ|[ƒlƒ“ƒg
+    private Rigidbody2D rb2D;         // Rigidbody2D ï¿½Rï¿½ï¿½ï¿½|ï¿½[ï¿½lï¿½ï¿½ï¿½g
     private Renderer rend;
 
     void Start()
@@ -16,12 +16,12 @@ public class ExplodingBullet : MonoBehaviour
         rb2D = GetComponent<Rigidbody2D>();
         rend = GetComponent<Renderer>();
         StartCoroutine(ExplodeAfterDelay());
-        //rb2D.velocity = transform.right * speed; //’¼i‚³‚¹‚é
+        //rb2D.velocity = transform.right * speed; //ï¿½ï¿½ï¿½iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     }
 
     void Update()
     {
-        // ƒJƒƒ‰‚Ì‹«ŠE‚ğæ“¾
+        // ï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½Ì‹ï¿½ï¿½Eï¿½ï¿½ï¿½æ“¾
         if (!IsVisible())
         {
             StartCoroutine(ExplodeImmediately());
@@ -36,10 +36,10 @@ public class ExplodingBullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("damege"))
         {
-            other.gameObject.GetComponent<PlayerManager>().TakeDamage(damage);
-            // ƒvƒŒƒCƒ„[‚Éƒ_ƒ[ƒW‚ğ—^‚¦‚éˆ—‚ğ’Ç‰Á
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>().TakeDamage(damage);
+            // ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½Éƒ_ï¿½ï¿½ï¿½[ï¿½Wï¿½ï¿½^ï¿½ï¿½ï¿½éˆï¿½ï¿½ï¿½ï¿½Ç‰ï¿½
             StartCoroutine(ExplodeImmediately());
         }
     }
@@ -48,14 +48,14 @@ public class ExplodingBullet : MonoBehaviour
     {
         yield return new WaitForSeconds(explosionDelay);
         Explode();
-        Destroy(gameObject); // Œ³‚Ì’e‚ğ”j‰ó
+        Destroy(gameObject); // ï¿½ï¿½ï¿½Ì’eï¿½ï¿½jï¿½ï¿½
     }
 
     IEnumerator ExplodeImmediately()
     {
         Explode();
         yield return null;
-        Destroy(gameObject); // Œ³‚Ì’e‚ğ”j‰ó
+        Destroy(gameObject); // ï¿½ï¿½ï¿½Ì’eï¿½ï¿½jï¿½ï¿½
     }
 
     private void Explode()
