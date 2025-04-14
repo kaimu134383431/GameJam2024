@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    float pullDistance = 30f; // ˆø‚«Šñ‚¹‚é‹——£‚Ìè‡’l
+    float pullDistance = 30f; // ï¿½ï¿½ï¿½ï¿½ï¿½ñ‚¹‚é‹—ï¿½ï¿½ï¿½ï¿½è‡’l
     public bool pullflg = false;
     private Transform playertransform;
     public enum ItemType
@@ -20,7 +20,7 @@ public class Item : MonoBehaviour
 
     }
 
-    // ƒXƒvƒ‰ƒCƒg‚ðÝ’è‚·‚é‚½‚ß‚ÌƒtƒB[ƒ‹ƒh
+    // ï¿½Xï¿½vï¿½ï¿½ï¿½Cï¿½gï¿½ï¿½Ý’è‚·ï¿½é‚½ï¿½ß‚Ìƒtï¿½Bï¿½[ï¿½ï¿½ï¿½h
     [SerializeField] Sprite onionSprite;
     [SerializeField] Sprite bellPepperSprite;
     [SerializeField] Sprite baconSprite;
@@ -34,7 +34,7 @@ public class Item : MonoBehaviour
 
 
     public ItemType itemType;
-    public int amount=1; // ƒAƒCƒeƒ€‚Ì—Êi‰ñ•œ—ÊA’e–ò—Ê‚È‚Çj
+    public int amount=1; // ï¿½Aï¿½Cï¿½eï¿½ï¿½ï¿½Ì—Êiï¿½ñ•œ—ÊAï¿½eï¿½ï¿½Ê‚È‚Çj
 
     private SpriteRenderer spriteRenderer;
 
@@ -54,12 +54,17 @@ public class Item : MonoBehaviour
     }
     void movetoplayer()
     {
-        // ItemƒIƒuƒWƒFƒNƒg‚ÌŒ»ÝˆÊ’u‚ðŽæ“¾
+        // Itemï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½ÌŒï¿½ï¿½ÝˆÊ’uï¿½ï¿½ï¿½æ“¾
         Vector3 itemPosition = this.transform.position;
 
-        // ƒvƒŒƒCƒ„[‚ÌˆÊ’u‚ÉŒü‚©‚Á‚ÄˆÚ“®‚³‚¹‚éˆ—
+        // ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½ÌˆÊ’uï¿½ÉŒï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÄˆÚ“ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½éˆï¿½ï¿½
         this.transform.position = Vector3.MoveTowards(itemPosition, playertransform.position, pullDistance * Time.deltaTime);
 
+    }
+    public bool IsInDisplay()
+    {
+        Vector3 screenPoint = Camera.main.WorldToViewportPoint(transform.position);
+        return screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.y > 0 && screenPoint.y < 1;
     }
     void SetSprite()
     {
@@ -107,7 +112,7 @@ public class Item : MonoBehaviour
             {
                 SEManager.Instance.PlaySE("GetItem");
                 player.PickUpItem(this);
-                Destroy(gameObject); // ƒAƒCƒeƒ€‚ðŽæ“¾‚µ‚½‚ç”j‰ó‚·‚é
+                Destroy(gameObject); // ï¿½Aï¿½Cï¿½eï¿½ï¿½ï¿½ï¿½ï¿½æ“¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½jï¿½ó‚·‚ï¿½
             }
         }
     }

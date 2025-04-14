@@ -58,15 +58,20 @@ public class PlayerManager : MonoBehaviour
     {
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
+        if(moveX == 0 && moveY == 0)
+        {
+            moveX = Input.GetAxis("DPadHorizontal");
+            moveY = Input.GetAxis("DPadVertical");
+        }
         float tmpspeed = speed;
-        if (Input.GetKey(KeyCode.LeftShift)) tmpspeed /= 2;
+        if (Input.GetKey(KeyCode.LeftShift)||Input.GetKey(KeyCode.RightShift)||Input.GetKey("joystick button 0")) tmpspeed /= 2;
         Vector2 movement = new Vector2(moveX, moveY);
         rb2D.velocity = movement.normalized * tmpspeed;
     }
 
     void Shoot()
     {
-        if (Input.GetKey(KeyCode.Z) && Time.time > nextFire)
+        if ((Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.Return) || Input.GetKey("joystick button 2")) && Time.time > nextFire)
         {
             SEManager.Instance.PlaySE("PlayerShoot");
             nextFire = Time.time + fireRate;

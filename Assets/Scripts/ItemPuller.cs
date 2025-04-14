@@ -14,38 +14,40 @@ public class ItemPuller : MonoBehaviour
 
     private void Update()
     {
-        // ƒvƒŒƒCƒ„[‚ÌŒ»İˆÊ’u‚ğæ“¾
+        // ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½ÌŒï¿½ï¿½İˆÊ’uï¿½ï¿½ï¿½æ“¾
         Vector3 playerPosition = playerTransform.position;
 
-        // ƒƒCƒ“ƒJƒƒ‰‚Ì‰E’[‚Ì70%‚ÌˆÊ’u‚ğŒvZ
+        // ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½Ì‰Eï¿½[ï¿½ï¿½70%ï¿½ÌˆÊ’uï¿½ï¿½ï¿½vï¿½Z
         float rightBoundary = mainCamera.ViewportToWorldPoint(new Vector3(0.7f, 0, 0)).x;
 
-        // ƒvƒŒƒCƒ„[‚ª‰E’[‚Ì70%‚É’B‚µ‚½‚©‚Ç‚¤‚©‚ğƒ`ƒFƒbƒN
+        // ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Eï¿½[ï¿½ï¿½70%ï¿½É’Bï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½`ï¿½Fï¿½bï¿½N
         if (playerPosition.x >= rightBoundary)
         {
-            PullItems(); // ƒAƒCƒeƒ€‚ğˆø‚«Šñ‚¹‚éˆ—‚ğŒÄ‚Ño‚·
+            PullItems(); // ï¿½Aï¿½Cï¿½eï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ñ‚¹‚éˆï¿½ï¿½ï¿½ï¿½ï¿½Ä‚Ñoï¿½ï¿½
         }
     }
 
     void PullItems()
     {
-        // ‰æ–Ê“à‚É‘¶İ‚·‚é‘S‚Ä‚ÌItemƒ^ƒO‚ğ‚ÂƒIƒuƒWƒFƒNƒg‚ğæ“¾
+        // ï¿½ï¿½Ê“ï¿½ï¿½É‘ï¿½ï¿½İ‚ï¿½ï¿½ï¿½Sï¿½Ä‚ï¿½Itemï¿½^ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½ÂƒIï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½ï¿½ï¿½æ“¾
         GameObject[] items = GameObject.FindGameObjectsWithTag("Item");
 
         foreach (GameObject item in items)
         {
             Item script = item.GetComponent<Item>();
-            script.pullflg = true;
+            if (script.IsInDisplay()){ // Itemï¿½Ìoï¿½Í‚È‚Ç‚İ‚È‚Æ‚É‚È‚Ç‚İ‚È‚Æ‚É‚È‚Ç‚İ‚È‚Æ‚É‚È‚Ç‚İ‚È‚Æ‚É‚È‚Ç‚İ‚È‚Æ
+                script.pullflg = true;
+            }
  
         }
     }
 
     bool IsItemInScreen(GameObject item)
     {
-        // ƒAƒCƒeƒ€‚ÌˆÊ’u‚ğƒXƒNƒŠ[ƒ“À•W‚É•ÏŠ·
+        // ï¿½Aï¿½Cï¿½eï¿½ï¿½ï¿½ÌˆÊ’uï¿½ï¿½ï¿½Xï¿½Nï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½É•ÏŠï¿½
         Vector3 itemScreenPosition = mainCamera.WorldToScreenPoint(item.transform.position);
 
-        // ƒXƒNƒŠ[ƒ“À•W‚ªƒJƒƒ‰‚Ìƒrƒ…[ƒ|[ƒg“à‚É‚ ‚é‚©‚Ç‚¤‚©‚ğƒ`ƒFƒbƒN
+        // ï¿½Xï¿½Nï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½Ìƒrï¿½ï¿½ï¿½[ï¿½|ï¿½[ï¿½gï¿½ï¿½ï¿½É‚ï¿½ï¿½é‚©ï¿½Ç‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½`ï¿½Fï¿½bï¿½N
         return itemScreenPosition.x >= -0.1 && itemScreenPosition.x <= Screen.width + 0.1
             && itemScreenPosition.y >= -0.1 && itemScreenPosition.y <= Screen.height + 0.1;
     }
