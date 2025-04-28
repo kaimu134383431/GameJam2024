@@ -254,6 +254,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: behaviorPattern
       value: 2
       objectReference: {fileID: 0}
@@ -323,6 +327,10 @@ PrefabInstance:
       propertyPath: shootPattern
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6410645260747543183, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: m_Name
       value: NomalRamen
@@ -388,6 +396,10 @@ PrefabInstance:
       propertyPath: shootPattern
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6410645260747543183, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: m_Name
       value: NomalRamen (54)
@@ -452,6 +464,10 @@ PrefabInstance:
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: shootPattern
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: behaviorPattern
@@ -543,6 +559,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: behaviorPattern
       value: 1
       objectReference: {fileID: 0}
@@ -632,6 +652,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: behaviorPattern
       value: 1
       objectReference: {fileID: 0}
@@ -709,6 +733,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: behaviorPattern
       value: 1
       objectReference: {fileID: 0}
@@ -773,6 +801,10 @@ PrefabInstance:
       propertyPath: shootPattern
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6410645260747543183, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: m_Name
       value: NomalRamen (6)
@@ -833,6 +865,10 @@ PrefabInstance:
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: shootPattern
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6410645260747543183, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: m_Name
@@ -956,6 +992,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: behaviorPattern
       value: 2
       objectReference: {fileID: 0}
@@ -1050,6 +1090,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: behaviorPattern
       value: 1
       objectReference: {fileID: 0}
@@ -1124,6 +1168,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: behaviorPattern
       value: 2
       objectReference: {fileID: 0}
@@ -1191,6 +1239,10 @@ PrefabInstance:
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: shootPattern
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: behaviorPattern
@@ -1272,6 +1324,10 @@ PrefabInstance:
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: shootPattern
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: behaviorPattern
@@ -1372,6 +1428,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: behaviorPattern
       value: 2
       objectReference: {fileID: 0}
@@ -1435,6 +1495,10 @@ PrefabInstance:
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: shootPattern
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6410645260747543183, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: m_Name
@@ -1855,6 +1919,10 @@ PrefabInstance:
       propertyPath: shootPattern
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: a32458d20a1b1e145868f3a53cf37743, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6410645260747543183, guid: a32458d20a1b1e145868f3a53cf37743, type: 3}
       propertyPath: m_Name
       value: ShoyuRamen (3)
@@ -2000,6 +2068,10 @@ PrefabInstance:
       propertyPath: shootPattern
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: a32458d20a1b1e145868f3a53cf37743, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6410645260747543183, guid: a32458d20a1b1e145868f3a53cf37743, type: 3}
       propertyPath: m_Name
       value: ShoyuRamen (1)
@@ -2106,6 +2178,10 @@ PrefabInstance:
       propertyPath: shootPattern
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6410645260747543183, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: m_Name
       value: NomalRamen (56)
@@ -2178,6 +2254,10 @@ PrefabInstance:
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: shootPattern
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: behaviorPattern
@@ -2253,6 +2333,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: behaviorPattern
       value: 2
       objectReference: {fileID: 0}
@@ -2320,6 +2404,10 @@ PrefabInstance:
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: shootPattern
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: behaviorPattern
@@ -2436,6 +2524,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: behaviorPattern
       value: 1
       objectReference: {fileID: 0}
@@ -2503,6 +2595,10 @@ PrefabInstance:
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: shootPattern
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: behaviorPattern
@@ -2585,6 +2681,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: behaviorPattern
       value: 0
       objectReference: {fileID: 0}
@@ -2652,6 +2752,10 @@ PrefabInstance:
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: shootPattern
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: behaviorPattern
@@ -2735,6 +2839,10 @@ PrefabInstance:
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: shootPattern
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: behaviorPattern
@@ -2824,6 +2932,10 @@ PrefabInstance:
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: shootPattern
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: behaviorPattern
@@ -3111,6 +3223,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: behaviorPattern
       value: 0
       objectReference: {fileID: 0}
@@ -3174,6 +3290,10 @@ PrefabInstance:
     - target: {fileID: 6120251082853630835, guid: a32458d20a1b1e145868f3a53cf37743, type: 3}
       propertyPath: shootPattern
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: a32458d20a1b1e145868f3a53cf37743, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6410645260747543183, guid: a32458d20a1b1e145868f3a53cf37743, type: 3}
       propertyPath: m_Name
@@ -3603,6 +3723,10 @@ PrefabInstance:
       propertyPath: shootPattern
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6410645260747543183, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: m_Name
       value: NomalRamen (1)
@@ -3673,6 +3797,10 @@ PrefabInstance:
       propertyPath: shootPattern
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6410645260747543183, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: m_Name
       value: NomalRamen (51)
@@ -3739,6 +3867,10 @@ PrefabInstance:
       propertyPath: shootPattern
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: a32458d20a1b1e145868f3a53cf37743, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6410645260747543183, guid: a32458d20a1b1e145868f3a53cf37743, type: 3}
       propertyPath: m_Name
       value: ShoyuRamen (2)
@@ -3799,6 +3931,10 @@ PrefabInstance:
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: shootPattern
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6410645260747543183, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: m_Name
@@ -3865,6 +4001,10 @@ PrefabInstance:
       propertyPath: shootPattern
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6410645260747543183, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: m_Name
       value: NomalRamen (52)
@@ -3929,6 +4069,10 @@ PrefabInstance:
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: shootPattern
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: behaviorPattern
@@ -4002,6 +4146,10 @@ PrefabInstance:
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: shootPattern
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: behaviorPattern
@@ -4188,6 +4336,10 @@ PrefabInstance:
       propertyPath: shootPattern
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6410645260747543183, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: m_Name
       value: NomalRamen (8)
@@ -4253,6 +4405,10 @@ PrefabInstance:
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: shootPattern
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6410645260747543183, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: m_Name
@@ -4328,6 +4484,10 @@ PrefabInstance:
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: shootPattern
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: behaviorPattern
@@ -4510,6 +4670,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: a32458d20a1b1e145868f3a53cf37743, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: a32458d20a1b1e145868f3a53cf37743, type: 3}
       propertyPath: behaviorPattern
       value: 3
       objectReference: {fileID: 0}
@@ -4590,6 +4754,10 @@ PrefabInstance:
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: shootPattern
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: behaviorPattern
@@ -4738,6 +4906,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: behaviorPattern
       value: 2
       objectReference: {fileID: 0}
@@ -4805,6 +4977,10 @@ PrefabInstance:
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: shootPattern
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: behaviorPattern
@@ -4885,6 +5061,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: behaviorPattern
       value: 2
       objectReference: {fileID: 0}
@@ -4958,6 +5138,10 @@ PrefabInstance:
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: shootPattern
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: behaviorPattern
@@ -5035,6 +5219,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: behaviorPattern
       value: 0
       objectReference: {fileID: 0}
@@ -5106,6 +5294,10 @@ PrefabInstance:
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: shootPattern
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: behaviorPattern
@@ -5248,6 +5440,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: behaviorPattern
       value: 0
       objectReference: {fileID: 0}
@@ -5330,6 +5526,10 @@ PrefabInstance:
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: shootPattern
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: behaviorPattern
@@ -5512,6 +5712,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: behaviorPattern
       value: 0
       objectReference: {fileID: 0}
@@ -5605,6 +5809,10 @@ PrefabInstance:
       propertyPath: shootPattern
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6410645260747543183, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: m_Name
       value: NomalRamen (53)
@@ -5671,6 +5879,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: behaviorPattern
       value: 2
       objectReference: {fileID: 0}
@@ -5734,6 +5946,10 @@ PrefabInstance:
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: shootPattern
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6410645260747543183, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: m_Name
@@ -5804,6 +6020,10 @@ PrefabInstance:
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: shootPattern
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: behaviorPattern
@@ -5892,6 +6112,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: behaviorPattern
       value: 0
       objectReference: {fileID: 0}
@@ -5965,6 +6189,10 @@ PrefabInstance:
       propertyPath: shootPattern
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6410645260747543183, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: m_Name
       value: NomalRamen (55)
@@ -6029,6 +6257,10 @@ PrefabInstance:
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: shootPattern
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: behaviorPattern
@@ -6112,6 +6344,10 @@ PrefabInstance:
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: shootPattern
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: behaviorPattern
@@ -6212,6 +6448,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: behaviorPattern
       value: 2
       objectReference: {fileID: 0}
@@ -6280,6 +6520,10 @@ PrefabInstance:
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: shootPattern
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6410645260747543183, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: m_Name
@@ -6452,6 +6696,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: behaviorPattern
       value: 2
       objectReference: {fileID: 0}
@@ -6519,6 +6767,10 @@ PrefabInstance:
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: shootPattern
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: behaviorPattern
@@ -6677,6 +6929,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: behaviorPattern
       value: 0
       objectReference: {fileID: 0}
@@ -6740,6 +6996,10 @@ PrefabInstance:
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: shootPattern
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6410645260747543183, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: m_Name
@@ -6851,6 +7111,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: behaviorPattern
       value: 2
       objectReference: {fileID: 0}
@@ -6938,6 +7202,10 @@ PrefabInstance:
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: shootPattern
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: behaviorPattern
@@ -7117,6 +7385,10 @@ PrefabInstance:
       propertyPath: shootPattern
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6410645260747543183, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: m_Name
       value: NomalRamen (34)
@@ -7256,6 +7528,10 @@ PrefabInstance:
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: shootPattern
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
+      propertyPath: chaseDuration
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: ad875bccc6c23324388bcc1919d27d5a, type: 3}
       propertyPath: behaviorPattern
@@ -7475,7 +7751,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!212 &4508906292004922273

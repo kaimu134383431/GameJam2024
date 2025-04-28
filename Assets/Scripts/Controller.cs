@@ -25,8 +25,12 @@ public class Controller : MonoBehaviour
             Debug.Log ("ボタンが押された222222222222222222");
         }
         
-        if (Input.GetKey("joystick button 0")) {
-            Debug.Log ("ボタンが押された00000000000000000");
+        if (Input.GetKey("joystick button 4")) {
+            Debug.Log ("ボタンが押された44444444444444444");
+        }
+        
+        if (Input.GetKey("joystick button 5")) {
+            Debug.Log ("ボタンが押された555555555555555555");
         }
         
     }

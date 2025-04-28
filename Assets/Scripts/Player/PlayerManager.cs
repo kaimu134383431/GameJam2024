@@ -64,7 +64,7 @@ public class PlayerManager : MonoBehaviour
             moveY = Input.GetAxis("DPadVertical");
         }
         float tmpspeed = speed;
-        if (Input.GetKey(KeyCode.LeftShift)||Input.GetKey(KeyCode.RightShift)||Input.GetKey("joystick button 0")) tmpspeed /= 2;
+        if (Input.GetKey(KeyCode.LeftShift)||Input.GetKey(KeyCode.RightShift)||Input.GetKey("joystick button 5")) tmpspeed /= 2;
         Vector2 movement = new Vector2(moveX, moveY);
         rb2D.velocity = movement.normalized * tmpspeed;
     }
