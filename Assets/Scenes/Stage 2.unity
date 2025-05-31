@@ -11498,41 +11498,6 @@ MonoBehaviour:
   eggSprite: {fileID: 21300000, guid: 9831c99bdb7bbda4694bfd8c6ca09939, type: 3}
   cheeseSprite: {fileID: 21300000, guid: 5b7b2328b6f92a54d9fbfadf46f3ee05, type: 3}
   baconSprite: {fileID: 21300000, guid: a1f667fdcb7e818439b428304d835c7b, type: 3}
---- !u!58 &3950754021458289493
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9097496619342602139}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.2642672, y: 0.20134634}
-  serializedVersion: 2
-  m_Radius: 0.16292119
 --- !u!4 &3980402505917612759
 Transform:
   m_ObjectHideFlags: 0
@@ -11598,7 +11563,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!212 &4508906292004922273
@@ -11642,7 +11607,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2220459f8ad691a4f9b9d9d486c32245, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1868c6e20bfd87c44a046daef4ce32a5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -11680,41 +11645,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &5047375371521384826
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9097496619342602139}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.26741314, y: 0.26426706}
-  serializedVersion: 2
-  m_Radius: 0.18023112
 --- !u!114 &5244629510465088057
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11796,9 +11726,7 @@ GameObject:
   - component: {fileID: 4508906292004922273}
   - component: {fileID: 5244629510465088057}
   - component: {fileID: 4585298742391240026}
-  - component: {fileID: 3950754021458289493}
   - component: {fileID: 2664349819385515942}
-  - component: {fileID: 5047375371521384826}
   - component: {fileID: 9097496619342602140}
   m_Layer: 0
   m_Name: Player
