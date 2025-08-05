@@ -3637,7 +3637,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: f22d5c15f1290a2448f2d5c7df69ec84, type: 3}
       propertyPath: health
-      value: 100
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: f22d5c15f1290a2448f2d5c7df69ec84, type: 3}
       propertyPath: fireRate
@@ -3786,7 +3786,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: f22d5c15f1290a2448f2d5c7df69ec84, type: 3}
       propertyPath: health
-      value: 100
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: f22d5c15f1290a2448f2d5c7df69ec84, type: 3}
       propertyPath: fireRate
@@ -4518,7 +4518,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: f22d5c15f1290a2448f2d5c7df69ec84, type: 3}
       propertyPath: health
-      value: 100
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: f22d5c15f1290a2448f2d5c7df69ec84, type: 3}
       propertyPath: fireRate
@@ -5435,7 +5435,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: f22d5c15f1290a2448f2d5c7df69ec84, type: 3}
       propertyPath: health
-      value: 100
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: f22d5c15f1290a2448f2d5c7df69ec84, type: 3}
       propertyPath: fireRate
@@ -7133,7 +7133,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: f22d5c15f1290a2448f2d5c7df69ec84, type: 3}
       propertyPath: health
-      value: 100
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: f22d5c15f1290a2448f2d5c7df69ec84, type: 3}
       propertyPath: fireRate
@@ -8341,7 +8341,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: f22d5c15f1290a2448f2d5c7df69ec84, type: 3}
       propertyPath: health
-      value: 100
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 6120251082853630835, guid: f22d5c15f1290a2448f2d5c7df69ec84, type: 3}
       propertyPath: fireRate
