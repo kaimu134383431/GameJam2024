@@ -82,7 +82,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!58 &587212274035506015
@@ -222,11 +222,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e38d7cd9fe23dcd4b8339f8a8b0a9caa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damcol: {fileID: 0}
   speed: 10
   bulletPrefab: {fileID: 5572549981863144032, guid: fde50d290574bac40b14aa5b133a65ca, type: 3}
   bulletSpawn: {fileID: 3502114922256646401}
   fireRate: 0.1
   maxHealth: 3
+  invincibleDuration: 0.8
 --- !u!50 &4036765559553980044
 Rigidbody2D:
   serializedVersion: 4
@@ -305,6 +307,7 @@ MonoBehaviour:
   itemUIContainer: {fileID: 0}
   itemUIPrefab: {fileID: 5293477198756194099, guid: 704eda16ac15ba9498813470dcb1395e, type: 3}
   scorePopupPrefab: {fileID: 5810094109482653544, guid: 7c154d67d23431e44b9547c52b7b1b9d, type: 3}
+  healthSliderPrefab: {fileID: 0}
   canvas: {fileID: 0}
   playerTransform: {fileID: 3502114922256646401}
   shimejiSprite: {fileID: 21300000, guid: 85c982a2b7d77274caef252e14f88bce, type: 3}
