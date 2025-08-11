@@ -130,7 +130,7 @@ public class PlayerUI : MonoBehaviour
     {
         // スコアの更新
         scoreText.text = "Score: " + GameManager.Instance.GetScore();
-
+        /*
         // アイテムUIの更新
         foreach (var veg in GameManager.Instance.GetAllItems())
         {
@@ -155,7 +155,7 @@ public class PlayerUI : MonoBehaviour
                     itemUIInstances.Remove(veg.Key);
                 }
             }
-        }
+        }*/
     }
 
     void UpdateHealthUI()
