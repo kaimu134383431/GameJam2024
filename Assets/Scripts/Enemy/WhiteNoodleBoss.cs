@@ -69,7 +69,13 @@ public class WhiteNoodleBoss : BossEnemy
         for (int i = 0; i < 20; i++)
         {
             GameObject bullet = Instantiate(projectilePrefab, projectileSpawn.position, projectileSpawn.rotation);
-            bullet.GetComponent<Rigidbody2D>().velocity = projectileSpawn.right * -10f;
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            rb.velocity = projectileSpawn.right * -10f;
+
+            // 向きを進行方向に合わせる
+            float angle = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
+            bullet.transform.rotation = Quaternion.Euler(0f, 0f, angle);
+
             yield return new WaitForSeconds(0.05f);
         }
     }
@@ -89,7 +95,12 @@ public class WhiteNoodleBoss : BossEnemy
             Vector3 bulletMoveDirection = (bulletVector - projectileSpawn.position).normalized;
 
             GameObject bullet = Instantiate(projectilePrefab, projectileSpawn.position, projectileSpawn.rotation);
-            bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletMoveDirection.x, bulletMoveDirection.y) * 5f;
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            rb.velocity = new Vector2(bulletMoveDirection.x, bulletMoveDirection.y) * 5f;
+
+            // 向きを進行方向に合わせる
+            float Bangle = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
+            bullet.transform.rotation = Quaternion.Euler(0f, 0f, Bangle);
 
             angle += angleStep;
         }
@@ -110,7 +121,12 @@ public class WhiteNoodleBoss : BossEnemy
             Vector3 bulletMoveDirection = (bulletVector - projectileSpawn.position).normalized;
 
             GameObject bullet = Instantiate(projectilePrefab, projectileSpawn.position, projectileSpawn.rotation);
-            bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletMoveDirection.x, bulletMoveDirection.y) * 5f;
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            rb.velocity = new Vector2(bulletMoveDirection.x, bulletMoveDirection.y) * 5f;
+
+            // 向きを進行方向に合わせる
+            float Bangle = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
+            bullet.transform.rotation = Quaternion.Euler(0f, 0f, Bangle);
 
             angle += angleStep;
         }
@@ -131,7 +147,13 @@ public class WhiteNoodleBoss : BossEnemy
             Vector2 direction = Quaternion.Euler(0, 0, angle) * (playerPosition - (Vector2)projectileSpawn.position).normalized;
 
             GameObject bullet = Instantiate(projectilePrefab, projectileSpawn.position, Quaternion.identity);
-            bullet.GetComponent<Rigidbody2D>().velocity = direction * 5f;
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            rb.velocity = direction * 5f;
+
+            // 向きを進行方向に合わせる
+            float Bangle = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
+            bullet.transform.rotation = Quaternion.Euler(0f, 0f, Bangle);
+
         }
     }
 

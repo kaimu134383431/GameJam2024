@@ -140,9 +140,15 @@ public class NormalEnemy : Enemy
         {
             nextFire = Time.time + fireRate;
             Vector3 playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
+
             GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
             Vector2 direction = (playerPosition - bulletSpawn.position).normalized;
-            bullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
+            Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
+            bulletRb.velocity = direction * bulletSpeed;
+
+            // 向きを進行方向に合わせる
+            float Bangle = Mathf.Atan2(bulletRb.velocity.y, bulletRb.velocity.x) * Mathf.Rad2Deg;
+            bullet.transform.rotation = Quaternion.Euler(0f, 0f, Bangle);
         }
     }
 
@@ -152,7 +158,13 @@ public class NormalEnemy : Enemy
         {
             nextFire = Time.time + fireRate;
             GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
-            bullet.GetComponent<Rigidbody2D>().velocity = bulletSpawn.right * -bulletSpeed;
+
+            Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
+            bulletRb.velocity = bulletSpawn.right * -bulletSpeed;
+            
+            // 向きを進行方向に合わせる
+            float Bangle = Mathf.Atan2(bulletRb.velocity.y, bulletRb.velocity.x) * Mathf.Rad2Deg;
+            bullet.transform.rotation = Quaternion.Euler(0f, 0f, Bangle);
         }
     }
 
@@ -174,7 +186,12 @@ public class NormalEnemy : Enemy
                 Vector3 bulletMoveDirection = (bulletVector - bulletSpawn.position).normalized;
 
                 GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
-                bullet.GetComponent<Rigidbody2D>().velocity = bulletMoveDirection * bulletSpeed;
+                Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
+                bulletRb.velocity = bulletMoveDirection * bulletSpeed;
+
+                // 向きを進行方向に合わせる
+                float Bangle = Mathf.Atan2(bulletRb.velocity.y, bulletRb.velocity.x) * Mathf.Rad2Deg;
+                bullet.transform.rotation = Quaternion.Euler(new Vector3(0, 0, Bangle));
 
                 angle += angleStep;
             }
@@ -195,7 +212,12 @@ public class NormalEnemy : Enemy
             {
                 Quaternion bulletRotation = bulletSpawn.rotation * Quaternion.Euler(0, 0, angleOffset + i * angleStep);
                 GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, bulletRotation);
-                bullet.GetComponent<Rigidbody2D>().velocity = bullet.transform.right * bulletSpeed;
+                Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
+                bulletRb.velocity = bulletRb.transform.right * bulletSpeed;
+
+                // 向きを進行方向に合わせる
+                float Bangle = Mathf.Atan2(bulletRb.velocity.y, bulletRb.velocity.x) * Mathf.Rad2Deg;
+                bulletRb.transform.rotation = Quaternion.Euler(0f, 0f, Bangle);
             }
         }
     }

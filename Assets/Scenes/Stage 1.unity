@@ -712,6 +712,14 @@ PrefabInstance:
       propertyPath: damage
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
+      propertyPath: shootPattern
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120251082853630835, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
+      propertyPath: behaviorPattern
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6410645260747543183, guid: 8a66b4b07408d8f42a5f082a1bd50e37, type: 3}
       propertyPath: m_Name
       value: NormalSomen (35)

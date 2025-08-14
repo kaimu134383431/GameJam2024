@@ -106,7 +106,12 @@ public class SobaBoss : BossEnemy
         for (int i = 0; i < 20; i++)
         {
             GameObject bullet = Instantiate(projectilePrefab, projectileSpawn.position, projectileSpawn.rotation);
-            bullet.GetComponent<Rigidbody2D>().velocity = projectileSpawn.right * -10f;
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            rb.velocity = projectileSpawn.right * -10f;
+
+            float angle = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
+            bullet.transform.rotation = Quaternion.Euler(0f, 0f, angle);
+
             yield return new WaitForSeconds(0.05f);
         }
     }
@@ -126,7 +131,11 @@ public class SobaBoss : BossEnemy
             Vector2 direction = Quaternion.Euler(0, 0, angle) * (playerPosition - (Vector2)projectileSpawn.position).normalized;
 
             GameObject bullet = Instantiate(projectilePrefab, projectileSpawn.position, Quaternion.identity);
-            bullet.GetComponent<Rigidbody2D>().velocity = direction * 10f;
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            rb.velocity = direction * 10f;
+
+            float Bangle = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
+            bullet.transform.rotation = Quaternion.Euler(0f, 0f, Bangle);
         }
     }
 
@@ -145,9 +154,13 @@ public class SobaBoss : BossEnemy
             Vector3 bulletMoveDirection = (bulletVector - projectileSpawn.position).normalized;
 
             GameObject bullet = Instantiate(projectilePrefab, projectileSpawn.position, projectileSpawn.rotation);
-            bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletMoveDirection.x, bulletMoveDirection.y) * 5f;
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            rb.velocity = new Vector2(bulletMoveDirection.x, bulletMoveDirection.y) * 5f;
 
-            angle += angleStep;
+            float Bangle = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
+            bullet.transform.rotation = Quaternion.Euler(0f, 0f, Bangle);
+
+            Bangle += angleStep;
         }
     }
 
@@ -166,7 +179,11 @@ public class SobaBoss : BossEnemy
             Vector3 bulletMoveDirection = (bulletVector - projectileSpawn.position).normalized;
 
             GameObject bullet = Instantiate(projectilePrefab, projectileSpawn.position, projectileSpawn.rotation);
-            bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletMoveDirection.x, bulletMoveDirection.y) * 5f;
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            rb.velocity = new Vector2(bulletMoveDirection.x, bulletMoveDirection.y) * 5f;
+
+            float Bangle = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
+            bullet.transform.rotation = Quaternion.Euler(0f, 0f, Bangle);
 
             angle += angleStep;
         }
@@ -191,7 +208,11 @@ public class SobaBoss : BossEnemy
             Vector3 direction = Quaternion.Euler(0, 0, angle + Time.time * rotationSpeed) * Vector3.right;
 
             GameObject bullet = Instantiate(projectilePrefab, spawnPosition, Quaternion.identity);
-            bullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            rb.velocity = direction * bulletSpeed;
+
+            float Bangle = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
+            bullet.transform.rotation = Quaternion.Euler(0f, 0f, Bangle);
         }
     }
 
@@ -214,7 +235,11 @@ public class SobaBoss : BossEnemy
             Vector3 direction = new Vector3(Mathf.Cos(winderAngle * Mathf.Deg2Rad), Mathf.Sin(winderAngle * Mathf.Deg2Rad), 0);
 
             GameObject bullet = Instantiate(projectilePrefab2, projectileSpawn.position, Quaternion.identity);
-            bullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            rb.velocity = direction * bulletSpeed;
+
+            float Bangle = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
+            bullet.transform.rotation = Quaternion.Euler(0f, 0f, Bangle);
 
             yield return new WaitForSeconds(0.5f); // 発射間隔
         }

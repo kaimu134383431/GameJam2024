@@ -77,7 +77,12 @@ public class RamenBoss : BossEnemy
         for (int i = 0; i < 20; i++)
         {
             GameObject bullet = Instantiate(projectilePrefab, projectileSpawn.position, projectileSpawn.rotation);
-            bullet.GetComponent<Rigidbody2D>().velocity = projectileSpawn.right * -10f;
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            rb.velocity = projectileSpawn.right * -10f;
+
+            float angle = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
+            bullet.transform.rotation = Quaternion.Euler(0f, 0f, angle);
+
             yield return new WaitForSeconds(0.05f);
         }
     }
@@ -98,9 +103,13 @@ public class RamenBoss : BossEnemy
             Vector3 bulletMoveDirection = (bulletVector - projectileSpawn.position).normalized;
 
             GameObject bullet = Instantiate(projectilePrefab, projectileSpawn.position, projectileSpawn.rotation);
-            bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletMoveDirection.x, bulletMoveDirection.y) * 5f;
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            rb.velocity = new Vector2(bulletMoveDirection.x, bulletMoveDirection.y) * 5f;
 
-            angle += angleStep;
+            float Bangle = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
+            bullet.transform.rotation = Quaternion.Euler(0f, 0f, Bangle);
+
+            Bangle += angleStep;
         }
     }
 
@@ -119,7 +128,11 @@ public class RamenBoss : BossEnemy
             Vector3 bulletMoveDirection = (bulletVector - projectileSpawn.position).normalized;
 
             GameObject bullet = Instantiate(projectilePrefab, projectileSpawn.position, projectileSpawn.rotation);
-            bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletMoveDirection.x, bulletMoveDirection.y) * 5f;
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            rb.velocity = new Vector2(bulletMoveDirection.x, bulletMoveDirection.y) * 5f;
+
+            float Bangle = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
+            bullet.transform.rotation = Quaternion.Euler(0f, 0f, Bangle);
 
             angle += angleStep;
         }
@@ -195,7 +208,12 @@ public class RamenBoss : BossEnemy
         {
             Quaternion rotation = Quaternion.Euler(0, 0, startAngle + i * angleStep);
             GameObject bullet = Instantiate(projectilePrefab, projectileSpawn.position, rotation);
-            bullet.GetComponent<Rigidbody2D>().velocity = bullet.transform.right * -bulletSpeed;
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+
+            rb.velocity = bullet.transform.right * -bulletSpeed;
+
+            float Bangle = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
+            bullet.transform.rotation = Quaternion.Euler(0f, 0f, Bangle);
         }
     }
 
@@ -210,7 +228,12 @@ public class RamenBoss : BossEnemy
         {
             Quaternion rotation = Quaternion.Euler(0, 0, startAngle + i * angleStep);
             GameObject bullet = Instantiate(projectilePrefab, projectileSpawn.position, rotation);
-            bullet.GetComponent<Rigidbody2D>().velocity = bullet.transform.right * -bulletSpeed;
+
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            rb.velocity = bullet.transform.right * -bulletSpeed;
+            
+            float Bangle = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
+            bullet.transform.rotation = Quaternion.Euler(0f, 0f, Bangle);
         }
     }
 
@@ -229,7 +252,11 @@ public class RamenBoss : BossEnemy
             Vector2 direction = Quaternion.Euler(0, 0, angle) * (playerPosition - (Vector2)projectileSpawn.position).normalized;
 
             GameObject bullet = Instantiate(projectilePrefab, projectileSpawn.position, Quaternion.identity);
-            bullet.GetComponent<Rigidbody2D>().velocity = direction * 10f;
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            rb.velocity = direction * 10f;
+
+            float Bangle = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
+            bullet.transform.rotation = Quaternion.Euler(0f, 0f, Bangle);
         }
     }
 
@@ -270,7 +297,11 @@ public class RamenBoss : BossEnemy
             Vector3 direction = Quaternion.Euler(0, 0, angle + Time.time * rotationSpeed) * Vector3.right;
 
             GameObject bullet = Instantiate(projectilePrefab, spawnPosition, Quaternion.identity);
-            bullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            rb.velocity = direction * bulletSpeed;
+
+            float Bangle = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
+            bullet.transform.rotation = Quaternion.Euler(0f, 0f, Bangle);
         }
     }
 
@@ -293,7 +324,11 @@ public class RamenBoss : BossEnemy
             Vector3 direction = new Vector3(Mathf.Cos(winderAngle * Mathf.Deg2Rad), Mathf.Sin(winderAngle * Mathf.Deg2Rad), 0);
 
             GameObject bullet = Instantiate(projectilePrefab, projectileSpawn.position, Quaternion.identity);
-            bullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            rb.velocity = direction * bulletSpeed;
+
+            float Bangle = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
+            bullet.transform.rotation = Quaternion.Euler(0f, 0f, Bangle);
 
             yield return new WaitForSeconds(0.5f); // 発射間隔
         }
@@ -316,6 +351,7 @@ public class RamenBoss : BossEnemy
         {
             // 炸裂弾を生成する
             GameObject bullet = Instantiate(explodePrefab, projectileSpawn.position, projectileSpawn.rotation);
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
 
             // 弾の飛ぶ方向を計算する
             float bulletDirX = Mathf.Sin((angle * Mathf.PI) / 180);
@@ -324,7 +360,10 @@ public class RamenBoss : BossEnemy
             Vector3 bulletMoveDirection = new Vector3(bulletDirX, bulletDirY, 0);
 
             // 弾に速度を与える
-            bullet.GetComponent<Rigidbody2D>().velocity = bulletMoveDirection * 5f;
+            rb.velocity = bulletMoveDirection * 5f;
+
+            float Bangle = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
+            bullet.transform.rotation = Quaternion.Euler(0f, 0f, Bangle);
 
             angle += angleStep;
         }
@@ -345,7 +384,11 @@ public class RamenBoss : BossEnemy
             Vector2 direction = Quaternion.Euler(0, 0, angle) * (playerPosition - (Vector2)projectileSpawn.position).normalized;
 
             GameObject bullet = Instantiate(explodePrefab, projectileSpawn.position, Quaternion.identity);
-            bullet.GetComponent<Rigidbody2D>().velocity = direction * 5f;
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            rb.velocity = direction * 5f;
+
+            float Bangle = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
+            bullet.transform.rotation = Quaternion.Euler(0f, 0f, Bangle);
         }
     }
 

@@ -12,18 +12,25 @@ public class EnemyBullet : MonoBehaviour
         rb2D = GetComponent<Rigidbody2D>();
         rend = GetComponent<Renderer>();
 
+        /*if (rb2D.velocity != Vector2.zero)
+        {
+            float angle = Mathf.Atan2(rb2D.velocity.y, rb2D.velocity.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        }*/
+
         //rb2D.velocity = transform.right * speed; //���i������
 
     }
 
     void Update()
     {
-        // �e�̐i�s�����ɒe�̐擪����������
+        /*
         if (rb2D.velocity != Vector2.zero)
         {
             float angle = Mathf.Atan2(rb2D.velocity.y, rb2D.velocity.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
         }
+        */
 
         // �J�����̋��E���擾
         if (!IsVisible())

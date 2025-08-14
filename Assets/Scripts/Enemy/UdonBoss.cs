@@ -146,9 +146,18 @@ public class UdonBoss : BossEnemy
         while (true)
         {
             // 画面上部のランダムな位置から弾を発射
-            float randomX = Random.Range(Camera.main.ViewportToWorldPoint(new Vector3(0f, 0.8f, 0f)).x, Camera.main.ViewportToWorldPoint(new Vector3(1f, 0.8f, 0f)).x);
-            Vector3 spawnPosition = new Vector3(randomX, Camera.main.ViewportToWorldPoint(new Vector3(1f, 1f, 0f)).y, 0f);
-            GameObject bullet = Instantiate(projectilePrefab, spawnPosition, Quaternion.identity);
+            float randomX = Random.Range(
+                Camera.main.ViewportToWorldPoint(new Vector3(0f, 0.8f, 0f)).x,
+                Camera.main.ViewportToWorldPoint(new Vector3(1f, 0.8f, 0f)).x
+                );
+
+            Vector3 spawnPosition = new Vector3(
+                randomX,
+                Camera.main.ViewportToWorldPoint(new Vector3(1f, 1f, 0f)).y,
+                0f);
+
+            GameObject bullet = Instantiate(projectilePrefab, spawnPosition, Quaternion.Euler(0f, 0f, 90f));
+
             bullet.GetComponent<Rigidbody2D>().velocity = Vector2.down * 5f; // 画面下方向に速度を設定
             yield return new WaitForSeconds(Random.Range(0.1f, 0.5f)); // ランダムな間隔で発射
         }
@@ -181,7 +190,7 @@ public class UdonBoss : BossEnemy
     {
         for (int i = 0; i < 20; i++)
         {
-            GameObject bullet = Instantiate(projectilePrefab, projectileSpawn.position, projectileSpawn.rotation);
+            GameObject bullet = Instantiate(projectilePrefab, projectileSpawn.position, Quaternion.Euler(0f, 0f, 180f));
             bullet.GetComponent<Rigidbody2D>().velocity = projectileSpawn.right * -10f;
             yield return new WaitForSeconds(0.05f);
         }
@@ -201,7 +210,7 @@ public class UdonBoss : BossEnemy
             Vector3 bulletVector = new Vector3(bulletDirX, bulletDirY, 0);
             Vector3 bulletMoveDirection = (bulletVector - projectileSpawn.position).normalized;
 
-            GameObject bullet = Instantiate(projectilePrefab, projectileSpawn.position, projectileSpawn.rotation);
+            GameObject bullet = Instantiate(projectilePrefab, projectileSpawn.position, Quaternion.Euler(0f, 0f, 180f));
             bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletMoveDirection.x, bulletMoveDirection.y) * 5f;
 
             angle += angleStep;
@@ -222,7 +231,7 @@ public class UdonBoss : BossEnemy
             Vector3 bulletVector = new Vector3(bulletDirX, bulletDirY, 0);
             Vector3 bulletMoveDirection = (bulletVector - projectileSpawn.position).normalized;
 
-            GameObject bullet = Instantiate(projectilePrefab, projectileSpawn.position, projectileSpawn.rotation);
+            GameObject bullet = Instantiate(projectilePrefab, projectileSpawn.position, Quaternion.Euler(0f, 0f, 180f));
             bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletMoveDirection.x, bulletMoveDirection.y) * 5f;
 
             angle += angleStep;
