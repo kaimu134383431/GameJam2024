@@ -21,6 +21,9 @@ public class PlayerManager : MonoBehaviour
     private float invincibleTimer = 0f; // 無敵時間のカウント
     private SpriteRenderer spriteRenderer; // プレイヤーのスプライトレンダラー
 
+    public int MaxHealth => maxHealth;
+    public int CurrentHealth => currentHealth;
+
 
     void Start()
     {
@@ -66,7 +69,7 @@ public class PlayerManager : MonoBehaviour
         float tmpspeed = speed;
         if (Input.GetKey(KeyCode.LeftShift)||Input.GetKey(KeyCode.RightShift)||Input.GetKey("joystick button 5")) tmpspeed /= 2;
         Vector2 movement = new Vector2(moveX, moveY);
-        rb2D.velocity = movement.normalized * tmpspeed;
+        rb2D.linearVelocity = movement.normalized * tmpspeed;
     }
 
     void Shoot()

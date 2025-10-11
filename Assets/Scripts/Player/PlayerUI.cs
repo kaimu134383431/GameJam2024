@@ -9,9 +9,12 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] GameObject itemUIContainer; // アイテムUIを配置する親オブジェクト
     [SerializeField] GameObject itemUIPrefab; // アイテムUIのプレハブ
     [SerializeField] GameObject scorePopupPrefab; // スコアポップアップのプレハブ
-    [SerializeField] GameObject healthSliderPrefab; // HPバーのプレハブを追加
+    [SerializeField] GameObject healthBarPrefab; // HPバーのプレハブを追加
     [SerializeField] Canvas canvas; // スコアポップアップを表示するキャンバス
     [SerializeField] Transform playerTransform; // プレイヤーのTransform
+
+    private Image healthFillImage; // ← Sliderの代わりにImage
+    private RectTransform healthBarRect; // HPバーのRectTransformを保持
 
     private const float maxDistance = 5f; // 最大距離（この距離で完全に透明になる）
     private const float minDistance = 1f; // 最小距離（この距離で完全に表示される）
@@ -48,10 +51,6 @@ public class PlayerUI : MonoBehaviour
         itemSprites[Item.ItemType.Cheese] = cheeseSprite;
         itemSprites[Item.ItemType.Bacon] = baconSprite;
         playerManager = FindObjectOfType<PlayerManager>(); // PlayerManagerのインスタンスを取得
-
-        // HPバーのインスタンスを作成
-        GameObject healthSliderObject = Instantiate(healthSliderPrefab, canvas.transform);
-        healthSliderInstance = healthSliderObject.GetComponent<Slider>(); // Sliderコンポーネントを取得
 
         UpdateUI();
     }
@@ -160,14 +159,42 @@ public class PlayerUI : MonoBehaviour
 
     void UpdateHealthUI()
     {
-        if (healthSliderInstance != null && playerManager != null) // playerManagerがnullでないことを確認
+        if (healthFillImage == null || playerManager == null) return;
+
+        // --- HP更新 ---
+        float ratio = (float)playerManager.GetHealth() / playerManager.GetMaxHealth();
+        healthFillImage.fillAmount = ratio;
+
+        // --- 位置調整 ---
+        if (playerTransform != null && mainCamera != null)
         {
-            // HPの割合を計算してスライダーに反映
-            healthSliderInstance.value = (float)playerManager.GetHealth() / playerManager.GetMaxHealth();
+            Vector3 playerScreenPos = mainCamera.WorldToViewportPoint(playerTransform.position);
+
+            // 画面の縦位置(0～1)で分岐
+            bool isUpperHalf = playerScreenPos.y > 0.5f;
+
+            // UIアンカーと位置を動的変更
+            Vector2 anchoredPos;
+            if (isUpperHalf)
+            {
+                // プレイヤーが上半分にいる → HPバーを下端へ
+                healthBarRect.anchorMin = new Vector2(0.5f, 0f);
+                healthBarRect.anchorMax = new Vector2(0.5f, 0f);
+                anchoredPos = new Vector2(0f, 40f); // 下端から40px上
+            }
+            else
+            {
+                // プレイヤーが下半分にいる → HPバーを上端へ
+                healthBarRect.anchorMin = new Vector2(0.5f, 1f);
+                healthBarRect.anchorMax = new Vector2(0.5f, 1f);
+                anchoredPos = new Vector2(0f, -40f); // 上端から40px下
+            }
+
+            healthBarRect.anchoredPosition = anchoredPos;
         }
     }
 
-        void ScorePopup(int scoreToAdd, int spriteIndex)
+    void ScorePopup(int scoreToAdd, int spriteIndex)
     {
         // プレイヤーの頭上に表示する位置を計算
         Vector3 worldPosition = playerTransform.position + new Vector3(1.0f, 0.5f, 0); // 1.5fは頭上のオフセット

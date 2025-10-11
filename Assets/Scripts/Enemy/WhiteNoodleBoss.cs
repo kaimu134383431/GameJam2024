@@ -28,7 +28,7 @@ public class WhiteNoodleBoss : BossEnemy
     protected override void Move()
     {
         // 上下に移動するパターン
-        rb2D.velocity = new Vector2(0, Mathf.Sin(Time.time * speed));
+        rb2D.linearVelocity = new Vector2(0, Mathf.Sin(Time.time * speed));
     }
 
     protected override void FirePattern()
@@ -70,10 +70,10 @@ public class WhiteNoodleBoss : BossEnemy
         {
             GameObject bullet = Instantiate(projectilePrefab, projectileSpawn.position, projectileSpawn.rotation);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-            rb.velocity = projectileSpawn.right * -10f;
+            rb.linearVelocity = projectileSpawn.right * -10f;
 
             // 向きを進行方向に合わせる
-            float angle = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
+            float angle = Mathf.Atan2(rb.linearVelocity.y, rb.linearVelocity.x) * Mathf.Rad2Deg;
             bullet.transform.rotation = Quaternion.Euler(0f, 0f, angle);
 
             yield return new WaitForSeconds(0.05f);
@@ -96,10 +96,10 @@ public class WhiteNoodleBoss : BossEnemy
 
             GameObject bullet = Instantiate(projectilePrefab, projectileSpawn.position, projectileSpawn.rotation);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-            rb.velocity = new Vector2(bulletMoveDirection.x, bulletMoveDirection.y) * 5f;
+            rb.linearVelocity = new Vector2(bulletMoveDirection.x, bulletMoveDirection.y) * 5f;
 
             // 向きを進行方向に合わせる
-            float Bangle = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
+            float Bangle = Mathf.Atan2(rb.linearVelocity.y, rb.linearVelocity.x) * Mathf.Rad2Deg;
             bullet.transform.rotation = Quaternion.Euler(0f, 0f, Bangle);
 
             angle += angleStep;
@@ -122,10 +122,10 @@ public class WhiteNoodleBoss : BossEnemy
 
             GameObject bullet = Instantiate(projectilePrefab, projectileSpawn.position, projectileSpawn.rotation);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-            rb.velocity = new Vector2(bulletMoveDirection.x, bulletMoveDirection.y) * 5f;
+            rb.linearVelocity = new Vector2(bulletMoveDirection.x, bulletMoveDirection.y) * 5f;
 
             // 向きを進行方向に合わせる
-            float Bangle = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
+            float Bangle = Mathf.Atan2(rb.linearVelocity.y, rb.linearVelocity.x) * Mathf.Rad2Deg;
             bullet.transform.rotation = Quaternion.Euler(0f, 0f, Bangle);
 
             angle += angleStep;
@@ -148,10 +148,10 @@ public class WhiteNoodleBoss : BossEnemy
 
             GameObject bullet = Instantiate(projectilePrefab, projectileSpawn.position, Quaternion.identity);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-            rb.velocity = direction * 5f;
+            rb.linearVelocity = direction * 5f;
 
             // 向きを進行方向に合わせる
-            float Bangle = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
+            float Bangle = Mathf.Atan2(rb.linearVelocity.y, rb.linearVelocity.x) * Mathf.Rad2Deg;
             bullet.transform.rotation = Quaternion.Euler(0f, 0f, Bangle);
 
         }

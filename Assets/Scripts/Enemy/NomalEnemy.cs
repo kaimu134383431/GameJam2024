@@ -76,7 +76,7 @@ public class NormalEnemy : Enemy
     // �G����ʓ��ɓ����Ă��邩�ǂ������m�F
     if (!IsVisible())
     {
-        rb2D.velocity = Vector2.zero; // ��ʊO�Ȃ瑬�x��0��
+        rb2D.linearVelocity = Vector2.zero; // ��ʊO�Ȃ瑬�x��0��
         return;
     }
 
@@ -84,11 +84,11 @@ public class NormalEnemy : Enemy
     switch (behaviorPattern)
     {
         case EnemyBehaviorPattern.StraightMove:
-            rb2D.velocity = moveDirection * speed;
+            rb2D.linearVelocity = moveDirection * speed;
             break;
         case EnemyBehaviorPattern.SinWaveMove:
             float horizontalMovement = amplitude * Mathf.Sin(5 * Mathf.PI * frequency * (Time.time - startTime));
-            rb2D.velocity = new Vector2(-speed, horizontalMovement);
+            rb2D.linearVelocity = new Vector2(-speed, horizontalMovement);
             break;
         case EnemyBehaviorPattern.RushToPlayer:
             if (!isStarted)
@@ -144,10 +144,10 @@ public class NormalEnemy : Enemy
             GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
             Vector2 direction = (playerPosition - bulletSpawn.position).normalized;
             Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
-            bulletRb.velocity = direction * bulletSpeed;
+            bulletRb.linearVelocity = direction * bulletSpeed;
 
             // 向きを進行方向に合わせる
-            float Bangle = Mathf.Atan2(bulletRb.velocity.y, bulletRb.velocity.x) * Mathf.Rad2Deg;
+            float Bangle = Mathf.Atan2(bulletRb.linearVelocity.y, bulletRb.linearVelocity.x) * Mathf.Rad2Deg;
             bullet.transform.rotation = Quaternion.Euler(0f, 0f, Bangle);
         }
     }
@@ -160,10 +160,10 @@ public class NormalEnemy : Enemy
             GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
 
             Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
-            bulletRb.velocity = bulletSpawn.right * -bulletSpeed;
+            bulletRb.linearVelocity = bulletSpawn.right * -bulletSpeed;
             
             // 向きを進行方向に合わせる
-            float Bangle = Mathf.Atan2(bulletRb.velocity.y, bulletRb.velocity.x) * Mathf.Rad2Deg;
+            float Bangle = Mathf.Atan2(bulletRb.linearVelocity.y, bulletRb.linearVelocity.x) * Mathf.Rad2Deg;
             bullet.transform.rotation = Quaternion.Euler(0f, 0f, Bangle);
         }
     }
@@ -187,10 +187,10 @@ public class NormalEnemy : Enemy
 
                 GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
                 Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
-                bulletRb.velocity = bulletMoveDirection * bulletSpeed;
+                bulletRb.linearVelocity = bulletMoveDirection * bulletSpeed;
 
                 // 向きを進行方向に合わせる
-                float Bangle = Mathf.Atan2(bulletRb.velocity.y, bulletRb.velocity.x) * Mathf.Rad2Deg;
+                float Bangle = Mathf.Atan2(bulletRb.linearVelocity.y, bulletRb.linearVelocity.x) * Mathf.Rad2Deg;
                 bullet.transform.rotation = Quaternion.Euler(new Vector3(0, 0, Bangle));
 
                 angle += angleStep;
@@ -213,10 +213,10 @@ public class NormalEnemy : Enemy
                 Quaternion bulletRotation = bulletSpawn.rotation * Quaternion.Euler(0, 0, angleOffset + i * angleStep);
                 GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, bulletRotation);
                 Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
-                bulletRb.velocity = bulletRb.transform.right * bulletSpeed;
+                bulletRb.linearVelocity = bulletRb.transform.right * bulletSpeed;
 
                 // 向きを進行方向に合わせる
-                float Bangle = Mathf.Atan2(bulletRb.velocity.y, bulletRb.velocity.x) * Mathf.Rad2Deg;
+                float Bangle = Mathf.Atan2(bulletRb.linearVelocity.y, bulletRb.linearVelocity.x) * Mathf.Rad2Deg;
                 bulletRb.transform.rotation = Quaternion.Euler(0f, 0f, Bangle);
             }
         }
@@ -228,7 +228,7 @@ public class NormalEnemy : Enemy
         if (player != null)
         {
             Vector2 direction = (player.transform.position - transform.position).normalized;
-            rb2D.velocity = direction * rushSpeed;
+            rb2D.linearVelocity = direction * rushSpeed;
         }
     }
 

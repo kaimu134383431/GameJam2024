@@ -33,7 +33,7 @@ public class SobaBoss : BossEnemy
     protected override void Move()
     {
         // 上下に移動するパターン
-        rb2D.velocity = new Vector2(0, Mathf.Sin(Time.time * speed));
+        rb2D.linearVelocity = new Vector2(0, Mathf.Sin(Time.time * speed));
 
     }
 
@@ -107,9 +107,9 @@ public class SobaBoss : BossEnemy
         {
             GameObject bullet = Instantiate(projectilePrefab, projectileSpawn.position, projectileSpawn.rotation);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-            rb.velocity = projectileSpawn.right * -10f;
+            rb.linearVelocity = projectileSpawn.right * -10f;
 
-            float angle = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
+            float angle = Mathf.Atan2(rb.linearVelocity.y, rb.linearVelocity.x) * Mathf.Rad2Deg;
             bullet.transform.rotation = Quaternion.Euler(0f, 0f, angle);
 
             yield return new WaitForSeconds(0.05f);
@@ -132,9 +132,9 @@ public class SobaBoss : BossEnemy
 
             GameObject bullet = Instantiate(projectilePrefab, projectileSpawn.position, Quaternion.identity);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-            rb.velocity = direction * 10f;
+            rb.linearVelocity = direction * 10f;
 
-            float Bangle = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
+            float Bangle = Mathf.Atan2(rb.linearVelocity.y, rb.linearVelocity.x) * Mathf.Rad2Deg;
             bullet.transform.rotation = Quaternion.Euler(0f, 0f, Bangle);
         }
     }
@@ -155,9 +155,9 @@ public class SobaBoss : BossEnemy
 
             GameObject bullet = Instantiate(projectilePrefab, projectileSpawn.position, projectileSpawn.rotation);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-            rb.velocity = new Vector2(bulletMoveDirection.x, bulletMoveDirection.y) * 5f;
+            rb.linearVelocity = new Vector2(bulletMoveDirection.x, bulletMoveDirection.y) * 5f;
 
-            float Bangle = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
+            float Bangle = Mathf.Atan2(rb.linearVelocity.y, rb.linearVelocity.x) * Mathf.Rad2Deg;
             bullet.transform.rotation = Quaternion.Euler(0f, 0f, Bangle);
 
             Bangle += angleStep;
@@ -180,9 +180,9 @@ public class SobaBoss : BossEnemy
 
             GameObject bullet = Instantiate(projectilePrefab, projectileSpawn.position, projectileSpawn.rotation);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-            rb.velocity = new Vector2(bulletMoveDirection.x, bulletMoveDirection.y) * 5f;
+            rb.linearVelocity = new Vector2(bulletMoveDirection.x, bulletMoveDirection.y) * 5f;
 
-            float Bangle = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
+            float Bangle = Mathf.Atan2(rb.linearVelocity.y, rb.linearVelocity.x) * Mathf.Rad2Deg;
             bullet.transform.rotation = Quaternion.Euler(0f, 0f, Bangle);
 
             angle += angleStep;
@@ -209,9 +209,9 @@ public class SobaBoss : BossEnemy
 
             GameObject bullet = Instantiate(projectilePrefab, spawnPosition, Quaternion.identity);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-            rb.velocity = direction * bulletSpeed;
+            rb.linearVelocity = direction * bulletSpeed;
 
-            float Bangle = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
+            float Bangle = Mathf.Atan2(rb.linearVelocity.y, rb.linearVelocity.x) * Mathf.Rad2Deg;
             bullet.transform.rotation = Quaternion.Euler(0f, 0f, Bangle);
         }
     }
@@ -236,9 +236,9 @@ public class SobaBoss : BossEnemy
 
             GameObject bullet = Instantiate(projectilePrefab2, projectileSpawn.position, Quaternion.identity);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-            rb.velocity = direction * bulletSpeed;
+            rb.linearVelocity = direction * bulletSpeed;
 
-            float Bangle = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
+            float Bangle = Mathf.Atan2(rb.linearVelocity.y, rb.linearVelocity.x) * Mathf.Rad2Deg;
             bullet.transform.rotation = Quaternion.Euler(0f, 0f, Bangle);
 
             yield return new WaitForSeconds(0.5f); // 発射間隔
@@ -293,7 +293,7 @@ public class SobaBoss : BossEnemy
         {
             Quaternion rotation = Quaternion.Euler(0, 0, startAngle + i * angleStep);
             GameObject bullet = Instantiate(projectilePrefab, projectileSpawn.position, rotation);
-            bullet.GetComponent<Rigidbody2D>().velocity = bullet.transform.right * -bulletSpeed;
+            bullet.GetComponent<Rigidbody2D>().linearVelocity = bullet.transform.right * -bulletSpeed;
         }
     }
 

@@ -8,7 +8,7 @@ public class ConsiderBulletPattern : BossEnemy
     protected override void Move()
     {
         // 上下に移動するパターン
-        rb2D.velocity = new Vector2(0, offset*Mathf.Sin(Time.time * speed));
+        rb2D.linearVelocity = new Vector2(0, offset*Mathf.Sin(Time.time * speed));
     }
 
     protected override void FirePattern()
@@ -43,7 +43,7 @@ public class ConsiderBulletPattern : BossEnemy
         for (int i = 0; i < 20; i++)
         {
             GameObject bullet = Instantiate(projectilePrefab, projectileSpawn.position, projectileSpawn.rotation);
-            bullet.GetComponent<Rigidbody2D>().velocity = projectileSpawn.right * -10f;
+            bullet.GetComponent<Rigidbody2D>().linearVelocity = projectileSpawn.right * -10f;
             yield return new WaitForSeconds(0.05f);
         }
     }
@@ -63,7 +63,7 @@ public class ConsiderBulletPattern : BossEnemy
             Vector3 bulletMoveDirection = (bulletVector - projectileSpawn.position).normalized;
 
             GameObject bullet = Instantiate(projectilePrefab, projectileSpawn.position, projectileSpawn.rotation);
-            bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletMoveDirection.x, bulletMoveDirection.y) * 5f;
+            bullet.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(bulletMoveDirection.x, bulletMoveDirection.y) * 5f;
 
             angle += angleStep;
         }
@@ -84,7 +84,7 @@ public class ConsiderBulletPattern : BossEnemy
             Vector3 bulletMoveDirection = (bulletVector - projectileSpawn.position).normalized;
 
             GameObject bullet = Instantiate(projectilePrefab, projectileSpawn.position, projectileSpawn.rotation);
-            bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletMoveDirection.x, bulletMoveDirection.y) * 5f;
+            bullet.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(bulletMoveDirection.x, bulletMoveDirection.y) * 5f;
 
             angle += angleStep;
         }
@@ -101,7 +101,7 @@ public class ConsiderBulletPattern : BossEnemy
             float randomAngle = Random.Range(minAngle, maxAngle);
             Quaternion bulletRotation = Quaternion.Euler(0f, 0f, randomAngle);
             GameObject bullet = Instantiate(projectilePrefab, projectileSpawn.position, bulletRotation);
-            bullet.GetComponent<Rigidbody2D>().velocity = bullet.transform.right * -10f;
+            bullet.GetComponent<Rigidbody2D>().linearVelocity = bullet.transform.right * -10f;
         }
     }
 
@@ -115,7 +115,7 @@ public class ConsiderBulletPattern : BossEnemy
             Vector2 randomOffset = Random.insideUnitCircle * radius;
             Vector3 spawnPosition = projectileSpawn.position + new Vector3(randomOffset.x, randomOffset.y, 0f);
             GameObject bullet = Instantiate(projectilePrefab, spawnPosition, projectileSpawn.rotation);
-            bullet.GetComponent<Rigidbody2D>().velocity = bullet.transform.right * -8f;
+            bullet.GetComponent<Rigidbody2D>().linearVelocity = bullet.transform.right * -8f;
         }
     }
 
@@ -128,7 +128,7 @@ public class ConsiderBulletPattern : BossEnemy
             Vector2 direction = (playerPosition - projectileSpawn.position).normalized;
 
             GameObject bullet = Instantiate(projectilePrefab, projectileSpawn.position, Quaternion.identity);
-            bullet.GetComponent<Rigidbody2D>().velocity = direction * 5.0f;
+            bullet.GetComponent<Rigidbody2D>().linearVelocity = direction * 5.0f;
         }
     }
 
@@ -143,7 +143,7 @@ public class ConsiderBulletPattern : BossEnemy
         {
             Quaternion rotation = Quaternion.Euler(0, 0, startAngle + i * angleStep);
             GameObject bullet = Instantiate(projectilePrefab, projectileSpawn.position, rotation);
-            bullet.GetComponent<Rigidbody2D>().velocity = bullet.transform.right * bulletSpeed;
+            bullet.GetComponent<Rigidbody2D>().linearVelocity = bullet.transform.right * bulletSpeed;
         }
     }
 
@@ -158,7 +158,7 @@ public class ConsiderBulletPattern : BossEnemy
         {
             Quaternion rotation = Quaternion.Euler(0, 0, startAngle + i * angleStep);
             GameObject bullet = Instantiate(projectilePrefab, projectileSpawn.position, rotation);
-            bullet.GetComponent<Rigidbody2D>().velocity = bullet.transform.right * bulletSpeed;
+            bullet.GetComponent<Rigidbody2D>().linearVelocity = bullet.transform.right * bulletSpeed;
         }
     }
 
@@ -177,7 +177,7 @@ public class ConsiderBulletPattern : BossEnemy
             Vector2 direction = Quaternion.Euler(0, 0, angle) * (playerPosition - (Vector2)projectileSpawn.position).normalized;
 
             GameObject bullet = Instantiate(projectilePrefab, projectileSpawn.position, Quaternion.identity);
-            bullet.GetComponent<Rigidbody2D>().velocity = direction * 10f;
+            bullet.GetComponent<Rigidbody2D>().linearVelocity = direction * 10f;
         }
     }
 
@@ -198,7 +198,7 @@ public class ConsiderBulletPattern : BossEnemy
             Vector2 direction = Quaternion.Euler(0, 0, angle) * (playerPosition - (Vector2)projectileSpawn.position).normalized;
 
             GameObject bullet = Instantiate(projectilePrefab, projectileSpawn.position, Quaternion.identity);
-            bullet.GetComponent<Rigidbody2D>().velocity = direction * 5f;
+            bullet.GetComponent<Rigidbody2D>().linearVelocity = direction * 5f;
         }
     }
 
@@ -221,7 +221,7 @@ public class ConsiderBulletPattern : BossEnemy
             Vector3 direction = Quaternion.Euler(0, 0, angle + Time.time * rotationSpeed) * Vector3.right;
 
             GameObject bullet = Instantiate(projectilePrefab, spawnPosition, Quaternion.identity);
-            bullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
+            bullet.GetComponent<Rigidbody2D>().linearVelocity = direction * bulletSpeed;
         }
     }
 
@@ -244,7 +244,7 @@ public class ConsiderBulletPattern : BossEnemy
             Vector3 direction = new Vector3(Mathf.Cos(winderAngle * Mathf.Deg2Rad), Mathf.Sin(winderAngle * Mathf.Deg2Rad), 0);
 
             GameObject bullet = Instantiate(projectilePrefab, projectileSpawn.position, Quaternion.identity);
-            bullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
+            bullet.GetComponent<Rigidbody2D>().linearVelocity = direction * bulletSpeed;
 
             yield return new WaitForSeconds(0.5f); // 発射間隔
         }
@@ -275,7 +275,7 @@ public class ConsiderBulletPattern : BossEnemy
             Vector3 bulletMoveDirection = new Vector3(bulletDirX, bulletDirY, 0);
 
             // 弾に速度を与える
-            bullet.GetComponent<Rigidbody2D>().velocity = bulletMoveDirection * 5f;
+            bullet.GetComponent<Rigidbody2D>().linearVelocity = bulletMoveDirection * 5f;
 
             angle += angleStep;
         }
@@ -296,14 +296,14 @@ public class ConsiderBulletPattern : BossEnemy
             Vector2 direction = Quaternion.Euler(0, 0, angle) * (playerPosition - (Vector2)projectileSpawn.position).normalized;
 
             GameObject bullet = Instantiate(explodePrefab, projectileSpawn.position, Quaternion.identity);
-            bullet.GetComponent<Rigidbody2D>().velocity = direction * 5f;
+            bullet.GetComponent<Rigidbody2D>().linearVelocity = direction * 5f;
         }
     }
 
     void FireSingleDirection(Vector2 direction)
     {
         GameObject bullet = Instantiate(projectilePrefab, projectileSpawn.position, Quaternion.identity);
-        bullet.GetComponent<Rigidbody2D>().velocity = direction * 5f;
+        bullet.GetComponent<Rigidbody2D>().linearVelocity = direction * 5f;
     }
 
 

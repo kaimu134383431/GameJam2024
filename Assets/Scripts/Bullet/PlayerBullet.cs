@@ -2,25 +2,25 @@ using UnityEngine;
 
 public class PlayerBullet : MonoBehaviour
 {
-    [SerializeField] float speed = 10f;         // ’e‚Ì‘¬“x
-    [SerializeField] float lifetime = 2f;       // ’e‚Ìõ–½
-    [SerializeField] int damage = 5;                // ’e‚Ìƒ_ƒ[ƒW
+    [SerializeField] float speed = 10f;         // ï¿½eï¿½Ì‘ï¿½ï¿½x
+    [SerializeField] float lifetime = 2f;       // ï¿½eï¿½Ìï¿½ï¿½ï¿½
+    [SerializeField] int damage = 5;                // ï¿½eï¿½Ìƒ_ï¿½ï¿½ï¿½[ï¿½W
 
-    private Rigidbody2D rb2D;           // Rigidbody2DƒRƒ“ƒ|[ƒlƒ“ƒg
+    private Rigidbody2D rb2D;           // Rigidbody2Dï¿½Rï¿½ï¿½ï¿½|ï¿½[ï¿½lï¿½ï¿½ï¿½g
     private Renderer rend;
 
     void Start()
     {
-        rb2D = GetComponent<Rigidbody2D>(); // Rigidbody2DƒRƒ“ƒ|[ƒlƒ“ƒg‚ğæ“¾
-        rb2D.velocity = transform.right * speed; // ’e‚ğ‰E•ûŒü‚ÉˆÚ“®‚³‚¹‚é
+        rb2D = GetComponent<Rigidbody2D>(); // Rigidbody2Dï¿½Rï¿½ï¿½ï¿½|ï¿½[ï¿½lï¿½ï¿½ï¿½gï¿½ï¿½ï¿½æ“¾
+        rb2D.linearVelocity = transform.right * speed; // ï¿½eï¿½ï¿½ï¿½Eï¿½ï¿½ï¿½ï¿½ï¿½ÉˆÚ“ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         rend = GetComponent<Renderer>();
 
-        Destroy(gameObject, lifetime); // w’è‚µ‚½lifetimeŒã‚É’e‚ğ”j‰ó‚·‚é
+        Destroy(gameObject, lifetime); // ï¿½wï¿½è‚µï¿½ï¿½lifetimeï¿½ï¿½É’eï¿½ï¿½jï¿½ó‚·‚ï¿½
     }
 
     void Update()
     {
-        // ƒJƒƒ‰‚Ì‹«ŠE‚ğæ“¾
+        // ï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½Ì‹ï¿½ï¿½Eï¿½ï¿½ï¿½æ“¾
         if (!IsVisible())
         {
             Destroy(gameObject);
@@ -35,12 +35,12 @@ public class PlayerBullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        // ’e‚ª‘¼‚ÌƒIƒuƒWƒFƒNƒg‚ÉÕ“Ë‚µ‚½‚Æ‚«‚Ìˆ—
+        // ï¿½eï¿½ï¿½ï¿½ï¿½ï¿½ÌƒIï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½ÉÕ“Ë‚ï¿½ï¿½ï¿½ï¿½Æ‚ï¿½ï¿½Ìï¿½ï¿½ï¿½
         if (other.CompareTag("Enemy"))
         {
             other.gameObject.GetComponent<Enemy>().TakeDamage(damage);
-            // ‚±‚±‚É“G‚Éƒ_ƒ[ƒW‚ğ—^‚¦‚éˆ—‚ğ’Ç‰Á
-            Destroy(gameObject); // Õ“Ë‚µ‚½‚ç’e‚ğ”j‰ó‚·‚é
+            // ï¿½ï¿½ï¿½ï¿½ï¿½É“Gï¿½Éƒ_ï¿½ï¿½ï¿½[ï¿½Wï¿½ï¿½^ï¿½ï¿½ï¿½éˆï¿½ï¿½ï¿½ï¿½Ç‰ï¿½
+            Destroy(gameObject); // ï¿½Õ“Ë‚ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½ï¿½jï¿½ó‚·‚ï¿½
         }
     }
 }

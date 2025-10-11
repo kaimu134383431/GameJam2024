@@ -71,9 +71,9 @@ public class ExplodingBullet : MonoBehaviour
             Vector3 bulletMoveDirection = (bulletVector - transform.position).normalized;
             GameObject bullet = Instantiate(splitProjectilePrefab, transform.position, Quaternion.identity);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-            rb.velocity = new Vector2(bulletMoveDirection.x, bulletMoveDirection.y) * splitSpeed;
+            rb.linearVelocity = new Vector2(bulletMoveDirection.x, bulletMoveDirection.y) * splitSpeed;
 
-            float Bangle = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
+            float Bangle = Mathf.Atan2(rb.linearVelocity.y, rb.linearVelocity.x) * Mathf.Rad2Deg;
             bullet.transform.rotation = Quaternion.Euler(0f, 0f, Bangle);
 
             angle += angleStep;
