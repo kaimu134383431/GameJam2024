@@ -10,19 +10,6 @@ public class WhiteNoodleBoss : BossEnemy
         nextSwitchTime = Time.time + attackSwitchTime;
         location = transform.position;
         isInvincible = true;
-
-        // 体力バーのインスタンスを生成してCanvasに配置する
-        if (healthSliderPrefab != null)
-        {
-            healthSliderInstance = Instantiate(healthSliderPrefab, new Vector3(0, 200, 0), Quaternion.identity);
-            healthSliderInstance.transform.SetParent(GameObject.FindWithTag("Canvas").transform, false);
-            healthSliderInstance.value = 1f; // 初期値は最大値で設定
-            HideHealthBar();
-        }
-        else
-        {
-            Debug.LogError("HealthSliderPrefab not found in Resources.");
-        }
     }
 
     protected override void Move()
@@ -171,7 +158,7 @@ public class WhiteNoodleBoss : BossEnemy
                 SEManager.Instance.PlaySE("EnemyDamage");
             }
         }
-        UpdateHealthUI();
+        //UpdateHealthUI();
     }
 
 }

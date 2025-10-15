@@ -13,19 +13,6 @@ public class SobaBoss : BossEnemy
         location = transform.position;
         isInvincible = true;
 
-        // 体力バーのインスタンスを生成してCanvasに配置する
-        if (healthSliderPrefab != null)
-        {
-            healthSliderInstance = Instantiate(healthSliderPrefab, new Vector3(0, 150, 0), Quaternion.identity);
-            healthSliderInstance.transform.SetParent(GameObject.FindWithTag("Canvas").transform, false);
-            healthSliderInstance.value = 1f; // 初期値は最大値で設定
-            HideHealthBar();
-        }
-        else
-        {
-            Debug.LogError("HealthSliderPrefab not found in Resources.");
-        }
-
         // UdonBoss の倒されたときのイベントに登録
         UdonBoss.UdonDefeated += OnUdonDefeated;
     }
@@ -265,7 +252,7 @@ public class SobaBoss : BossEnemy
             }
         }
 
-        UpdateHealthUI();
+        // UpdateHealthUI();
     }
 
 

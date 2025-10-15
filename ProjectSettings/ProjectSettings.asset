@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: AM2024GameJam6
+  companyName: RIY
   productName: Spaghetti Genesis
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}

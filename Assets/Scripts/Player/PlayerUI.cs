@@ -19,8 +19,6 @@ public class PlayerUI : MonoBehaviour
     private const float maxDistance = 5f; // 最大距離（この距離で完全に透明になる）
     private const float minDistance = 1f; // 最小距離（この距離で完全に表示される）
 
-    private Slider healthSliderInstance;
-
     private Dictionary<Item.ItemType, GameObject> itemUIInstances = new Dictionary<Item.ItemType, GameObject>(); // アイテムUIインスタンスを管理
     private Dictionary<Item.ItemType, Sprite> itemSprites = new Dictionary<Item.ItemType, Sprite>(); // アイテムスプライトを管理
     private Camera mainCamera;

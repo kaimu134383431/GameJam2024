@@ -6,7 +6,7 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] protected float speed;
     [SerializeField] protected int damage;
     [SerializeField] protected int probability = 100;
-    public int maxHealth;
+    //public int maxHealth;
 
     [SerializeField] GameObject[] itemPrefabs;
 
@@ -14,7 +14,7 @@ public abstract class Enemy : MonoBehaviour
 
     protected virtual void Start()
     {
-        maxHealth = health;
+        //maxHealth = health;
         rb2D = GetComponent<Rigidbody2D>();
     }
 
