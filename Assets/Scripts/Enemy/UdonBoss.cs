@@ -160,7 +160,6 @@ public class UdonBoss : BossEnemy
                 SEManager.Instance.PlaySE("EnemyDamage");
             }
         }
-        //UpdateHealthUI();
     }
 
     void FireStraight()

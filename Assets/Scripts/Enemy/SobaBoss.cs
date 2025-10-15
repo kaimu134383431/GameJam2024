@@ -251,8 +251,6 @@ public class SobaBoss : BossEnemy
                 SEManager.Instance.PlaySE("EnemyDamage");
             }
         }
-
-        // UpdateHealthUI();
     }
 
 

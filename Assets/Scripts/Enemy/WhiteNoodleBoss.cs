@@ -158,7 +158,6 @@ public class WhiteNoodleBoss : BossEnemy
                 SEManager.Instance.PlaySE("EnemyDamage");
             }
         }
-        //UpdateHealthUI();
     }
 
 }

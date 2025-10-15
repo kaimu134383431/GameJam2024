@@ -139,7 +139,6 @@ public class RamenBoss : BossEnemy
                 SEManager.Instance.PlaySE("EnemyDamage");
             }
         }
-        //UpdateHealthUI();
     }
 
     void FireRandom()

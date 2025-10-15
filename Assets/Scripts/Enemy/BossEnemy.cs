@@ -89,7 +89,6 @@ public abstract class BossEnemy : Enemy
         DestroyAllProjectiles();
         if (forcedScrollPrefab != null) Instantiate(forcedScrollPrefab, transform.position, Quaternion.identity);
         Destroy(gameObject);
-        //HideHealthBar();
         base.Die();
     }
 
