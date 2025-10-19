@@ -15,10 +15,11 @@ public class ForcedScrollMulti : MonoBehaviour
     private int currentIndex = 0;
 
     private float elapsedTime = 0f;
-    private bool isMoving = false;
+    private bool isMoving = true;
 
     private GameObject player;
     private Vector3 lastScrollPosition;
+    private bool bossJustAppeared = false;  // ボス出現イベントしたかどうか
 
     void Start()
     {
@@ -42,50 +43,66 @@ public class ForcedScrollMulti : MonoBehaviour
 
     void Update()
     {
-        if (!isMoving) return;
+        if (currentIndex >= points.Count) return;
 
-        elapsedTime += Time.deltaTime;
         ScrollPoint currentPoint = points[currentIndex];
-        Vector3 startPos = (currentIndex == 0) ? lastScrollPosition : points[currentIndex - 1].position;
-        Vector3 endPos = currentPoint.position;
 
-        float t = Mathf.Clamp01(elapsedTime / currentPoint.moveTime);
-        Vector3 newScrollPos = Vector3.Lerp(startPos, endPos, t);
-
-        // プレイヤーをスクロール差分だけ移動
-        Vector3 delta = newScrollPos - transform.position;
-        player.transform.position += delta;
-
-        // スクロール位置を更新
-        transform.position = newScrollPos;
-
-        if (t >= 1f)
+        if (isMoving)
         {
-            isMoving = false;
-            lastScrollPosition = endPos;
+            // スクロール開始位置と終了位置
+            Vector3 startPos = (currentIndex == 0) ? lastScrollPosition : points[currentIndex - 1].position;
+            Vector3 endPos = currentPoint.position;
 
-            // ボスがいる場合は停止してボスを待つ
-            if (currentPoint.boss != null)
+
+            // 進捗割合 t を計算
+            elapsedTime += Time.deltaTime;
+            float t = Mathf.Clamp01(elapsedTime / currentPoint.moveTime);
+
+
+            // スクロール位置を補間
+            Vector3 newScrollPos = Vector3.Lerp(startPos, endPos,t);
+
+            // プレイヤーもスクロール差分だけ移動
+            Vector3 delta = newScrollPos - transform.position;
+            player.transform.position += delta;
+
+            // スクロール位置を更新
+            transform.position = newScrollPos;
+        }
+
+        // 到達したらスクロールを止める
+        if (elapsedTime >= currentPoint.moveTime)
+        {
+            /*transform.position = endPos; // 完全に固定
+            player.transform.position += endPos - newScrollPos; // プレイヤー差分を補正
+            lastScrollPosition = endPos; // 次区間の開始位置を更新*/
+            isMoving = false;
+
+            // ボス出現処理（1度だけ）
+            if (currentPoint.boss != null && !bossJustAppeared)
             {
-                currentPoint.boss.isWait = false;
-                // ボスが撃破されたら次のスクロールを再開するように設定
+                currentPoint.boss.OnScrollReached();
+                bossJustAppeared = true;
             }
-            else
+
+            // 倒したら次スクロールへ
+            if (currentPoint.boss == null && bossJustAppeared)
             {
-                // ボスなしなら次のスクロールへ
                 currentIndex++;
-                if (currentIndex < points.Count)
-                    StartNextScroll();
+                StartNextScroll();
             }
         }
     }
+
+
 
     void StartNextScroll()
     {
         elapsedTime = 0f;
         isMoving = true;
+        bossJustAppeared = false;
 
-        // カメラの追従対象を設定
+        // カメラの追従対象を更新
         GameObject followCamera = GameObject.FindGameObjectWithTag("MainCamera");
         if (followCamera != null)
             followCamera.GetComponent<FollowCamera>().SetTarget(gameObject);

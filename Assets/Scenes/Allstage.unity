@@ -119,6 +119,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &81750584 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4227303947944965801, guid: 7f3a8e0b4cbfff749b23a5e896b27bd3, type: 3}
+  m_PrefabInstance: {fileID: 1911600997}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f8781273303626438d1fe7d07765d9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &83894573
 GameObject:
   m_ObjectHideFlags: 0
@@ -1167,8 +1178,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ForcedScrollMulti
   points:
   - position: {x: 80, y: 0, z: 0}
-    moveTime: 40
+    moveTime: 1
     boss: {fileID: 926683868}
+  - position: {x: 172, y: 0, z: 0}
+    moveTime: 1
+    boss: {fileID: 635027785}
+  - position: {x: 176, y: 0, z: 0}
+    moveTime: 1
+    boss: {fileID: 81750584}
 --- !u!1 &508111946
 GameObject:
   m_ObjectHideFlags: 0
@@ -1486,6 +1503,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &635027785 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 193674050024353396, guid: 7f3a8e0b4cbfff749b23a5e896b27bd3, type: 3}
+  m_PrefabInstance: {fileID: 1911600997}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03d893778c6981d4f9e71dfcd76e4f30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &654956585
 PrefabInstance:
   m_ObjectHideFlags: 0
