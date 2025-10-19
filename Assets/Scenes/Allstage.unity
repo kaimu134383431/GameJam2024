@@ -1147,7 +1147,7 @@ Transform:
   m_GameObject: {fileID: 451162769}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.318358, y: 0.70335895, z: -0.14842822}
+  m_LocalPosition: {x: 0, y: 0.70335895, z: -0.14842822}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4176,7 +4176,6 @@ MonoBehaviour:
   projectileSpawn: {fileID: 1665817662}
   fireRate: 0.4
   forcedScrollPrefab: {fileID: 7076910129693467389, guid: 8c661dfe10eb4ab40b0ed582cce04474, type: 3}
-  healthSliderPrefab: {fileID: 1052534143657552222, guid: 2f7b8ef139738014499e923254840d7c, type: 3}
   waitingTime: 1
   isWait: 1
   offset: 10
