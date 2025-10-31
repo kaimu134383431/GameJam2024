@@ -13,7 +13,7 @@ public class PlayerManager : MonoBehaviour
 
     private Rigidbody2D rb2D;
     private float nextFire = 0f;
-    private int currentHealth;
+    private float currentHealth;
     private Camera mainCamera;
     private float halfWidth;
     private float halfHeight;
@@ -21,8 +21,8 @@ public class PlayerManager : MonoBehaviour
     private float invincibleTimer = 0f; // 無敵時間のカウント
     private SpriteRenderer spriteRenderer; // プレイヤーのスプライトレンダラー
 
-    public int MaxHealth => maxHealth;
-    public int CurrentHealth => currentHealth;
+    public float MaxHealth => maxHealth;
+    public float CurrentHealth => currentHealth;
 
 
     void Start()
@@ -93,7 +93,7 @@ public class PlayerManager : MonoBehaviour
         transform.position = position;
     }
 
-    public void TakeDamage(int amount)
+    public void TakeDamage(float amount)
     {
         Debug.Log("Takedamage called");
         if (isInvincible) return;  // 無敵時間中はダメージを無効化
@@ -108,6 +108,18 @@ public class PlayerManager : MonoBehaviour
             Debug.Log("Takedamage called22222");
             StartInvincibility();  // ダメージを受けたら無敵状態にする
 
+        }
+    }
+
+    //[SerializeField] private PlayerUI playerUI;
+    public void Heal(float amount)  //回復メソッド
+    {
+        if (currentHealth >= maxHealth)
+            return;
+        else
+        {
+            currentHealth += amount;
+            //StartCoroutine(playerUI.FlashHPBar());
         }
     }
 
@@ -154,13 +166,13 @@ public class PlayerManager : MonoBehaviour
     }
 
     // 現在のHPを返すメソッド
-    public int GetHealth()
+    public float GetHealth()
     {
         return currentHealth;
     }
 
     // 最大HPを返すメソッド
-    public int GetMaxHealth()
+    public float GetMaxHealth()
     {
         return maxHealth;
     }

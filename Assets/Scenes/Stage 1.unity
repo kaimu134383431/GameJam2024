@@ -1417,13 +1417,11 @@ MonoBehaviour:
   speed: 0
   damage: -2
   probability: 100
-  maxHealth: 999
   itemPrefabs: []
   projectilePrefab: {fileID: 5572549981863144032, guid: 06bed937e3c308f41941c64c637dd8e9, type: 3}
   projectileSpawn: {fileID: 554379713}
   fireRate: 0.4
   forcedScrollPrefab: {fileID: 7076910129693467389, guid: 8c661dfe10eb4ab40b0ed582cce04474, type: 3}
-  healthSliderPrefab: {fileID: 1052534143657552222, guid: 2f7b8ef139738014499e923254840d7c, type: 3}
   waitingTime: 1
   isWait: 1
   offset: 10
@@ -1570,7 +1568,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: -8755955529970065515, guid: 0676f382cc0e0e24383f3318a135ad15, type: 3}
+  m_Sprite: {fileID: -3057193256349675521, guid: 0676f382cc0e0e24383f3318a135ad15, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

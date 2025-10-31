@@ -6,7 +6,7 @@ public class GameStartManager : MonoBehaviour
     public void GameStart()
     {
         SEManager.Instance.PlaySE("Button");
-        SceneManager.LoadScene("Stage 1"); // ステージに移行する
+        SceneManager.LoadScene("AllStage"); // ステージに移行する
     }
 
 }

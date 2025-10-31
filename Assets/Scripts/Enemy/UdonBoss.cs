@@ -138,9 +138,10 @@ public class UdonBoss : BossEnemy
                 0f);
 
             GameObject bullet = Instantiate(projectilePrefab, spawnPosition, Quaternion.Euler(0f, 0f, 90f));
+            bullet.transform.localScale = new Vector3(1.3f, 1.3f, 1f); //弾を大きく
 
             bullet.GetComponent<Rigidbody2D>().linearVelocity = Vector2.down * 5f; // 画面下方向に速度を設定
-            yield return new WaitForSeconds(Random.Range(0.1f, 0.5f)); // ランダムな間隔で発射
+            yield return new WaitForSeconds(Random.Range(0.3f, 0.5f)); // ランダムな間隔で発射
         }
     }
 
@@ -173,6 +174,7 @@ public class UdonBoss : BossEnemy
         {
             GameObject bullet = Instantiate(projectilePrefab, projectileSpawn.position, Quaternion.Euler(0f, 0f, 180f));
             bullet.GetComponent<Rigidbody2D>().linearVelocity = projectileSpawn.right * -10f;
+            bullet.transform.localScale = new Vector3(0.8f, 0.8f, 1f); //弾を大きく
             yield return new WaitForSeconds(0.05f);
         }
     }
@@ -192,6 +194,7 @@ public class UdonBoss : BossEnemy
             Vector3 bulletMoveDirection = (bulletVector - projectileSpawn.position).normalized;
 
             GameObject bullet = Instantiate(projectilePrefab, projectileSpawn.position, Quaternion.Euler(0f, 0f, 180f));
+            bullet.transform.localScale = new Vector3(1.3f, 1.3f, 1f); //弾を大きく
             bullet.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(bulletMoveDirection.x, bulletMoveDirection.y) * 5f;
 
             angle += angleStep;
@@ -213,6 +216,7 @@ public class UdonBoss : BossEnemy
             Vector3 bulletMoveDirection = (bulletVector - projectileSpawn.position).normalized;
 
             GameObject bullet = Instantiate(projectilePrefab, projectileSpawn.position, Quaternion.Euler(0f, 0f, 180f));
+            bullet.transform.localScale = new Vector3(1.3f, 1.3f, 1f); //弾を大きく
             bullet.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(bulletMoveDirection.x, bulletMoveDirection.y) * 5f;
 
             angle += angleStep;

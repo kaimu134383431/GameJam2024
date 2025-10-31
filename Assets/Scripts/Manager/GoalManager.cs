@@ -14,7 +14,7 @@ public class GoalManager : MonoBehaviour
     void LoadNextScene()
     {
         SEManager.Instance.PlaySE("Clear");
-        /*int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(currentSceneIndex + 1);*/
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentSceneIndex + 1);
     }
 }

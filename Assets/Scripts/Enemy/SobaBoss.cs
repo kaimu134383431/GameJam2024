@@ -4,11 +4,20 @@ using System.Collections;
 public class SobaBoss : BossEnemy
 {
     [SerializeField] protected GameObject projectilePrefab2;
+    private StageNameDisplay stageNameDisplay;
     private bool isUdonDefeated = false; // UdonBoss が倒されたかどうかのフラグ
 
     protected override void Start()
     {
         base.Start();
+
+        // シーン上の StageNameDisplay を自動で取得
+        stageNameDisplay = FindObjectOfType<StageNameDisplay>();
+        if (stageNameDisplay == null)
+        {
+            Debug.LogError("StageNameDisplay がシーン上に存在しません！");
+        }
+
         nextSwitchTime = Time.time + attackSwitchTime;
         location = transform.position;
         isInvincible = true;
@@ -244,6 +253,11 @@ public class SobaBoss : BossEnemy
             health -= damage;
             if (health <= 0)
             {
+                // 次のステージ名表示
+                if (stageNameDisplay != null)
+                {
+                    stageNameDisplay.ShowStageName("Stage 3", 2.0f, 5.0f);
+                }
                 Die();
             }
             else

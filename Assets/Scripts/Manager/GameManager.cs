@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     private Dictionary<Item.ItemType, int> items = new Dictionary<Item.ItemType, int>();
+    private Dictionary<Item.ItemType, int> totalCollectedItems = new Dictionary<Item.ItemType, int>(); //ó›åvéÊìæêî
     private int Score;
 
     private void Awake()
@@ -26,9 +27,13 @@ public class GameManager : MonoBehaviour
     public void InitializeItems()
     {
         Score = 0;
+        items.Clear();
+        totalCollectedItems.Clear();
+
         foreach (Item.ItemType itemType in System.Enum.GetValues(typeof(Item.ItemType)))
         {
             items[itemType] = 0;
+            totalCollectedItems[itemType] = 0;
         }
     }
 
@@ -41,6 +46,16 @@ public class GameManager : MonoBehaviour
         else
         {
             items[itemType] = amount;
+        }
+
+        // ó›åvÇ…Ç‡ãLò^
+        if (totalCollectedItems.ContainsKey(itemType))
+        {
+            totalCollectedItems[itemType] += amount;
+        }
+        else
+        {
+            totalCollectedItems[itemType] = amount;
         }
     }
 
@@ -79,4 +94,10 @@ public class GameManager : MonoBehaviour
     {
         return new Dictionary<Item.ItemType, int>(items);
     }
+
+    public Dictionary<Item.ItemType, int> GetTotalCollectedItems()
+    {
+        return new Dictionary<Item.ItemType, int>(totalCollectedItems);
+    }
+
 }

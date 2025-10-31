@@ -38,7 +38,7 @@ public class GameOverManager : MonoBehaviour
         Debug.Log("Retry button clicked"); // Debug log to check if the button is working
         SEManager.Instance.PlaySE("Button");
         GameManager.Instance.InitializeItems();
-        SceneManager.LoadScene("Stage 1"); // �X�e�[�W1�ɖ߂�
+        SceneManager.LoadScene("AllStage"); // �X�e�[�W1�ɖ߂�
     }
 
     public void Quit()

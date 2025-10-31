@@ -35,6 +35,11 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private Sprite cheeseSprite;
     [SerializeField] private Sprite baconSprite;
 
+    //[SerializeField] private Image hpFillImage; // HPバーの Fill Image
+    //[SerializeField] private Color flashColor = Color.yellow; // 光る色
+    //[SerializeField] private float flashDuration = 0.3f;
+    //private Color originalColor;
+
     void Start()
     {
         mainCamera = Camera.main;
@@ -78,7 +83,7 @@ public class PlayerUI : MonoBehaviour
             gameManager.RemoveItem(Item.ItemType.Shimeji, 1);
             gameManager.RemoveItem(Item.ItemType.SoySauce, 1);
             gameManager.RemoveItem(Item.ItemType.Onion, 1);
-            gameManager.AddScore(1000);   // スコアを加算
+            //gameManager.AddScore(1000);   // スコアを加算
             ScorePopup(1000, 0);
         }
 
@@ -92,7 +97,7 @@ public class PlayerUI : MonoBehaviour
             gameManager.RemoveItem(Item.ItemType.Shiitake, 1);
             gameManager.RemoveItem(Item.ItemType.Tomato, 1);
             gameManager.RemoveItem(Item.ItemType.BellPepper, 1);
-            gameManager.AddScore(500);  // スコアを加算
+            //gameManager.AddScore(500);  // スコアを加算
             ScorePopup(500, 1);
         }
 
@@ -104,7 +109,7 @@ public class PlayerUI : MonoBehaviour
             gameManager.RemoveItem(Item.ItemType.Egg, 1);
             gameManager.RemoveItem(Item.ItemType.Cheese, 1);
             gameManager.RemoveItem(Item.ItemType.Bacon, 1);
-            gameManager.AddScore(300);   // スコアを加算
+            //gameManager.AddScore(300);   // スコアを加算
             ScorePopup(300, 2);
         }
 
@@ -118,7 +123,7 @@ public class PlayerUI : MonoBehaviour
             gameManager.RemoveItem(Item.ItemType.BellPepper, 1);
             gameManager.RemoveItem(Item.ItemType.Bacon, 1);
             gameManager.RemoveItem(Item.ItemType.Tomato, 1);
-            gameManager.AddScore(100);   // スコアを加算
+            //gameManager.AddScore(100);   // スコアを加算
             ScorePopup(100, 3);
         }
     }
@@ -195,13 +200,13 @@ public class PlayerUI : MonoBehaviour
     void ScorePopup(int scoreToAdd, int spriteIndex)
     {
         // プレイヤーの頭上に表示する位置を計算
-        Vector3 worldPosition = playerTransform.position + new Vector3(1.0f, 0.5f, 0); // 1.5fは頭上のオフセット
+        Vector3 worldPosition = playerTransform.position + new Vector3(1.5f, 0.5f, 0); // 1.5fは頭上のオフセット
         Vector3 screenPosition = mainCamera.WorldToScreenPoint(worldPosition);
 
         // スコアポップアップを生成し、キャンバスの子オブジェクトとして配置
         GameObject popup = Instantiate(scorePopupPrefab, canvas.transform);
         popup.transform.position = screenPosition;
-        ScorePopup scorePopup = popup.GetComponent<ScorePopup>();
+        ScorePopup scorePopup = popup.GetComponent<ScorePopup>();   
         if (scorePopup != null)
         {
             scorePopup.SetScore(scoreToAdd, spriteIndex); // スコアとスプライトのインデックスを設定
@@ -212,5 +217,13 @@ public class PlayerUI : MonoBehaviour
         }
     }
 
+    /*public IEnumerator FlashHPBar()
+    {
+        if (hpFillImage == null) yield break;
+
+        hpFillImage.color = flashColor;
+        yield return new WaitForSeconds(flashDuration);
+        hpFillImage.color = originalColor;
+    }*/
 
 }

@@ -13,7 +13,8 @@ public abstract class BossEnemy : Enemy
     protected float attackSwitchTime = 5f; // 各攻撃フェーズの持続時間
     protected float nextSwitchTime = 0f; // 次の攻撃フェーズに移る時間
     protected Vector3 location;
-    
+
+
     //勝手に追加
     [SerializeField] protected float waitingTime = 1f;
     public bool isWait = true; //プレイヤーがボスに到達したらfalse
@@ -82,12 +83,12 @@ public abstract class BossEnemy : Enemy
         SEManager.Instance.PlaySE("BossDead");
 
         // 通知を送る
-        OnAnyBossDefeated?.Invoke(this);
+        //OnAnyBossDefeated?.Invoke(this);
 
         DropItem();
         // 弾幕をすべて破棄する
         DestroyAllProjectiles();
-        if (forcedScrollPrefab != null) Instantiate(forcedScrollPrefab, transform.position, Quaternion.identity);
+       // if (forcedScrollPrefab != null) Instantiate(forcedScrollPrefab, transform.position, Quaternion.identity);
         Destroy(gameObject);
         base.Die();
     }

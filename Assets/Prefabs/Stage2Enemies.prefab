@@ -2216,13 +2216,11 @@ MonoBehaviour:
   speed: 0
   damage: -2
   probability: 100
-  maxHealth: 999
   itemPrefabs: []
   projectilePrefab: {fileID: 5572549981863144032, guid: 06bed937e3c308f41941c64c637dd8e9, type: 3}
   projectileSpawn: {fileID: 1072355929097822602}
   fireRate: 0.4
   forcedScrollPrefab: {fileID: 7076910129693467389, guid: 8c661dfe10eb4ab40b0ed582cce04474, type: 3}
-  healthSliderPrefab: {fileID: 1052534143657552222, guid: 2f7b8ef139738014499e923254840d7c, type: 3}
   waitingTime: 1
   isWait: 1
   offset: 10
