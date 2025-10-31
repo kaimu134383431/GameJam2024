@@ -35,7 +35,7 @@ public class HPBarController : MonoBehaviour
             MoveUIToBottom();
         }
         // プレイヤーが閾値より下にいるとき → UIを上部に戻す
-        else if (viewportPos.y <= switchHeight && isBottom)
+        else if ((viewportPos.y <= switchHeight || viewportPos.x >= switchLeftX)&& isBottom)
         {
             //Debug.Log("→ Move to Top");
             MoveUIToTop();

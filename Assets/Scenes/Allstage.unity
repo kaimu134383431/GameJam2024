@@ -2624,6 +2624,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1730129426}
     m_Modifications:
+    - target: {fileID: 246791125128985551, guid: 007e9ee746217774095c0a428475a25e, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 246791125128985551, guid: 007e9ee746217774095c0a428475a25e, type: 3}
+      propertyPath: m_Offset.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 246791125128985551, guid: 007e9ee746217774095c0a428475a25e, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.7647059
+      objectReference: {fileID: 0}
+    - target: {fileID: 246791125128985551, guid: 007e9ee746217774095c0a428475a25e, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.3529412
+      objectReference: {fileID: 0}
     - target: {fileID: 1312231805377363965, guid: 007e9ee746217774095c0a428475a25e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 84.70732
@@ -2665,12 +2681,28 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4581625146189298908, guid: 007e9ee746217774095c0a428475a25e, type: 3}
+      propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4581625146189298908, guid: 007e9ee746217774095c0a428475a25e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 2529847161537964308, guid: 1e606727c58b11b46b5e282bc2ad62c7, type: 3}
+    - target: {fileID: 4581625146189298908, guid: 007e9ee746217774095c0a428475a25e, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4581625146189298908, guid: 007e9ee746217774095c0a428475a25e, type: 3}
       propertyPath: m_SortingLayer
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4581625146189298908, guid: 007e9ee746217774095c0a428475a25e, type: 3}
       propertyPath: m_SortingLayerID
       value: -834312767
+      objectReference: {fileID: 0}
+    - target: {fileID: 4581625146189298908, guid: 007e9ee746217774095c0a428475a25e, type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5510450784967796544, guid: 007e9ee746217774095c0a428475a25e, type: 3}
       propertyPath: damage
@@ -2722,7 +2754,7 @@ PrefabInstance:
       objectReference: {fileID: 3401964865537802735, guid: abe006ef1489c9e48838fcc8ea7d1bda, type: 3}
     - target: {fileID: 6410645260747543183, guid: 007e9ee746217774095c0a428475a25e, type: 3}
       propertyPath: m_Name
-      value: WhiteNoodleBoss
+      value: SomenBoss
       objectReference: {fileID: 0}
     - target: {fileID: 6410645260747543183, guid: 007e9ee746217774095c0a428475a25e, type: 3}
       propertyPath: m_Layer
@@ -4220,7 +4252,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -834312767
   m_SortingLayer: 1
-  m_SortingOrder: 1
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 1868c6e20bfd87c44a046daef4ce32a5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
