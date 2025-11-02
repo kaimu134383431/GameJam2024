@@ -9,7 +9,7 @@ public class ScorePopup : MonoBehaviour
     public float displayDuration = 0f; // 表示時間
 
     [SerializeField] private Sprite[] itemSprites; // スプライトの配列
-    [SerializeField] private int healAmount = 1;   // 回復量
+    [SerializeField] private float healAmount = 1;   // 回復量
 
     private Text scoreText;
     private Image scoreImage;
@@ -42,7 +42,7 @@ public class ScorePopup : MonoBehaviour
         PlayerManager player = GameObject.FindWithTag("Player").GetComponent<PlayerManager>();
         if (player != null)
         {
-            player.Heal(0.1f);
+            player.Heal(healAmount);
         }
 
         StartCoroutine(DisplayAndFade());

@@ -77,38 +77,30 @@ public class PlayerUI : MonoBehaviour
         Dictionary<Item.ItemType, int> items = gameManager.GetAllItems();
         // きのこスパゲッティ
         if (items.ContainsKey(Item.ItemType.Shimeji) && items[Item.ItemType.Shimeji] >= 1 &&
-            items.ContainsKey(Item.ItemType.SoySauce) && items[Item.ItemType.SoySauce] >= 1 &&
-            items.ContainsKey(Item.ItemType.Onion) && items[Item.ItemType.Onion] >= 1)
+            items.ContainsKey(Item.ItemType.SoySauce) && items[Item.ItemType.SoySauce] >= 1)
         {
             gameManager.RemoveItem(Item.ItemType.Shimeji, 1);
             gameManager.RemoveItem(Item.ItemType.SoySauce, 1);
-            gameManager.RemoveItem(Item.ItemType.Onion, 1);
             //gameManager.AddScore(1000);   // スコアを加算
             ScorePopup(1000, 0);
         }
 
         // ミートソース
         if (items.ContainsKey(Item.ItemType.GroundMeat) && items[Item.ItemType.GroundMeat] >= 1 &&
-            items.ContainsKey(Item.ItemType.Shiitake) && items[Item.ItemType.Shiitake] >= 1 &&
-            items.ContainsKey(Item.ItemType.Tomato) && items[Item.ItemType.Tomato] >= 1 &&
-            items.ContainsKey(Item.ItemType.BellPepper) && items[Item.ItemType.BellPepper] >= 1)
+            items.ContainsKey(Item.ItemType.Shiitake) && items[Item.ItemType.Shiitake] >= 1)
         {
             gameManager.RemoveItem(Item.ItemType.GroundMeat, 1);
             gameManager.RemoveItem(Item.ItemType.Shiitake, 1);
-            gameManager.RemoveItem(Item.ItemType.Tomato, 1);
-            gameManager.RemoveItem(Item.ItemType.BellPepper, 1);
             //gameManager.AddScore(500);  // スコアを加算
             ScorePopup(500, 1);
         }
 
         // カルボナーラ
         if (items.ContainsKey(Item.ItemType.Egg) && items[Item.ItemType.Egg] >= 1 &&
-            items.ContainsKey(Item.ItemType.Cheese) && items[Item.ItemType.Cheese] >= 1 &&
-            items.ContainsKey(Item.ItemType.Bacon) && items[Item.ItemType.Bacon] >= 1)
+            items.ContainsKey(Item.ItemType.Cheese) && items[Item.ItemType.Cheese] >= 1)
         {
             gameManager.RemoveItem(Item.ItemType.Egg, 1);
             gameManager.RemoveItem(Item.ItemType.Cheese, 1);
-            gameManager.RemoveItem(Item.ItemType.Bacon, 1);
             //gameManager.AddScore(300);   // スコアを加算
             ScorePopup(300, 2);
         }
@@ -200,13 +192,28 @@ public class PlayerUI : MonoBehaviour
     void ScorePopup(int scoreToAdd, int spriteIndex)
     {
         // プレイヤーの頭上に表示する位置を計算
-        Vector3 worldPosition = playerTransform.position + new Vector3(1.5f, 0.5f, 0); // 1.5fは頭上のオフセット
+        Vector3 worldPosition = playerTransform.position + new Vector3(0.5f, 1.5f, 0); // 1.5fは頭上のオフセット
         Vector3 screenPosition = mainCamera.WorldToScreenPoint(worldPosition);
 
         // スコアポップアップを生成し、キャンバスの子オブジェクトとして配置
         GameObject popup = Instantiate(scorePopupPrefab, canvas.transform);
-        popup.transform.position = screenPosition;
-        ScorePopup scorePopup = popup.GetComponent<ScorePopup>();   
+
+        // RectTransformを取得
+        RectTransform popupRect = popup.GetComponent<RectTransform>();
+
+        // Canvas上のローカル座標に変換してセット
+        Vector2 localPoint;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(
+            canvas.transform as RectTransform,
+            screenPosition,
+            null,
+            out localPoint
+        );
+
+        popupRect.localPosition = localPoint;
+
+        // スコア内容をセット
+        ScorePopup scorePopup = popup.GetComponent<ScorePopup>();
         if (scorePopup != null)
         {
             scorePopup.SetScore(scoreToAdd, spriteIndex); // スコアとスプライトのインデックスを設定

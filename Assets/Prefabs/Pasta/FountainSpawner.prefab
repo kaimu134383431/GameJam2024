@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8205048406603770827
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3965314269853571292}
+  - component: {fileID: 4446962840692450218}
+  m_Layer: 0
+  m_Name: FountainSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3965314269853571292
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8205048406603770827}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.46, y: -0.76, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4446962840692450218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8205048406603770827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5647e491fafdd84ca648d9519cb277d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FountainSpawner
+  prefabs:
+  - {fileID: 1824039155634564800, guid: 25946974f689c404d844435273c711a9, type: 3}
+  - {fileID: 2880237200678955003, guid: 118c6534c442f3a4cae6a80c8d1388d8, type: 3}
+  - {fileID: 6129586820529067832, guid: 29c65dd40ecf94c4e806e038a61a3640, type: 3}
+  - {fileID: 861704618161126839, guid: 837fdc02602635a43aa39bfc7c384f10, type: 3}
+  - {fileID: 8825719957160211932, guid: ac776cee8c984e640a44acbf5b024457, type: 3}
+  - {fileID: 8825719957160211932, guid: 38973a2e947dbde4a886e3a491870120, type: 3}
+  - {fileID: 8825719957160211932, guid: 97c3a88af354a4a44b68e677046145a5, type: 3}
+  - {fileID: 8825719957160211932, guid: 2ee068b07f8000242a0251ef0338411d, type: 3}
+  - {fileID: 8825719957160211932, guid: 5efa075477b6978418cb3982bdafcb15, type: 3}
+  spawnInterval: 0.2
+  launchSpeedRange: {x: 3, y: 6}
+  angleRange: 45
+  destroyY: -6
+  gravity: 1
