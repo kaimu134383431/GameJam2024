@@ -63,8 +63,11 @@ public class ForcedScrollMulti : MonoBehaviour
             Vector3 newScrollPos = Vector3.Lerp(startPos, endPos,t);
 
             // プレイヤーもスクロール差分だけ移動
-            Vector3 delta = newScrollPos - transform.position;
-            player.transform.position += delta;
+            if (player != null)
+            {
+                Vector3 delta = newScrollPos - transform.position;
+                player.transform.position += delta;
+            }
 
             // スクロール位置を更新
             transform.position = newScrollPos;

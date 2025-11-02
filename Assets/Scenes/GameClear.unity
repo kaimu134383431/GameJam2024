@@ -1270,6 +1270,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4446962840692450218, guid: 29af052f427a589439de142d149c7437, type: 3}
+      propertyPath: spawnInterval
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 8205048406603770827, guid: 29af052f427a589439de142d149c7437, type: 3}
       propertyPath: m_Name
       value: FountainSpawner

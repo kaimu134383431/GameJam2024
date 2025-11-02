@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class FountainSpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject[] prefabs;   // �������̃v���n�u
-    [SerializeField] private float spawnInterval = 0.2f; // �����Ԋu
-    [SerializeField] private Vector2 launchSpeedRange = new Vector2(3f, 6f); // �����x�͈̔�
-    [SerializeField] private float angleRange = 45f;  // ���E�����̊p�x�����_�����i�x�j
-    [SerializeField] private float destroyY = -6f;    // �폜���鍂��
-    [SerializeField] private float gravity = 1f;      // �d�͔{��
+    [SerializeField] private GameObject[] prefabs;   // 生成候補のプレハブ
+    [SerializeField] private float spawnInterval = 0.2f; // 生成間隔
+    [SerializeField] private Vector2 launchSpeedRange = new Vector2(3f, 6f); // 初速度の範囲
+    [SerializeField] private float angleRange = 45f;  // 左右方向の角度ランダム幅（度）
+    [SerializeField] private float destroyY = -6f;    // 削除する高さ
+    [SerializeField] private float gravity = 1f;      // 重力倍率
 
     private float timer = 0f;
 
@@ -25,24 +25,25 @@ public class FountainSpawner : MonoBehaviour
     {
         if (prefabs.Length == 0) return;
 
-        // �����_���ȃv���n�u��I��
+        // ランダムなプレハブを選択
         GameObject prefab = prefabs[Random.Range(0, prefabs.Length)];
         GameObject obj = Instantiate(prefab, transform.position, Quaternion.identity);
+        SEManager.Instance.PlaySE("GetItem");
 
-        // Rigidbody2D�ŕ���������ݒ�
+        // Rigidbody2Dで物理挙動を設定
         Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();
         if (rb == null) rb = obj.AddComponent<Rigidbody2D>();
 
         rb.gravityScale = gravity;
 
-        // �����_���Ȋp�x�ŏ�����ɑł��グ
+        // ランダムな角度で上方向に打ち上げ
         float angle = Random.Range(-angleRange, angleRange);
         float speed = Random.Range(launchSpeedRange.x, launchSpeedRange.y);
         Vector2 direction = Quaternion.Euler(0, 0, angle) * Vector2.up;
 
         rb.linearVelocity = direction * speed;
 
-        // ��莞�Ԍ�܂��͉�ʊO�ō폜
+        // 一定時間後または画面外で削除
         obj.AddComponent<AutoDestroy>().SetDestroyY(destroyY);
     }
 }

@@ -9,7 +9,7 @@ public class GameOverManager : MonoBehaviour
     private void Start()
     {
         // �Q�[���I�[�o�[���ɃX�R�A��\��
-        DisplayScore();
+        //DisplayScore();
     }
 
     void DisplayScore()
