@@ -20,6 +20,7 @@ public class PlayerManager : MonoBehaviour
     private bool isInvincible = false; // 無敵状態かどうか
     private float invincibleTimer = 0f; // 無敵時間のカウント
     private SpriteRenderer spriteRenderer; // プレイヤーのスプライトレンダラー
+    public GameOverController gameOverController;
 
     public float MaxHealth => maxHealth;
     public float CurrentHealth => currentHealth;
@@ -127,14 +128,19 @@ public class PlayerManager : MonoBehaviour
     {
         SEManager.Instance.PlaySE("PlayerDead");
         Debug.Log("Player died!");
-        Destroy(gameObject);
-        GameOver();
+        gameOverController.StartGameOver();
+        
+        // 操作停止
+        enabled = false;
+
+        // 見た目を消す
+        GetComponent<SpriteRenderer>().enabled = false;
     }
 
-    void GameOver()
+    /*void GameOver()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("GameOverScene");
-    }
+    }*/
 
     void StartInvincibility()
     {
