@@ -48,7 +48,7 @@ public class HPBarController : MonoBehaviour
         uiElement.anchorMin = new Vector2(0.5f, 1f); // 上端基準
         uiElement.anchorMax = new Vector2(0.5f, 1f);
         uiElement.pivot = new Vector2(0.5f, 1f);
-        uiElement.anchoredPosition = new Vector2(-180f, -10f); // 上から50px下
+        uiElement.anchoredPosition = new Vector2(-230f, 0f); // 上端
         isBottom = false;
     }
 
@@ -57,7 +57,7 @@ public class HPBarController : MonoBehaviour
         uiElement.anchorMin = new Vector2(0.5f, 0f); // 下端基準
         uiElement.anchorMax = new Vector2(0.5f, 0f);
         uiElement.pivot = new Vector2(0.5f, 0f);
-        uiElement.anchoredPosition = new Vector2(-180f, 10f); // 下から50px上
+        uiElement.anchoredPosition = new Vector2(-230f, 10f); // 下端から50px上
         isBottom = true;
     }
 }
