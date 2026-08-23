@@ -21,6 +21,7 @@ public class PlayerManager : MonoBehaviour
     private float invincibleTimer = 0f; // 無敵時間のカウント
     private SpriteRenderer spriteRenderer; // プレイヤーのスプライトレンダラー
     public GameOverController gameOverController;
+    private bool isDead = false;
 
     public float MaxHealth => maxHealth;
     public float CurrentHealth => currentHealth;
@@ -96,10 +97,15 @@ public class PlayerManager : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
-        Debug.Log("Takedamage called");
+        if (isDead) return;
+
         if (isInvincible) return;  // 無敵時間中はダメージを無効化
+
+        Debug.Log("Takedamage called");
+
         SEManager.Instance.PlaySE("PlayerDamage");
         currentHealth -= amount;
+        
         if (currentHealth <= 0)
         {
             Die();
@@ -108,7 +114,6 @@ public class PlayerManager : MonoBehaviour
         {
             Debug.Log("Takedamage called22222");
             StartInvincibility();  // ダメージを受けたら無敵状態にする
-
         }
     }
 
@@ -126,10 +131,22 @@ public class PlayerManager : MonoBehaviour
 
     void Die()
     {
+        if (isDead) return;
+
+        isDead = true;
+
         SEManager.Instance.PlaySE("PlayerDead");
         Debug.Log("Player died!");
+
         gameOverController.StartGameOver();
-        
+
+        // 当たり判定停止
+        Collider2D col = GetComponent<Collider2D>();
+        if (col != null)
+        {
+            col.enabled = false;
+        }
+
         // 操作停止
         enabled = false;
 

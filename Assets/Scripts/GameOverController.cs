@@ -26,6 +26,8 @@ public class GameOverController : MonoBehaviour
 
     IEnumerator GameOverSequence()
     {
+        Debug.Log("GameOverSequence start");
+
         // スクロール停止
         scrolling.enabled = false;
 
@@ -37,11 +39,17 @@ public class GameOverController : MonoBehaviour
 
         yield return new WaitForSeconds(0.2f);
 
+        Debug.Log("Fade start");
+
         // 暗転
         yield return StartCoroutine(FadeToBlack());
 
+        Debug.Log("Fade finished");
+
         // メニュー表示
         gameOverMenu.SetActive(true);
+
+        Debug.Log("GameOverMenu active");
     }
 
     IEnumerator FadeToBlack()
