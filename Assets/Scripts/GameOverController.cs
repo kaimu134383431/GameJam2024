@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.EventSystems;
 
 public class GameOverController : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class GameOverController : MonoBehaviour
     public Image fadeImage;
 
     public GameObject gameOverMenu;
+
+    public GameObject retryButton;
 
     public float fadeSpeed;
 
@@ -49,7 +52,9 @@ public class GameOverController : MonoBehaviour
         // メニュー表示
         gameOverMenu.SetActive(true);
 
-        Debug.Log("GameOverMenu active");
+        // リトライボタンにカーソルを合わせる
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(retryButton);
     }
 
     IEnumerator FadeToBlack()

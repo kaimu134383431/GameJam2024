@@ -1432,6 +1432,7 @@ MonoBehaviour:
   enemiesParent: {fileID: 1154039139}
   fadeImage: {fileID: 802050493}
   gameOverMenu: {fileID: 1229782987}
+  retryButton: {fileID: 1229782987}
   fadeSpeed: 2
 --- !u!1 &508111946
 GameObject:
@@ -2787,7 +2788,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4517818813633704758, guid: 87d69d5a72bd2b44b8e41e66928aa068, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: GameOverManager, Assembly-CSharp
+      value: RetryButton, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7013888836543612624, guid: 87d69d5a72bd2b44b8e41e66928aa068, type: 3}
       propertyPath: m_Name
@@ -2892,7 +2893,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7013888836543612624, guid: 87d69d5a72bd2b44b8e41e66928aa068, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1229782991}
   m_SourcePrefab: {fileID: 100100000, guid: 87d69d5a72bd2b44b8e41e66928aa068, type: 3}
 --- !u!224 &855022918 stripped
 RectTransform:
@@ -4738,6 +4742,18 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7013888836543612624, guid: 87d69d5a72bd2b44b8e41e66928aa068, type: 3}
   m_PrefabInstance: {fileID: 855022917}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1229782991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1229782987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd23a9a94828b68469ea049fa5fcb3e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RetryButton
 --- !u!1 &1338812065
 GameObject:
   m_ObjectHideFlags: 0
